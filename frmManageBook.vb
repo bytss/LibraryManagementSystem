@@ -210,7 +210,45 @@ Public Class frmManageBook
     End Sub
 
     Private Sub tbAuthorName_TextChanged(sender As Object, e As EventArgs) Handles tbAuthorName.TextChanged
+        Dim author = tbAuthorName.Text
 
+        ' Check if the suggestions list contains the search term
+        Dim isTermInSuggestions As Boolean = authorsSuggestionList.Contains(author)
+
+        If isTermInSuggestions Then
+            tbContact.Text = "true"
+            Try
+                conn.Open()
+
+                Dim splitAuthorName = author.Split(", ")
+                Dim query = "SELECT * FROM tbl_authors WHERE last_name LIKE @LastName AND first_name LIKE @FirstName"
+                Dim cmd = New OleDbCommand(query, conn)
+                cmd.Parameters.AddWithValue("@LastName", "%" & splitAuthorName(0) & "%")
+                cmd.Parameters.AddWithValue("@FirstName", "%" & splitAuthorName(1) & "%")
+                Dim reader As OleDbDataReader = cmd.ExecuteReader
+
+                If reader.Read Then
+                    Dim email = reader("email").ToString
+                    Dim contact = reader("contact_number").ToString
+                    Dim address = reader("address").ToString
+                    Dim country = reader("country").ToString
+
+                    tbAuthorEmail.Text = email
+                    tbContact.Text = contact
+                    tbAddress.Text = address & ", " & country
+                Else
+                    MsgBox("Not found!", vbCritical)
+                End If
+
+            Catch ex As Exception
+                MsgBox("An error occured, " & ex.Message, vbCritical)
+            End Try
+            conn.Close()
+
+        End If
     End Sub
 
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+        formPublisher.ShowDialog()
+    End Sub
 End Class

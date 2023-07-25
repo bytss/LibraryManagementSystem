@@ -23,10 +23,10 @@ Partial Class frmDepartment
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
-        Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Label1 = New Label()
         labelClose = New Label()
         btn_save = New Guna.UI2.WinForms.Guna2Button()
@@ -56,7 +56,7 @@ Partial Class frmDepartment
         labelClose.Cursor = Cursors.Hand
         labelClose.FlatStyle = FlatStyle.Flat
         labelClose.Font = New Font("Nirmala UI Semilight", 8F, FontStyle.Bold, GraphicsUnit.Point)
-        labelClose.ForeColor = Color.DimGray
+        labelClose.ForeColor = Color.Maroon
         labelClose.Location = New Point(384, 10)
         labelClose.Margin = New Padding(4, 0, 4, 0)
         labelClose.Name = "labelClose"
@@ -70,19 +70,19 @@ Partial Class frmDepartment
         btn_save.Animated = True
         btn_save.AnimatedGIF = True
         btn_save.BorderRadius = 5
-        btn_save.CustomizableEdges = CustomizableEdges13
+        btn_save.CustomizableEdges = CustomizableEdges1
         btn_save.DisabledState.BorderColor = Color.DarkGray
         btn_save.DisabledState.CustomBorderColor = Color.DarkGray
         btn_save.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btn_save.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btn_save.FillColor = Color.FromArgb(CByte(67), CByte(195), CByte(248))
+        btn_save.FillColor = Color.Maroon
         btn_save.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
         btn_save.ForeColor = Color.White
         btn_save.Location = New Point(366, 69)
         btn_save.Margin = New Padding(4, 3, 4, 3)
         btn_save.Name = "btn_save"
-        btn_save.ShadowDecoration.CustomizableEdges = CustomizableEdges14
-        btn_save.Size = New Size(100, 42)
+        btn_save.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        btn_save.Size = New Size(100, 43)
         btn_save.TabIndex = 21
         btn_save.Text = "Save"
         ' 
@@ -105,7 +105,7 @@ Partial Class frmDepartment
         ' 
         tbDepartment.Animated = True
         tbDepartment.Cursor = Cursors.IBeam
-        tbDepartment.CustomizableEdges = CustomizableEdges15
+        tbDepartment.CustomizableEdges = CustomizableEdges3
         tbDepartment.DefaultText = ""
         tbDepartment.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         tbDepartment.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -121,7 +121,7 @@ Partial Class frmDepartment
         tbDepartment.PasswordChar = ChrW(0)
         tbDepartment.PlaceholderText = "Name"
         tbDepartment.SelectedText = ""
-        tbDepartment.ShadowDecoration.CustomizableEdges = CustomizableEdges16
+        tbDepartment.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         tbDepartment.Size = New Size(329, 42)
         tbDepartment.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbDepartment.TabIndex = 33
