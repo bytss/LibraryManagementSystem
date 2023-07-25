@@ -33,6 +33,7 @@ Public Class formPublisher
         End Try
         conn.Close()
         Me.Dispose()
+
     End Sub
 
 End Class

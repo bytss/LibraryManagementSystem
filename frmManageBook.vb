@@ -1,4 +1,5 @@
 ﻿Imports System.Data.OleDb
+Imports System.Diagnostics.Eventing
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 
@@ -7,6 +8,7 @@ Public Class frmManageBook
     Private departementSuggestionList As New List(Of String)()
     Private genreSuggestionList As New List(Of String)()
     Private authorsSuggestionList As New List(Of String)()
+    Private publisherSuggestionList As New List(Of String)()
 
     Private Sub manageProduct_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         openConnection()
@@ -17,6 +19,8 @@ Public Class frmManageBook
         loadGenreSuggestions()
         ' load author suggestions
         loadAuthorSuggestions()
+        ' load publisher suggestions
+        loadPublisherSuggestions()
 
 
         ' Set the AutoCompleteMode and AutoCompleteSource properties
@@ -54,6 +58,18 @@ Public Class frmManageBook
 
         ' Assign the AutoCompleteCustomSource to the TextBox
         tbAuthorName.AutoCompleteCustomSource = authorAutoComplete
+
+        ' Publisher
+        ' Set the AutoCompleteMode and AutoCompleteSource properties
+        tbPubName.AutoCompleteMode = AutoCompleteMode.Suggest
+        tbPubName.AutoCompleteSource = AutoCompleteSource.CustomSource
+
+        ' Create a new AutoCompleteStringCollection and add the data to it
+        Dim publisherAutoComplete As New AutoCompleteStringCollection()
+        publisherAutoComplete.AddRange(publisherSuggestionList.ToArray())
+
+        ' Assign the AutoCompleteCustomSource to the TextBox
+        tbPubName.AutoCompleteCustomSource = publisherAutoComplete
     End Sub
 
     Private Sub loadBooks()
@@ -91,9 +107,10 @@ Public Class frmManageBook
                         remainingCopies
                     )
                 End If
+                readAuthor.Close()
             End While
 
-
+            reader.Close()
         Catch ex As Exception
             MsgBox("An error occured, loading books: " & ex.Message, vbCritical)
         End Try
@@ -112,7 +129,7 @@ Public Class frmManageBook
             While dbReader.Read
                 departementSuggestionList.Add(dbReader("department_name").ToString())
             End While
-
+            dbReader.Close()
         Catch ex As Exception
             MsgBox("An error occured, loading suggestion: " & ex.Message, vbCritical)
         End Try
@@ -129,12 +146,12 @@ Public Class frmManageBook
             conn.Open()
             Dim query = "SELECT DISTINCT genre_name FROM tbl_genre"
             Dim command = New OleDbCommand(query, conn)
-            Dim dbReader As OleDbDataReader = command.ExecuteReader
+            Dim reader As OleDbDataReader = command.ExecuteReader
 
-            While dbReader.Read
-                genreSuggestionList.Add(dbReader("genre_name").ToString())
+            While reader.Read
+                genreSuggestionList.Add(reader("genre_name").ToString())
             End While
-
+            reader.Close()
         Catch ex As Exception
             MsgBox("An error occured, loading suggestion: " & ex.Message, vbCritical)
         End Try
@@ -156,9 +173,31 @@ Public Class frmManageBook
 
                 authorsSuggestionList.Add(lastName & ", " & FirstName)
             End While
-
+            reader.Close()
         Catch ex As Exception
             MsgBox("An erro occured, author suggestions: " & ex.Message, vbCritical)
+        End Try
+        conn.Close()
+    End Sub
+
+    Private Sub loadPublisherSuggestions()
+
+        Try
+            conn.Open()
+            publisherSuggestionList.Clear()
+
+            Dim query = "SELECT * FROM tbl_publisher"
+            Dim command = New OleDbCommand(query, conn)
+            Dim reader As OleDbDataReader = command.ExecuteReader
+
+            While reader.Read
+                Dim name = reader("name")
+
+                publisherSuggestionList.Add(name)
+            End While
+            reader.Close()
+        Catch ex As Exception
+            MsgBox("An erro occured, pub suggestions: " & ex.Message, vbCritical)
         End Try
         conn.Close()
     End Sub
@@ -250,5 +289,9 @@ Public Class frmManageBook
 
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
         formPublisher.ShowDialog()
+    End Sub
+
+    Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
+        formGenre.ShowDialog()
     End Sub
 End Class

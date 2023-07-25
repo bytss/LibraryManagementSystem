@@ -105,7 +105,7 @@ Partial Class frmManageBook
         tbContact = New Guna.UI2.WinForms.Guna2TextBox()
         tbAddress = New Guna.UI2.WinForms.Guna2TextBox()
         Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
-        tbPublisherName = New Guna.UI2.WinForms.Guna2TextBox()
+        tbPubName = New Guna.UI2.WinForms.Guna2TextBox()
         Label2 = New Label()
         Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
         Panel2 = New Panel()
@@ -734,30 +734,30 @@ Partial Class frmManageBook
         Guna2Button1.TabIndex = 57
         Guna2Button1.Text = "+"
         ' 
-        ' tbPublisherName
+        ' tbPubName
         ' 
-        tbPublisherName.Animated = True
-        tbPublisherName.Cursor = Cursors.IBeam
-        tbPublisherName.CustomizableEdges = CustomizableEdges41
-        tbPublisherName.DefaultText = ""
-        tbPublisherName.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        tbPublisherName.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        tbPublisherName.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        tbPublisherName.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        tbPublisherName.FillColor = SystemColors.Menu
-        tbPublisherName.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbPublisherName.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        tbPublisherName.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbPublisherName.Location = New Point(722, 115)
-        tbPublisherName.Margin = New Padding(4, 3, 4, 3)
-        tbPublisherName.Name = "tbPublisherName"
-        tbPublisherName.PasswordChar = ChrW(0)
-        tbPublisherName.PlaceholderText = "Name"
-        tbPublisherName.SelectedText = ""
-        tbPublisherName.ShadowDecoration.CustomizableEdges = CustomizableEdges42
-        tbPublisherName.Size = New Size(283, 42)
-        tbPublisherName.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
-        tbPublisherName.TabIndex = 56
+        tbPubName.Animated = True
+        tbPubName.Cursor = Cursors.IBeam
+        tbPubName.CustomizableEdges = CustomizableEdges41
+        tbPubName.DefaultText = ""
+        tbPubName.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        tbPubName.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        tbPubName.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        tbPubName.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        tbPubName.FillColor = SystemColors.Menu
+        tbPubName.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        tbPubName.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        tbPubName.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        tbPubName.Location = New Point(722, 115)
+        tbPubName.Margin = New Padding(4, 3, 4, 3)
+        tbPubName.Name = "tbPubName"
+        tbPubName.PasswordChar = ChrW(0)
+        tbPubName.PlaceholderText = "Name"
+        tbPubName.SelectedText = ""
+        tbPubName.ShadowDecoration.CustomizableEdges = CustomizableEdges42
+        tbPubName.Size = New Size(283, 42)
+        tbPubName.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
+        tbPubName.TabIndex = 56
         ' 
         ' Label2
         ' 
@@ -867,7 +867,7 @@ Partial Class frmManageBook
         Controls.Add(Panel2)
         Controls.Add(Guna2TextBox1)
         Controls.Add(Guna2Button1)
-        Controls.Add(tbPublisherName)
+        Controls.Add(tbPubName)
         Controls.Add(tbAddress)
         Controls.Add(tbContact)
         Controls.Add(Guna2Button2)
@@ -940,7 +940,7 @@ Partial Class frmManageBook
     Friend WithEvents tbContact As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbAddress As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents tbPublisherName As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents tbPubName As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Panel2 As Panel
