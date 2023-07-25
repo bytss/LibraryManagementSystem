@@ -6,6 +6,7 @@ Public Class frmManageBook
 
     Private departementSuggestionList As New List(Of String)()
     Private genreSuggestionList As New List(Of String)()
+    Private authorsSuggestionList As New List(Of String)()
 
     Private Sub manageProduct_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         openConnection()
@@ -14,6 +15,8 @@ Public Class frmManageBook
         loadDepartmentSuggestions()
         ' load genre suggestions
         loadGenreSuggestions()
+        ' load author suggestions
+        loadAuthorSuggestions()
 
 
         ' Set the AutoCompleteMode and AutoCompleteSource properties
@@ -28,7 +31,7 @@ Public Class frmManageBook
         ' Assign the AutoCompleteCustomSource to the TextBox
         tbDepartment.AutoCompleteCustomSource = autoCompleteCollection
 
-
+        ' Genre
         ' Set the AutoCompleteMode and AutoCompleteSource properties
         tbGenre.AutoCompleteMode = AutoCompleteMode.Suggest
         tbGenre.AutoCompleteSource = AutoCompleteSource.CustomSource
@@ -39,6 +42,18 @@ Public Class frmManageBook
 
         ' Assign the AutoCompleteCustomSource to the TextBox
         tbGenre.AutoCompleteCustomSource = genreAutoComplete
+
+        ' Author
+        ' Set the AutoCompleteMode and AutoCompleteSource properties
+        tbAuthorName.AutoCompleteMode = AutoCompleteMode.Suggest
+        tbAuthorName.AutoCompleteSource = AutoCompleteSource.CustomSource
+
+        ' Create a new AutoCompleteStringCollection and add the data to it
+        Dim authorAutoComplete As New AutoCompleteStringCollection()
+        authorAutoComplete.AddRange(authorsSuggestionList.ToArray())
+
+        ' Assign the AutoCompleteCustomSource to the TextBox
+        tbAuthorName.AutoCompleteCustomSource = authorAutoComplete
     End Sub
 
     Private Sub loadBooks()
@@ -126,6 +141,28 @@ Public Class frmManageBook
         closeConnection()
     End Sub
 
+    Private Sub loadAuthorSuggestions()
+        Try
+            conn.Open()
+            authorsSuggestionList.Clear()
+
+            Dim query = "SELECT * FROM tbl_authors"
+            Dim command = New OleDbCommand(query, conn)
+            Dim reader As OleDbDataReader = command.ExecuteReader
+
+            While reader.Read
+                Dim lastName = reader("last_name")
+                Dim FirstName = reader("first_name")
+
+                authorsSuggestionList.Add(lastName & ", " & FirstName)
+            End While
+
+        Catch ex As Exception
+            MsgBox("An erro occured, author suggestions: " & ex.Message, vbCritical)
+        End Try
+        conn.Close()
+    End Sub
+
     Private Sub dgvBooks_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvBooks.CellContentClick
         clear()
 
@@ -171,4 +208,9 @@ Public Class frmManageBook
     Private Sub btnAddAuthor_Click(sender As Object, e As EventArgs) Handles btnAddAuthor.Click
         formAuthor.ShowDialog()
     End Sub
+
+    Private Sub tbAuthorName_TextChanged(sender As Object, e As EventArgs) Handles tbAuthorName.TextChanged
+
+    End Sub
+
 End Class
