@@ -66,6 +66,10 @@ Partial Class frmManageBook
         Dim CustomizableEdges42 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim CustomizableEdges43 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges44 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges45 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges46 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Panel1 = New Panel()
         Label1 = New Label()
         btn_addDepartment = New Guna.UI2.WinForms.Guna2Button()
@@ -92,7 +96,7 @@ Partial Class frmManageBook
         tbAuthorName = New Guna.UI2.WinForms.Guna2TextBox()
         tbDepartment = New Guna.UI2.WinForms.Guna2TextBox()
         tbBookName = New Guna.UI2.WinForms.Guna2TextBox()
-        Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
+        btnAddAuthor = New Guna.UI2.WinForms.Guna2Button()
         Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
         dgvBooks = New DataGridView()
         Column1 = New DataGridViewTextBoxColumn()
@@ -101,6 +105,8 @@ Partial Class frmManageBook
         Column4 = New DataGridViewTextBoxColumn()
         Column5 = New DataGridViewTextBoxColumn()
         Column6 = New DataGridViewTextBoxColumn()
+        tbContact = New Guna.UI2.WinForms.Guna2TextBox()
+        tbAddress = New Guna.UI2.WinForms.Guna2TextBox()
         Panel1.SuspendLayout()
         CType(dgvBooks, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -165,7 +171,7 @@ Partial Class frmManageBook
         btn_delete.FillColor = Color.FromArgb(CByte(67), CByte(195), CByte(248))
         btn_delete.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
         btn_delete.ForeColor = Color.White
-        btn_delete.Location = New Point(958, 396)
+        btn_delete.Location = New Point(951, 457)
         btn_delete.Margin = New Padding(4, 3, 4, 3)
         btn_delete.Name = "btn_delete"
         btn_delete.ShadowDecoration.CustomizableEdges = CustomizableEdges4
@@ -186,7 +192,7 @@ Partial Class frmManageBook
         btn_edit.FillColor = Color.FromArgb(CByte(67), CByte(195), CByte(248))
         btn_edit.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
         btn_edit.ForeColor = Color.White
-        btn_edit.Location = New Point(851, 396)
+        btn_edit.Location = New Point(844, 457)
         btn_edit.Margin = New Padding(4, 3, 4, 3)
         btn_edit.Name = "btn_edit"
         btn_edit.ShadowDecoration.CustomizableEdges = CustomizableEdges6
@@ -207,7 +213,7 @@ Partial Class frmManageBook
         btm_save.FillColor = Color.FromArgb(CByte(67), CByte(195), CByte(248))
         btm_save.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
         btm_save.ForeColor = Color.White
-        btm_save.Location = New Point(744, 396)
+        btm_save.Location = New Point(737, 457)
         btm_save.Margin = New Padding(4, 3, 4, 3)
         btm_save.Name = "btm_save"
         btm_save.ShadowDecoration.CustomizableEdges = CustomizableEdges8
@@ -339,14 +345,14 @@ Partial Class frmManageBook
         Guna2TextBox4.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         Guna2TextBox4.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         Guna2TextBox4.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox4.Location = New Point(421, 279)
+        Guna2TextBox4.Location = New Point(27, 457)
         Guna2TextBox4.Margin = New Padding(4, 3, 4, 3)
         Guna2TextBox4.Name = "Guna2TextBox4"
         Guna2TextBox4.PasswordChar = ChrW(0)
         Guna2TextBox4.PlaceholderText = "Genre (ex: Fantasy, Action)"
         Guna2TextBox4.SelectedText = ""
         Guna2TextBox4.ShadowDecoration.CustomizableEdges = CustomizableEdges18
-        Guna2TextBox4.Size = New Size(512, 37)
+        Guna2TextBox4.Size = New Size(510, 37)
         Guna2TextBox4.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         Guna2TextBox4.TabIndex = 33
         ' 
@@ -356,7 +362,7 @@ Partial Class frmManageBook
         Label3.BackColor = SystemColors.Menu
         Label3.Font = New Font("Poppins", 8.25F, FontStyle.Regular, GraphicsUnit.Point)
         Label3.ForeColor = Color.DarkGray
-        Label3.Location = New Point(556, 405)
+        Label3.Location = New Point(549, 466)
         Label3.Margin = New Padding(4, 0, 4, 0)
         Label3.Name = "Label3"
         Label3.Size = New Size(78, 19)
@@ -376,7 +382,7 @@ Partial Class frmManageBook
         Guna2ComboBox1.ForeColor = Color.DimGray
         Guna2ComboBox1.FormattingEnabled = True
         Guna2ComboBox1.ItemHeight = 30
-        Guna2ComboBox1.Location = New Point(552, 396)
+        Guna2ComboBox1.Location = New Point(545, 457)
         Guna2ComboBox1.Margin = New Padding(4, 3, 4, 3)
         Guna2ComboBox1.Name = "Guna2ComboBox1"
         Guna2ComboBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges20
@@ -633,28 +639,28 @@ Partial Class frmManageBook
         tbBookName.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbBookName.TabIndex = 51
         ' 
-        ' Guna2Button1
+        ' btnAddAuthor
         ' 
-        Guna2Button1.Animated = True
-        Guna2Button1.AnimatedGIF = True
-        Guna2Button1.AutoRoundedCorners = True
-        Guna2Button1.BorderRadius = 17
-        Guna2Button1.Cursor = Cursors.Hand
-        Guna2Button1.CustomizableEdges = CustomizableEdges39
-        Guna2Button1.DisabledState.BorderColor = Color.DarkGray
-        Guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray
-        Guna2Button1.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        Guna2Button1.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        Guna2Button1.FillColor = Color.FromArgb(CByte(67), CByte(195), CByte(248))
-        Guna2Button1.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Guna2Button1.ForeColor = Color.White
-        Guna2Button1.Location = New Point(650, 120)
-        Guna2Button1.Margin = New Padding(4, 3, 4, 3)
-        Guna2Button1.Name = "Guna2Button1"
-        Guna2Button1.ShadowDecoration.CustomizableEdges = CustomizableEdges40
-        Guna2Button1.Size = New Size(36, 37)
-        Guna2Button1.TabIndex = 52
-        Guna2Button1.Text = "+"
+        btnAddAuthor.Animated = True
+        btnAddAuthor.AnimatedGIF = True
+        btnAddAuthor.AutoRoundedCorners = True
+        btnAddAuthor.BorderRadius = 17
+        btnAddAuthor.Cursor = Cursors.Hand
+        btnAddAuthor.CustomizableEdges = CustomizableEdges39
+        btnAddAuthor.DisabledState.BorderColor = Color.DarkGray
+        btnAddAuthor.DisabledState.CustomBorderColor = Color.DarkGray
+        btnAddAuthor.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnAddAuthor.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnAddAuthor.FillColor = Color.FromArgb(CByte(67), CByte(195), CByte(248))
+        btnAddAuthor.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        btnAddAuthor.ForeColor = Color.White
+        btnAddAuthor.Location = New Point(650, 120)
+        btnAddAuthor.Margin = New Padding(4, 3, 4, 3)
+        btnAddAuthor.Name = "btnAddAuthor"
+        btnAddAuthor.ShadowDecoration.CustomizableEdges = CustomizableEdges40
+        btnAddAuthor.Size = New Size(36, 37)
+        btnAddAuthor.TabIndex = 52
+        btnAddAuthor.Text = "+"
         ' 
         ' Guna2Button2
         ' 
@@ -758,14 +764,68 @@ Partial Class frmManageBook
         Column6.ReadOnly = True
         Column6.Width = 119
         ' 
+        ' tbContact
+        ' 
+        tbContact.Animated = True
+        tbContact.Cursor = Cursors.IBeam
+        tbContact.CustomizableEdges = CustomizableEdges43
+        tbContact.DefaultText = ""
+        tbContact.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        tbContact.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        tbContact.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        tbContact.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        tbContact.Enabled = False
+        tbContact.FillColor = SystemColors.Menu
+        tbContact.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        tbContact.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        tbContact.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        tbContact.Location = New Point(367, 231)
+        tbContact.Margin = New Padding(4, 3, 4, 3)
+        tbContact.Name = "tbContact"
+        tbContact.PasswordChar = ChrW(0)
+        tbContact.PlaceholderText = "Contact"
+        tbContact.SelectedText = ""
+        tbContact.ShadowDecoration.CustomizableEdges = CustomizableEdges44
+        tbContact.Size = New Size(317, 42)
+        tbContact.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
+        tbContact.TabIndex = 54
+        ' 
+        ' tbAddress
+        ' 
+        tbAddress.Animated = True
+        tbAddress.Cursor = Cursors.IBeam
+        tbAddress.CustomizableEdges = CustomizableEdges45
+        tbAddress.DefaultText = ""
+        tbAddress.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        tbAddress.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        tbAddress.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        tbAddress.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        tbAddress.Enabled = False
+        tbAddress.FillColor = SystemColors.Menu
+        tbAddress.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        tbAddress.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        tbAddress.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        tbAddress.Location = New Point(367, 289)
+        tbAddress.Margin = New Padding(4, 3, 4, 3)
+        tbAddress.Name = "tbAddress"
+        tbAddress.PasswordChar = ChrW(0)
+        tbAddress.PlaceholderText = "Address"
+        tbAddress.SelectedText = ""
+        tbAddress.ShadowDecoration.CustomizableEdges = CustomizableEdges46
+        tbAddress.Size = New Size(317, 57)
+        tbAddress.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
+        tbAddress.TabIndex = 55
+        ' 
         ' frmManageBook
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
         ClientSize = New Size(1074, 698)
+        Controls.Add(tbAddress)
+        Controls.Add(tbContact)
         Controls.Add(Guna2Button2)
-        Controls.Add(Guna2Button1)
+        Controls.Add(btnAddAuthor)
         Controls.Add(tbBookName)
         Controls.Add(tbDepartment)
         Controls.Add(tbAuthorName)
@@ -785,13 +845,13 @@ Partial Class frmManageBook
         Controls.Add(Label4)
         Controls.Add(tbGenre)
         Controls.Add(tbCopies)
-        Controls.Add(dgvBooks)
         Controls.Add(tbDesciption)
         Controls.Add(btn_delete)
         Controls.Add(btn_edit)
         Controls.Add(btm_save)
         Controls.Add(btn_addDepartment)
         Controls.Add(Panel1)
+        Controls.Add(dgvBooks)
         FormBorderStyle = FormBorderStyle.None
         Margin = New Padding(4, 3, 4, 3)
         Name = "frmManageBook"
@@ -828,7 +888,7 @@ Partial Class frmManageBook
     Friend WithEvents tbAuthorName As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbDepartment As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbBookName As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnAddAuthor As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Button2 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents dgvBooks As DataGridView
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
@@ -837,4 +897,6 @@ Partial Class frmManageBook
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents tbContact As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents tbAddress As Guna.UI2.WinForms.Guna2TextBox
 End Class

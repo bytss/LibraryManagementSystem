@@ -167,4 +167,8 @@ Public Class frmManageBook
     Private Sub btn_addDepartment_Click(sender As Object, e As EventArgs) Handles btn_addDepartment.Click
         frmDepartment.ShowDialog()
     End Sub
+
+    Private Sub btnAddAuthor_Click(sender As Object, e As EventArgs) Handles btnAddAuthor.Click
+        formAuthor.ShowDialog()
+    End Sub
 End Class
