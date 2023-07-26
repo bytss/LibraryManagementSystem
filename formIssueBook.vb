@@ -1,13 +1,16 @@
 ﻿Imports System.Data.OleDb
+Imports System.Net
 
 Public Class formIssueBook
 
     Private departmentSuggestionList As New List(Of String)()
     Private bookSuggestionList As New List(Of String)()
+    Dim def As String = "Default"
 
     Private Sub formIssueBook_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         openConnection()
-        loadBookSuggestions()
+        tbIssueDepartment.Text = def
+        loadBookSuggestions(def)
         loadDepartmentSuggestions()
 
         ' Department's Suggestions
@@ -46,6 +49,7 @@ Public Class formIssueBook
 
         Try
             departmentSuggestionList.Clear()
+            departmentSuggestionList.Add(def)
             conn.Open()
             Dim query = "SELECT DISTINCT department_name FROM tbl_department"
             Dim command = New OleDbCommand(query, conn)
@@ -62,13 +66,21 @@ Public Class formIssueBook
     End Sub
 
 
-    Private Sub loadBookSuggestions()
-
+    Private Sub loadBookSuggestions(department As String)
         Try
             bookSuggestionList.Clear()
             conn.Open()
-            Dim query = "SELECT DISTINCT title FROM tbl_books"
+            Dim query As String
+
+            If def.Equals(department) Then
+                query = "SELECT DISTINCT title FROM tbl_books"
+            Else
+                query = "SELECT DISTINCT title, department FROM tbl_books WHERE department=@Department"
+            End If
+
             Dim command = New OleDbCommand(query, conn)
+            command.Parameters.AddWithValue("@Department", department)
+
             Dim dbReader As OleDbDataReader = command.ExecuteReader
 
             While dbReader.Read
@@ -121,7 +133,6 @@ Public Class formIssueBook
             Dim reader As OleDbDataReader = cmd.ExecuteReader
 
             If reader.Read Then
-                Dim patronId
 
 
             End If
@@ -135,7 +146,7 @@ Public Class formIssueBook
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         Dim id = tbSchoolId.Text
 
-        If String.IsNullOrEmpty(id) Then
+        If isNullOrEmpty(id) Then
             MsgBox("An error occured, identity number cannot be empty!", vbCritical)
         Else
             searchPatron(id)
@@ -143,5 +154,56 @@ Public Class formIssueBook
 
     End Sub
 
+    Private Sub btnIssue_Click(sender As Object, e As EventArgs) Handles btnIssue.Click
 
+    End Sub
+
+    Private Sub tbIssueDepartment_TextChanged(sender As Object, e As EventArgs) Handles tbIssueDepartment.TextChanged
+        Dim department = tbIssueDepartment.Text
+
+        ' Check if the suggestions list contains the search term
+        Dim isTermInSuggestions As Boolean = departmentSuggestionList.Contains(department)
+
+        If isTermInSuggestions Then
+            loadBookSuggestions(department)
+        End If
+    End Sub
+
+    Private Sub tbIssueBookName_TextChanged(sender As Object, e As EventArgs) Handles tbIssueBookName.TextChanged
+        Dim bookName = tbIssueBookName.Text
+
+        ' Check if the suggestions list contains the search term
+        Dim isTermInSuggestions As Boolean = bookSuggestionList.Contains(bookName)
+
+        If isTermInSuggestions Then
+            Try
+                conn.Open()
+                Dim query = "SELECT b.description, a.last_name, a.first_name, a.middle_initial " &
+                             "FROM tbl_books AS b " &
+                             "INNER JOIN tbl_authors AS a ON b.author = a.email " &
+                             "WHERE b.title = @Criteria"
+
+                Dim cmd = New OleDbCommand(query, conn)
+                cmd.Parameters.AddWithValue("@Criteria", bookName)
+                Dim reader As OleDbDataReader = cmd.ExecuteReader
+
+                If reader.Read Then
+                    Dim description As String = reader("description").ToString()
+                    Dim lastName As String = reader("last_name").ToString()
+                    Dim firstName As String = reader("first_name").ToString()
+                    Dim middleInitial As String = reader("middle_initial").ToString()
+
+                    tbDescription.Text = description
+                    tbAuthor.Text = lastName & ", " & firstName & " " & middleInitial
+                Else
+                    MsgBox("Not Found", vbCritical)
+                End If
+
+            Catch ex As Exception
+                MsgBox("Not Found " & ex.Message, vbInformation)
+            End Try
+            closeConnection()
+        End If
+
+    End Sub
 End Class

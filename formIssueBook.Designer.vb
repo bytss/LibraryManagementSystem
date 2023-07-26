@@ -520,7 +520,7 @@ Partial Class formIssueBook
         tbIssueBookName.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         tbIssueBookName.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         tbIssueBookName.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbIssueBookName.Location = New Point(511, 172)
+        tbIssueBookName.Location = New Point(511, 221)
         tbIssueBookName.Margin = New Padding(4, 3, 4, 3)
         tbIssueBookName.Name = "tbIssueBookName"
         tbIssueBookName.PasswordChar = ChrW(0)
@@ -549,7 +549,7 @@ Partial Class formIssueBook
         tbIssueCopies.Margin = New Padding(4, 3, 4, 3)
         tbIssueCopies.Name = "tbIssueCopies"
         tbIssueCopies.PasswordChar = ChrW(0)
-        tbIssueCopies.PlaceholderText = "Copies"
+        tbIssueCopies.PlaceholderText = "Copies (Max: 3 copies)"
         tbIssueCopies.SelectedText = ""
         tbIssueCopies.ShadowDecoration.CustomizableEdges = CustomizableEdges28
         tbIssueCopies.Size = New Size(141, 42)
@@ -570,11 +570,11 @@ Partial Class formIssueBook
         tbIssueDepartment.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         tbIssueDepartment.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         tbIssueDepartment.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbIssueDepartment.Location = New Point(511, 220)
+        tbIssueDepartment.Location = New Point(511, 172)
         tbIssueDepartment.Margin = New Padding(4, 3, 4, 3)
         tbIssueDepartment.Name = "tbIssueDepartment"
         tbIssueDepartment.PasswordChar = ChrW(0)
-        tbIssueDepartment.PlaceholderText = "Department"
+        tbIssueDepartment.PlaceholderText = "Filter by Department"
         tbIssueDepartment.SelectedText = ""
         tbIssueDepartment.ShadowDecoration.CustomizableEdges = CustomizableEdges30
         tbIssueDepartment.Size = New Size(237, 42)
