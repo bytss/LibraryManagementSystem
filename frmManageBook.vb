@@ -143,7 +143,7 @@ Public Class frmManageBook
             genreSuggestionList.Add("Educational")
             genreSuggestionList.Add("Novel")
             conn.Open()
-            Dim query = "SELECT DISTINCT genre_name FROM tbl_genre"
+            Dim query = "SELECT DISTINCT genre_name FROM tbl_genres"
             Dim command = New OleDbCommand(query, conn)
             Dim reader As OleDbDataReader = command.ExecuteReader
 
@@ -185,12 +185,12 @@ Public Class frmManageBook
             conn.Open()
             publisherSuggestionList.Clear()
 
-            Dim query = "SELECT * FROM tbl_publisher"
+            Dim query = "SELECT * FROM tbl_publishers"
             Dim command = New OleDbCommand(query, conn)
             Dim reader As OleDbDataReader = command.ExecuteReader
 
             While reader.Read
-                Dim name = reader("name")
+                Dim name = reader("publisher_name")
 
                 publisherSuggestionList.Add(name)
             End While
@@ -199,6 +199,40 @@ Public Class frmManageBook
             MsgBox("An erro occured, pub suggestions: " & ex.Message, vbCritical)
         End Try
         conn.Close()
+    End Sub
+
+    Private Sub saveBooks()
+        Dim selectedDate As DateTime = publishDatePicker.Value
+        Try
+            conn.Open()
+            Dim query = "INSERT INTO tbl_books(`isbn`, `title`, `description`, `total_copies`, `remaining_copies`, `author`, `genre`, `publisher`, `department`, `date_of_published`) 
+                            VALUES(@ISBN, @Title, @Description, @TotalCopies, @RemainingCopies, @Author, @Genre, @Publisher, @Department, @PublishedDate)"
+            Dim cmd = New OleDbCommand(query, conn)
+
+            With cmd
+                .Parameters.Clear()
+                .Parameters.AddWithValue("@ISBN", tbIsbn.Text)
+                .Parameters.AddWithValue("@Title", tbBookName.Text)
+                .Parameters.AddWithValue("@Description", tbDesciption.Text)
+                .Parameters.AddWithValue("@TotalCopies", tbCopies.Text)
+                .Parameters.AddWithValue("@RemainingCopies", tbCopies.Text)
+                .Parameters.AddWithValue("@Author", tbAuthorEmail.Text)
+                .Parameters.AddWithValue("@Genre", tbGenre.Text)
+                .Parameters.AddWithValue("@Publisher", tbPubEmail.Text)
+                .Parameters.AddWithValue("@Department", tbDepartment.Text)
+                .Parameters.AddWithValue("@PublishedDate", OleDbType.Date).Value = publishDatePicker.Value.ToString
+            End With
+
+            If cmd.ExecuteNonQuery > 0 Then
+                MsgBox("Successfully Save!", vbInformation)
+            Else
+                MsgBox("Failed to save!", vbCritical)
+            End If
+
+        Catch ex As Exception
+            MsgBox("An error occured, " & ex.Message, vbCritical)
+        End Try
+        closeConnection()
     End Sub
 
     Private Sub dgvBooks_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvBooks.CellContentClick
@@ -293,4 +327,45 @@ Public Class frmManageBook
     Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
         formGenre.ShowDialog()
     End Sub
+
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        saveBooks()
+    End Sub
+
+    Private Sub tbPubName_TextChanged(sender As Object, e As EventArgs) Handles tbPubName.TextChanged
+        Dim publisher = tbPubName.Text
+
+        ' Check if the suggestions list contains the search term
+        Dim isTermInSuggestions As Boolean = publisherSuggestionList.Contains(publisher)
+
+        If isTermInSuggestions Then
+            Try
+                conn.Open()
+
+                Dim query = "SELECT * FROM tbl_publishers WHERE publisher_name LIKE @PublisherName"
+                Dim cmd = New OleDbCommand(query, conn)
+                cmd.Parameters.AddWithValue("@PublisherName", "%" & publisher & "%")
+                Dim reader As OleDbDataReader = cmd.ExecuteReader
+
+                If reader.Read Then
+                    Dim email = reader("email").ToString
+                    Dim contact = reader("contact_number").ToString
+                    Dim address = reader("address").ToString
+                    Dim country = reader("country").ToString
+
+                    tbPubEmail.Text = email
+                    tbPubContact.Text = contact
+                    tbPubAddress.Text = address & ", " & country
+                Else
+                    MsgBox("Not found!", vbCritical)
+                End If
+
+            Catch ex As Exception
+                MsgBox("An error occured, " & ex.Message, vbCritical)
+            End Try
+            conn.Close()
+
+        End If
+    End Sub
+
 End Class

@@ -45,11 +45,11 @@ Partial Class formManageUser
         Dim CustomizableEdges21 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges22 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(formManageUser))
-        Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges25 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges26 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges27 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -70,8 +70,7 @@ Partial Class formManageUser
         Label5 = New Label()
         tbSearch = New Guna.UI2.WinForms.Guna2TextBox()
         tbUserContact = New Guna.UI2.WinForms.Guna2TextBox()
-        PictureBox1 = New PictureBox()
-        Guna2Button3 = New Guna.UI2.WinForms.Guna2Button()
+        profilePhoto = New PictureBox()
         dgvUsers = New Guna.UI2.WinForms.Guna2DataGridView()
         Column1 = New DataGridViewTextBoxColumn()
         Column2 = New DataGridViewTextBoxColumn()
@@ -81,8 +80,10 @@ Partial Class formManageUser
         tbUsername = New Guna.UI2.WinForms.Guna2TextBox()
         Label3 = New Label()
         Check_showpass = New Guna.UI2.WinForms.Guna2CheckBox()
+        Guna2Button3 = New Guna.UI2.WinForms.Guna2Button()
+        OpenFileDialog1 = New OpenFileDialog()
         Panel1.SuspendLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(profilePhoto, ComponentModel.ISupportInitialize).BeginInit()
         CType(dgvUsers, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -398,37 +399,16 @@ Partial Class formManageUser
         tbUserContact.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbUserContact.TabIndex = 67
         ' 
-        ' PictureBox1
+        ' profilePhoto
         ' 
-        PictureBox1.BorderStyle = BorderStyle.FixedSingle
-        PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
-        PictureBox1.Location = New Point(42, 124)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(173, 180)
-        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
-        PictureBox1.TabIndex = 69
-        PictureBox1.TabStop = False
-        ' 
-        ' Guna2Button3
-        ' 
-        Guna2Button3.Animated = True
-        Guna2Button3.AnimatedGIF = True
-        Guna2Button3.BorderRadius = 8
-        Guna2Button3.CustomizableEdges = CustomizableEdges23
-        Guna2Button3.DisabledState.BorderColor = Color.DarkGray
-        Guna2Button3.DisabledState.CustomBorderColor = Color.DarkGray
-        Guna2Button3.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        Guna2Button3.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        Guna2Button3.FillColor = Color.Maroon
-        Guna2Button3.Font = New Font("Poppins", 9.5F, FontStyle.Regular, GraphicsUnit.Point)
-        Guna2Button3.ForeColor = Color.White
-        Guna2Button3.Location = New Point(66, 295)
-        Guna2Button3.Margin = New Padding(4, 3, 4, 3)
-        Guna2Button3.Name = "Guna2Button3"
-        Guna2Button3.ShadowDecoration.CustomizableEdges = CustomizableEdges24
-        Guna2Button3.Size = New Size(129, 36)
-        Guna2Button3.TabIndex = 70
-        Guna2Button3.Text = "Select Photo"
+        profilePhoto.BorderStyle = BorderStyle.FixedSingle
+        profilePhoto.Image = CType(resources.GetObject("profilePhoto.Image"), Image)
+        profilePhoto.Location = New Point(42, 124)
+        profilePhoto.Name = "profilePhoto"
+        profilePhoto.Size = New Size(173, 180)
+        profilePhoto.SizeMode = PictureBoxSizeMode.StretchImage
+        profilePhoto.TabIndex = 69
+        profilePhoto.TabStop = False
         ' 
         ' dgvUsers
         ' 
@@ -506,7 +486,7 @@ Partial Class formManageUser
         ' 
         tbPassword.Animated = True
         tbPassword.Cursor = Cursors.IBeam
-        tbPassword.CustomizableEdges = CustomizableEdges25
+        tbPassword.CustomizableEdges = CustomizableEdges23
         tbPassword.DefaultText = ""
         tbPassword.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         tbPassword.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -522,7 +502,7 @@ Partial Class formManageUser
         tbPassword.PasswordChar = ChrW(0)
         tbPassword.PlaceholderText = "Password"
         tbPassword.SelectedText = ""
-        tbPassword.ShadowDecoration.CustomizableEdges = CustomizableEdges26
+        tbPassword.ShadowDecoration.CustomizableEdges = CustomizableEdges24
         tbPassword.Size = New Size(228, 42)
         tbPassword.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbPassword.TabIndex = 74
@@ -531,7 +511,7 @@ Partial Class formManageUser
         ' 
         tbUsername.Animated = True
         tbUsername.Cursor = Cursors.IBeam
-        tbUsername.CustomizableEdges = CustomizableEdges27
+        tbUsername.CustomizableEdges = CustomizableEdges25
         tbUsername.DefaultText = ""
         tbUsername.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         tbUsername.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -547,7 +527,7 @@ Partial Class formManageUser
         tbUsername.PasswordChar = ChrW(0)
         tbUsername.PlaceholderText = "Username"
         tbUsername.SelectedText = ""
-        tbUsername.ShadowDecoration.CustomizableEdges = CustomizableEdges28
+        tbUsername.ShadowDecoration.CustomizableEdges = CustomizableEdges26
         tbUsername.Size = New Size(224, 42)
         tbUsername.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbUsername.TabIndex = 73
@@ -580,6 +560,31 @@ Partial Class formManageUser
         Check_showpass.UncheckedState.BorderThickness = 0
         Check_showpass.UncheckedState.FillColor = Color.Silver
         ' 
+        ' Guna2Button3
+        ' 
+        Guna2Button3.Animated = True
+        Guna2Button3.AnimatedGIF = True
+        Guna2Button3.BorderRadius = 8
+        Guna2Button3.CustomizableEdges = CustomizableEdges27
+        Guna2Button3.DisabledState.BorderColor = Color.DarkGray
+        Guna2Button3.DisabledState.CustomBorderColor = Color.DarkGray
+        Guna2Button3.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        Guna2Button3.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        Guna2Button3.FillColor = Color.Maroon
+        Guna2Button3.Font = New Font("Poppins", 9.5F, FontStyle.Regular, GraphicsUnit.Point)
+        Guna2Button3.ForeColor = Color.White
+        Guna2Button3.Location = New Point(66, 295)
+        Guna2Button3.Margin = New Padding(4, 3, 4, 3)
+        Guna2Button3.Name = "Guna2Button3"
+        Guna2Button3.ShadowDecoration.CustomizableEdges = CustomizableEdges28
+        Guna2Button3.Size = New Size(129, 36)
+        Guna2Button3.TabIndex = 70
+        Guna2Button3.Text = "Select Photo"
+        ' 
+        ' OpenFileDialog1
+        ' 
+        OpenFileDialog1.FileName = "OpenFileDialog1"
+        ' 
         ' formManageUser
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -592,7 +597,7 @@ Partial Class formManageUser
         Controls.Add(Label3)
         Controls.Add(dgvUsers)
         Controls.Add(Guna2Button3)
-        Controls.Add(PictureBox1)
+        Controls.Add(profilePhoto)
         Controls.Add(tbUserContact)
         Controls.Add(tbSearch)
         Controls.Add(Label5)
@@ -614,7 +619,7 @@ Partial Class formManageUser
         StartPosition = FormStartPosition.CenterScreen
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        CType(profilePhoto, ComponentModel.ISupportInitialize).EndInit()
         CType(dgvUsers, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
@@ -656,8 +661,7 @@ Partial Class formManageUser
     Friend WithEvents tbPubAddress As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbSearch As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbUserContact As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Guna2Button3 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents profilePhoto As PictureBox
     Friend WithEvents dgvUsers As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
@@ -667,4 +671,6 @@ Partial Class formManageUser
     Friend WithEvents tbUsername As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Check_showpass As Guna.UI2.WinForms.Guna2CheckBox
+    Friend WithEvents Guna2Button3 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
 End Class

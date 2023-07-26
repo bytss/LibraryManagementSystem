@@ -61,9 +61,18 @@ Public Class formManageUser
     Private Sub saveUsers()
         Try
             conn.Open()
-            Dim query = "INSERT INTO tbl_users(`last_name`, `first_name`, `middle_name`, `contact`, `email`, `username`, `password`, `role`, `address`) 
-                        VALUES(@LastName, @FistName, @MiddleName, @Contact, @Email, @Username, @Password, @Role, @Address)"
+            Dim query = "INSERT INTO tbl_users(`last_name`, `first_name`, `middle_name`, `contact`, `email`, `username`, `password`, `role`, `address`, `photo`) 
+                        VALUES(@LastName, @FistName, @MiddleName, @Contact, @Email, @Username, @Password, @Role, @Address, @Profile)"
             Dim cmd = New OleDbCommand(query, conn)
+
+            Dim FileSize As New UInt32
+            Dim mstream As New System.IO.MemoryStream
+            profilePhoto.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
+            Dim picture() As Byte = mstream.GetBuffer
+            FileSize = mstream.Length
+            mstream.Close()
+
+
             With cmd
                 .Parameters.Clear()
                 .Parameters.AddWithValue("@LastName", tbLastName.Text)
@@ -75,6 +84,7 @@ Public Class formManageUser
                 .Parameters.AddWithValue("@Password", CipherUtils.EncryptPassword(tbLastName.Text))
                 .Parameters.AddWithValue("@Role", cbRoles.Text)
                 .Parameters.AddWithValue("@Address", tbUserAddress.Text)
+                .Parameters.AddWithValue("@Profile", picture)
             End With
 
             If cmd.ExecuteNonQuery > 0 Then
@@ -148,6 +158,8 @@ Public Class formManageUser
             MsgBox("UserName could not be empty!", vbCritical)
         ElseIf isNullOrEmpty(tbPassword.Text) Then
             MsgBox("Password could not be empty!", vbCritical)
+        ElseIf isNullOrEmpty(tbUserEmail.Text) Then
+            MsgBox("Email could not be empty!", vbCritical)
         Else
             saveUsers()
         End If
@@ -162,6 +174,16 @@ Public Class formManageUser
             tbPassword.UseSystemPasswordChar = False
         Else
             tbPassword.UseSystemPasswordChar = True
+
+        End If
+    End Sub
+
+    Private Sub Guna2Button3_Click(sender As Object, e As EventArgs) Handles Guna2Button3.Click
+        OpenFileDialog1.Filter = "Choose Images(*.JPG,*.PNG,*.JPEG,*.GIF)|*.JPG;*.PNG;*.JPEG*.GIF|ALL FILES(*.*)|*.*"
+
+        If OpenFileDialog1.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
+            profilePhoto.Image = Image.FromFile(OpenFileDialog1.FileName)
+            OpenFileDialog1.FileName = OpenFileDialog1.FileName
 
         End If
     End Sub
