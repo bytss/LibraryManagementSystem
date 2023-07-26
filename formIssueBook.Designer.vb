@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class formManagePatron
+Partial Class formIssueBook
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -48,7 +48,6 @@ Partial Class formManagePatron
         Dim CustomizableEdges22 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(formManagePatron))
         Panel1 = New Panel()
         Label1 = New Label()
         btn_delete = New Guna.UI2.WinForms.Guna2Button()
@@ -69,20 +68,12 @@ Partial Class formManagePatron
         tbMiddlename = New Guna.UI2.WinForms.Guna2TextBox()
         tbFirstName = New Guna.UI2.WinForms.Guna2TextBox()
         Guna2ComboBox1 = New Guna.UI2.WinForms.Guna2ComboBox()
-        RadioButton1 = New RadioButton()
-        Panel2 = New Panel()
-        Label3 = New Label()
-        RadioButton2 = New RadioButton()
         Label5 = New Label()
-        tbSearch = New Guna.UI2.WinForms.Guna2TextBox()
+        Guna2TextBox6 = New Guna.UI2.WinForms.Guna2TextBox()
         tbPatronContact = New Guna.UI2.WinForms.Guna2TextBox()
         tbSchoolId = New Guna.UI2.WinForms.Guna2TextBox()
-        PictureBox1 = New PictureBox()
-        Label6 = New Label()
         Panel1.SuspendLayout()
         CType(dgvBooks, ComponentModel.ISupportInitialize).BeginInit()
-        Panel2.SuspendLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel1
@@ -105,9 +96,9 @@ Partial Class formManagePatron
         Label1.Margin = New Padding(4, 0, 4, 0)
         Label1.Name = "Label1"
         Label1.Padding = New Padding(12)
-        Label1.Size = New Size(252, 66)
+        Label1.Size = New Size(177, 66)
         Label1.TabIndex = 5
-        Label1.Text = "Manage Patrons"
+        Label1.Text = "Issue Book"
         ' 
         ' btn_delete
         ' 
@@ -122,7 +113,7 @@ Partial Class formManagePatron
         btn_delete.FillColor = Color.Red
         btn_delete.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
         btn_delete.ForeColor = Color.White
-        btn_delete.Location = New Point(421, 620)
+        btn_delete.Location = New Point(417, 549)
         btn_delete.Margin = New Padding(4, 3, 4, 3)
         btn_delete.Name = "btn_delete"
         btn_delete.ShadowDecoration.CustomizableEdges = CustomizableEdges2
@@ -143,7 +134,7 @@ Partial Class formManagePatron
         btn_edit.FillColor = Color.FromArgb(CByte(192), CByte(64), CByte(0))
         btn_edit.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
         btn_edit.ForeColor = Color.White
-        btn_edit.Location = New Point(314, 620)
+        btn_edit.Location = New Point(310, 549)
         btn_edit.Margin = New Padding(4, 3, 4, 3)
         btn_edit.Name = "btn_edit"
         btn_edit.ShadowDecoration.CustomizableEdges = CustomizableEdges4
@@ -164,7 +155,7 @@ Partial Class formManagePatron
         btm_save.FillColor = Color.Maroon
         btm_save.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
         btm_save.ForeColor = Color.White
-        btm_save.Location = New Point(207, 620)
+        btm_save.Location = New Point(203, 549)
         btm_save.Margin = New Padding(4, 3, 4, 3)
         btm_save.Name = "btm_save"
         btm_save.ShadowDecoration.CustomizableEdges = CustomizableEdges6
@@ -196,14 +187,14 @@ Partial Class formManagePatron
         tbLastName.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         tbLastName.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         tbLastName.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbLastName.Location = New Point(243, 124)
+        tbLastName.Location = New Point(19, 115)
         tbLastName.Margin = New Padding(4, 3, 4, 3)
         tbLastName.Name = "tbLastName"
         tbLastName.PasswordChar = ChrW(0)
         tbLastName.PlaceholderText = "Last Name"
         tbLastName.SelectedText = ""
         tbLastName.ShadowDecoration.CustomizableEdges = CustomizableEdges8
-        tbLastName.Size = New Size(267, 42)
+        tbLastName.Size = New Size(155, 42)
         tbLastName.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbLastName.TabIndex = 32
         ' 
@@ -236,7 +227,7 @@ Partial Class formManagePatron
         dgvBooks.ReadOnly = True
         dgvBooks.RowHeadersVisible = False
         dgvBooks.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvBooks.Size = New Size(509, 429)
+        dgvBooks.Size = New Size(509, 412)
         dgvBooks.TabIndex = 25
         ' 
         ' Column1
@@ -300,14 +291,14 @@ Partial Class formManagePatron
         tbPatronAddress.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         tbPatronAddress.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         tbPatronAddress.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbPatronAddress.Location = New Point(19, 543)
+        tbPatronAddress.Location = New Point(19, 403)
         tbPatronAddress.Margin = New Padding(4, 3, 4, 3)
         tbPatronAddress.Name = "tbPatronAddress"
         tbPatronAddress.PasswordChar = ChrW(0)
         tbPatronAddress.PlaceholderText = "Address"
         tbPatronAddress.SelectedText = ""
         tbPatronAddress.ShadowDecoration.CustomizableEdges = CustomizableEdges10
-        tbPatronAddress.Size = New Size(491, 60)
+        tbPatronAddress.Size = New Size(491, 77)
         tbPatronAddress.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbPatronAddress.TabIndex = 56
         ' 
@@ -325,7 +316,7 @@ Partial Class formManagePatron
         tbPatronEmail.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         tbPatronEmail.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         tbPatronEmail.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbPatronEmail.Location = New Point(19, 486)
+        tbPatronEmail.Location = New Point(19, 346)
         tbPatronEmail.Margin = New Padding(4, 3, 4, 3)
         tbPatronEmail.Name = "tbPatronEmail"
         tbPatronEmail.PasswordChar = ChrW(0)
@@ -340,7 +331,7 @@ Partial Class formManagePatron
         ' 
         Label2.AutoSize = True
         Label2.Font = New Font("Poppins", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label2.Location = New Point(19, 455)
+        Label2.Location = New Point(19, 315)
         Label2.Name = "Label2"
         Label2.Size = New Size(173, 28)
         Label2.TabIndex = 53
@@ -360,14 +351,14 @@ Partial Class formManagePatron
         tbMiddlename.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         tbMiddlename.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         tbMiddlename.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbMiddlename.Location = New Point(243, 184)
+        tbMiddlename.Location = New Point(345, 115)
         tbMiddlename.Margin = New Padding(4, 3, 4, 3)
         tbMiddlename.Name = "tbMiddlename"
         tbMiddlename.PasswordChar = ChrW(0)
         tbMiddlename.PlaceholderText = "Middle Name"
         tbMiddlename.SelectedText = ""
         tbMiddlename.ShadowDecoration.CustomizableEdges = CustomizableEdges14
-        tbMiddlename.Size = New Size(267, 42)
+        tbMiddlename.Size = New Size(163, 42)
         tbMiddlename.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbMiddlename.TabIndex = 57
         ' 
@@ -385,14 +376,14 @@ Partial Class formManagePatron
         tbFirstName.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         tbFirstName.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         tbFirstName.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbFirstName.Location = New Point(243, 243)
+        tbFirstName.Location = New Point(182, 115)
         tbFirstName.Margin = New Padding(4, 3, 4, 3)
         tbFirstName.Name = "tbFirstName"
         tbFirstName.PasswordChar = ChrW(0)
         tbFirstName.PlaceholderText = "First Name"
         tbFirstName.SelectedText = ""
         tbFirstName.ShadowDecoration.CustomizableEdges = CustomizableEdges16
-        tbFirstName.Size = New Size(267, 42)
+        tbFirstName.Size = New Size(155, 42)
         tbFirstName.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbFirstName.TabIndex = 58
         ' 
@@ -408,90 +399,48 @@ Partial Class formManagePatron
         Guna2ComboBox1.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
         Guna2ComboBox1.ForeColor = Color.FromArgb(CByte(68), CByte(88), CByte(112))
         Guna2ComboBox1.ItemHeight = 30
-        Guna2ComboBox1.Location = New Point(242, 308)
+        Guna2ComboBox1.Location = New Point(19, 235)
         Guna2ComboBox1.Name = "Guna2ComboBox1"
         Guna2ComboBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges18
-        Guna2ComboBox1.Size = New Size(268, 36)
+        Guna2ComboBox1.Size = New Size(275, 36)
         Guna2ComboBox1.TabIndex = 61
-        ' 
-        ' RadioButton1
-        ' 
-        RadioButton1.AutoSize = True
-        RadioButton1.Location = New Point(113, 23)
-        RadioButton1.Name = "RadioButton1"
-        RadioButton1.Size = New Size(44, 19)
-        RadioButton1.TabIndex = 62
-        RadioButton1.TabStop = True
-        RadioButton1.Text = "YES"
-        RadioButton1.UseVisualStyleBackColor = True
-        ' 
-        ' Panel2
-        ' 
-        Panel2.Controls.Add(Label3)
-        Panel2.Controls.Add(RadioButton2)
-        Panel2.Controls.Add(RadioButton1)
-        Panel2.Location = New Point(306, 383)
-        Panel2.Name = "Panel2"
-        Panel2.Size = New Size(203, 66)
-        Panel2.TabIndex = 63
-        ' 
-        ' Label3
-        ' 
-        Label3.AutoSize = True
-        Label3.Font = New Font("Poppins", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label3.Location = New Point(10, 23)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(81, 22)
-        Label3.TabIndex = 65
-        Label3.Text = "Is Verified:"
-        ' 
-        ' RadioButton2
-        ' 
-        RadioButton2.AutoSize = True
-        RadioButton2.Location = New Point(165, 23)
-        RadioButton2.Name = "RadioButton2"
-        RadioButton2.Size = New Size(43, 19)
-        RadioButton2.TabIndex = 64
-        RadioButton2.TabStop = True
-        RadioButton2.Text = "NO"
-        RadioButton2.UseVisualStyleBackColor = True
         ' 
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.BackColor = SystemColors.Menu
+        Label5.BackColor = Color.Transparent
         Label5.Font = New Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point)
         Label5.ForeColor = Color.FromArgb(CByte(193), CByte(200), CByte(207))
-        Label5.Location = New Point(248, 317)
+        Label5.Location = New Point(25, 244)
         Label5.Name = "Label5"
         Label5.Size = New Size(65, 22)
         Label5.TabIndex = 64
         Label5.Text = "Category"
         ' 
-        ' tbSearch
+        ' Guna2TextBox6
         ' 
-        tbSearch.Animated = True
-        tbSearch.Cursor = Cursors.IBeam
-        tbSearch.CustomizableEdges = CustomizableEdges19
-        tbSearch.DefaultText = ""
-        tbSearch.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        tbSearch.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        tbSearch.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        tbSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        tbSearch.FillColor = SystemColors.MenuBar
-        tbSearch.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbSearch.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        tbSearch.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbSearch.Location = New Point(539, 124)
-        tbSearch.Margin = New Padding(4, 3, 4, 3)
-        tbSearch.Name = "tbSearch"
-        tbSearch.PasswordChar = ChrW(0)
-        tbSearch.PlaceholderText = "Search"
-        tbSearch.SelectedText = ""
-        tbSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges20
-        tbSearch.Size = New Size(509, 42)
-        tbSearch.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
-        tbSearch.TabIndex = 66
+        Guna2TextBox6.Animated = True
+        Guna2TextBox6.Cursor = Cursors.IBeam
+        Guna2TextBox6.CustomizableEdges = CustomizableEdges19
+        Guna2TextBox6.DefaultText = ""
+        Guna2TextBox6.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        Guna2TextBox6.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        Guna2TextBox6.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        Guna2TextBox6.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        Guna2TextBox6.FillColor = SystemColors.MenuBar
+        Guna2TextBox6.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        Guna2TextBox6.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        Guna2TextBox6.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        Guna2TextBox6.Location = New Point(539, 115)
+        Guna2TextBox6.Margin = New Padding(4, 3, 4, 3)
+        Guna2TextBox6.Name = "Guna2TextBox6"
+        Guna2TextBox6.PasswordChar = ChrW(0)
+        Guna2TextBox6.PlaceholderText = "Last Name"
+        Guna2TextBox6.SelectedText = ""
+        Guna2TextBox6.ShadowDecoration.CustomizableEdges = CustomizableEdges20
+        Guna2TextBox6.Size = New Size(509, 42)
+        Guna2TextBox6.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
+        Guna2TextBox6.TabIndex = 66
         ' 
         ' tbPatronContact
         ' 
@@ -507,7 +456,7 @@ Partial Class formManagePatron
         tbPatronContact.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         tbPatronContact.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         tbPatronContact.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbPatronContact.Location = New Point(270, 486)
+        tbPatronContact.Location = New Point(270, 346)
         tbPatronContact.Margin = New Padding(4, 3, 4, 3)
         tbPatronContact.Name = "tbPatronContact"
         tbPatronContact.PasswordChar = ChrW(0)
@@ -532,50 +481,27 @@ Partial Class formManagePatron
         tbSchoolId.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         tbSchoolId.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         tbSchoolId.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbSchoolId.Location = New Point(19, 394)
+        tbSchoolId.Location = New Point(19, 174)
         tbSchoolId.Margin = New Padding(4, 3, 4, 3)
         tbSchoolId.Name = "tbSchoolId"
         tbSchoolId.PasswordChar = ChrW(0)
         tbSchoolId.PlaceholderText = "ID Number"
         tbSchoolId.SelectedText = ""
         tbSchoolId.ShadowDecoration.CustomizableEdges = CustomizableEdges24
-        tbSchoolId.Size = New Size(280, 42)
+        tbSchoolId.Size = New Size(489, 42)
         tbSchoolId.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbSchoolId.TabIndex = 68
         ' 
-        ' PictureBox1
-        ' 
-        PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
-        PictureBox1.Location = New Point(19, 124)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(199, 220)
-        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
-        PictureBox1.TabIndex = 69
-        PictureBox1.TabStop = False
-        ' 
-        ' Label6
-        ' 
-        Label6.AutoSize = True
-        Label6.Font = New Font("Poppins", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label6.Location = New Point(19, 363)
-        Label6.Name = "Label6"
-        Label6.Size = New Size(103, 28)
-        Label6.TabIndex = 70
-        Label6.Text = "Verification"
-        ' 
-        ' formManagePatron
+        ' formIssueBook
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.MistyRose
         ClientSize = New Size(1074, 698)
-        Controls.Add(Label6)
-        Controls.Add(PictureBox1)
         Controls.Add(tbSchoolId)
         Controls.Add(tbPatronContact)
-        Controls.Add(tbSearch)
+        Controls.Add(Guna2TextBox6)
         Controls.Add(Label5)
-        Controls.Add(Panel2)
         Controls.Add(Guna2ComboBox1)
         Controls.Add(tbFirstName)
         Controls.Add(tbMiddlename)
@@ -591,14 +517,11 @@ Partial Class formManagePatron
         Controls.Add(dgvBooks)
         FormBorderStyle = FormBorderStyle.None
         Margin = New Padding(4, 3, 4, 3)
-        Name = "formManagePatron"
+        Name = "formIssueBook"
         StartPosition = FormStartPosition.CenterScreen
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
         CType(dgvBooks, ComponentModel.ISupportInitialize).EndInit()
-        Panel2.ResumeLayout(False)
-        Panel2.PerformLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -613,7 +536,6 @@ Partial Class formManagePatron
     Friend WithEvents tbGenre As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents tbLastName As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Label3 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Guna2DateTimePicker1 As Guna.UI2.WinForms.Guna2DateTimePicker
@@ -639,18 +561,13 @@ Partial Class formManagePatron
     Friend WithEvents tbMiddlename As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbFirstName As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2ComboBox1 As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents RadioButton1 As RadioButton
-    Friend WithEvents RadioButton2 As RadioButton
     Friend WithEvents tbContact As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbAddress As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents tbPubName As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Panel2 As Panel
     Friend WithEvents tbPubEmail As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbPubAddress As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents tbSearch As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Guna2TextBox6 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbPatronContact As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbSchoolId As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Label6 As Label
 End Class

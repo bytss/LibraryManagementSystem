@@ -3973,7 +3973,7 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAACAFiGV+n9r1PNR1Rw1YQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="btn_inbound.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnReturnBook.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
         JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH5QYTByIA5Ux95QAAONhJREFU
@@ -4222,7 +4222,7 @@
         rPzel8jfP1/G8MSqqu4/Ozu7q46NkBbyW7/1P5L5wapeSLn/AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btn_stockmaster.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnIssueBook.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
         JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH5QYTBx8yR3Nk2wAAEhxJREFU

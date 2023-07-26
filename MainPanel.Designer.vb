@@ -56,8 +56,8 @@ Partial Class MainPanel
         Label1 = New Label()
         main_picturebox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         TableLayoutPanel1 = New TableLayoutPanel()
-        btn_inbound = New Guna.UI2.WinForms.Guna2Button()
-        btn_stockmaster = New Guna.UI2.WinForms.Guna2Button()
+        btnReturnBook = New Guna.UI2.WinForms.Guna2Button()
+        btnIssueBook = New Guna.UI2.WinForms.Guna2Button()
         btnManageBooks = New Guna.UI2.WinForms.Guna2Button()
         btnManagePatron = New Guna.UI2.WinForms.Guna2Button()
         btn_Dashboard = New Guna.UI2.WinForms.Guna2Button()
@@ -202,11 +202,11 @@ Partial Class MainPanel
         ' 
         ' TableLayoutPanel1
         ' 
-        TableLayoutPanel1.BackColor = Color.FromArgb(CByte(245), CByte(245), CByte(243))
+        TableLayoutPanel1.BackColor = Color.Linen
         TableLayoutPanel1.ColumnCount = 1
         TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
-        TableLayoutPanel1.Controls.Add(btn_inbound, 0, 4)
-        TableLayoutPanel1.Controls.Add(btn_stockmaster, 0, 3)
+        TableLayoutPanel1.Controls.Add(btnReturnBook, 0, 4)
+        TableLayoutPanel1.Controls.Add(btnIssueBook, 0, 3)
         TableLayoutPanel1.Controls.Add(btnManageBooks, 0, 2)
         TableLayoutPanel1.Controls.Add(btnManagePatron, 0, 1)
         TableLayoutPanel1.Controls.Add(btn_Dashboard, 0, 0)
@@ -232,55 +232,55 @@ Partial Class MainPanel
         TableLayoutPanel1.Size = New Size(217, 698)
         TableLayoutPanel1.TabIndex = 2
         ' 
-        ' btn_inbound
+        ' btnReturnBook
         ' 
-        btn_inbound.Animated = True
-        btn_inbound.CustomizableEdges = CustomizableEdges9
-        btn_inbound.DisabledState.BorderColor = Color.DarkGray
-        btn_inbound.DisabledState.CustomBorderColor = Color.DarkGray
-        btn_inbound.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        btn_inbound.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btn_inbound.Dock = DockStyle.Fill
-        btn_inbound.FillColor = Color.Transparent
-        btn_inbound.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_inbound.ForeColor = Color.FromArgb(CByte(135), CByte(133), CByte(133))
-        btn_inbound.Image = CType(resources.GetObject("btn_inbound.Image"), Image)
-        btn_inbound.ImageAlign = HorizontalAlignment.Left
-        btn_inbound.ImageOffset = New Point(10, 0)
-        btn_inbound.Location = New Point(4, 255)
-        btn_inbound.Margin = New Padding(4, 3, 4, 3)
-        btn_inbound.Name = "btn_inbound"
-        btn_inbound.ShadowDecoration.CustomizableEdges = CustomizableEdges10
-        btn_inbound.Size = New Size(209, 57)
-        btn_inbound.TabIndex = 4
-        btn_inbound.Text = "Return Book"
-        btn_inbound.TextAlign = HorizontalAlignment.Left
-        btn_inbound.TextOffset = New Point(10, 0)
+        btnReturnBook.Animated = True
+        btnReturnBook.CustomizableEdges = CustomizableEdges9
+        btnReturnBook.DisabledState.BorderColor = Color.DarkGray
+        btnReturnBook.DisabledState.CustomBorderColor = Color.DarkGray
+        btnReturnBook.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnReturnBook.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnReturnBook.Dock = DockStyle.Fill
+        btnReturnBook.FillColor = Color.Transparent
+        btnReturnBook.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        btnReturnBook.ForeColor = Color.FromArgb(CByte(135), CByte(133), CByte(133))
+        btnReturnBook.Image = CType(resources.GetObject("btnReturnBook.Image"), Image)
+        btnReturnBook.ImageAlign = HorizontalAlignment.Left
+        btnReturnBook.ImageOffset = New Point(10, 0)
+        btnReturnBook.Location = New Point(4, 255)
+        btnReturnBook.Margin = New Padding(4, 3, 4, 3)
+        btnReturnBook.Name = "btnReturnBook"
+        btnReturnBook.ShadowDecoration.CustomizableEdges = CustomizableEdges10
+        btnReturnBook.Size = New Size(209, 57)
+        btnReturnBook.TabIndex = 4
+        btnReturnBook.Text = "Return Book"
+        btnReturnBook.TextAlign = HorizontalAlignment.Left
+        btnReturnBook.TextOffset = New Point(10, 0)
         ' 
-        ' btn_stockmaster
+        ' btnIssueBook
         ' 
-        btn_stockmaster.Animated = True
-        btn_stockmaster.CustomizableEdges = CustomizableEdges11
-        btn_stockmaster.DisabledState.BorderColor = Color.DarkGray
-        btn_stockmaster.DisabledState.CustomBorderColor = Color.DarkGray
-        btn_stockmaster.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        btn_stockmaster.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btn_stockmaster.Dock = DockStyle.Fill
-        btn_stockmaster.FillColor = Color.Transparent
-        btn_stockmaster.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_stockmaster.ForeColor = Color.FromArgb(CByte(135), CByte(133), CByte(133))
-        btn_stockmaster.Image = CType(resources.GetObject("btn_stockmaster.Image"), Image)
-        btn_stockmaster.ImageAlign = HorizontalAlignment.Left
-        btn_stockmaster.ImageOffset = New Point(10, 0)
-        btn_stockmaster.Location = New Point(4, 192)
-        btn_stockmaster.Margin = New Padding(4, 3, 4, 3)
-        btn_stockmaster.Name = "btn_stockmaster"
-        btn_stockmaster.ShadowDecoration.CustomizableEdges = CustomizableEdges12
-        btn_stockmaster.Size = New Size(209, 57)
-        btn_stockmaster.TabIndex = 3
-        btn_stockmaster.Text = "Issue Book"
-        btn_stockmaster.TextAlign = HorizontalAlignment.Left
-        btn_stockmaster.TextOffset = New Point(10, 0)
+        btnIssueBook.Animated = True
+        btnIssueBook.CustomizableEdges = CustomizableEdges11
+        btnIssueBook.DisabledState.BorderColor = Color.DarkGray
+        btnIssueBook.DisabledState.CustomBorderColor = Color.DarkGray
+        btnIssueBook.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnIssueBook.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnIssueBook.Dock = DockStyle.Fill
+        btnIssueBook.FillColor = Color.Transparent
+        btnIssueBook.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        btnIssueBook.ForeColor = Color.FromArgb(CByte(135), CByte(133), CByte(133))
+        btnIssueBook.Image = CType(resources.GetObject("btnIssueBook.Image"), Image)
+        btnIssueBook.ImageAlign = HorizontalAlignment.Left
+        btnIssueBook.ImageOffset = New Point(10, 0)
+        btnIssueBook.Location = New Point(4, 192)
+        btnIssueBook.Margin = New Padding(4, 3, 4, 3)
+        btnIssueBook.Name = "btnIssueBook"
+        btnIssueBook.ShadowDecoration.CustomizableEdges = CustomizableEdges12
+        btnIssueBook.Size = New Size(209, 57)
+        btnIssueBook.TabIndex = 3
+        btnIssueBook.Text = "Issue Book"
+        btnIssueBook.TextAlign = HorizontalAlignment.Left
+        btnIssueBook.TextOffset = New Point(10, 0)
         ' 
         ' btnManageBooks
         ' 
@@ -407,7 +407,7 @@ Partial Class MainPanel
         ' 
         ' Panel1
         ' 
-        Panel1.BackColor = Color.White
+        Panel1.BackColor = Color.MistyRose
         Panel1.Dock = DockStyle.Fill
         Panel1.Location = New Point(217, 65)
         Panel1.Margin = New Padding(4, 3, 4, 3)
@@ -444,8 +444,8 @@ Partial Class MainPanel
     Friend WithEvents Guna2CirclePictureBox2 As Guna.UI2.WinForms.Guna2CirclePictureBox
     Friend WithEvents btn_Dashboard As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btn_logout As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btn_inbound As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btn_stockmaster As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnReturnBook As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnIssueBook As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnManageBooks As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Guna2ControlBox1 As Guna.UI2.WinForms.Guna2ControlBox

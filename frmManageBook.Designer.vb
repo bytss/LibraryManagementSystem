@@ -860,7 +860,7 @@ Partial Class frmManageBook
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.White
+        BackColor = Color.MistyRose
         ClientSize = New Size(1074, 698)
         Controls.Add(tbPubAddress)
         Controls.Add(tbPubEmail)

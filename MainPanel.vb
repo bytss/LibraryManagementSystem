@@ -26,4 +26,13 @@
         End With
     End Sub
 
+    Private Sub btnIssueBook_Click(sender As Object, e As EventArgs) Handles btnIssueBook.Click
+        With formIssueBook
+            .TopLevel = False
+            Panel1.Controls.Add(formIssueBook)
+            .BringToFront()
+            .Show()
+        End With
+    End Sub
+
 End Class
