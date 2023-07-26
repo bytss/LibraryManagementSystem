@@ -114,6 +114,8 @@ Public Class formIssueBook
                 tbPatronName.Text = lastName & ", " & firstName & " " & middleName
                 tbEmail.Text = email
                 tbPatronContact.Text = contact
+                closeConnection()
+                loadHistory()
             Else
                 MsgBox("Sorry, the patron information could not be found", vbCritical)
                 clear()
@@ -122,24 +124,46 @@ Public Class formIssueBook
         Catch ex As Exception
             MsgBox("An error occured, " & ex.Message, vbCritical)
         End Try
-        conn.Close()
+        closeConnection()
     End Sub
 
+
+
     Private Sub loadHistory()
+        dgvIssueHistory.Rows.Clear()
+
         Try
-            conn.Open()
-            Dim query = "Select * from tbl_books where email=" & tbEmail.Text
+        conn.Open()
+            Dim query = "SELECT * FROM tbl_history WHERE patron = @PatronEmail"
             Dim cmd = New OleDbCommand(query, conn)
+            cmd.Parameters.AddWithValue("@PatronEmail", tbEmail.Text)
             Dim reader As OleDbDataReader = cmd.ExecuteReader
 
-            If reader.Read Then
+            Dim historyIndex As Integer = 0
+            While reader.Read
 
+                Dim isbn = reader("book_isbn")
+                Dim copies = reader("copies")
+                Dim isReturn = reader("date_returned")
 
-            End If
+                Dim queryBook = "SELECT * FROM tbl_books WHERE isbn = @BookIsbn"
+                Dim bookCmd = New OleDbCommand(queryBook, conn)
+                bookCmd.Parameters.AddWithValue("@BookIsbn", isbn)
 
+                Dim bookReader As OleDbDataReader = bookCmd.ExecuteReader
 
+                If bookReader.Read Then
+                    historyIndex += 1
+                    Dim bookName = bookReader("title")
+                    Dim description = bookReader("description")
+
+                    dgvIssueHistory.Rows.Add(historyIndex, bookName, description, copies, isReturn)
+                End If
+                bookReader.Close()
+            End While
+            reader.Close()
         Catch ex As Exception
-
+            MsgBox("An error " & ex.Message)
         End Try
     End Sub
 
@@ -157,6 +181,8 @@ Public Class formIssueBook
     Private Sub btnIssue_Click(sender As Object, e As EventArgs) Handles btnIssue.Click
         If isNullOrEmpty(tbIssueCopies.Text) Then
             MsgBox("Copies must not empty!", vbCritical)
+        ElseIf CInt(tbIssueCopies.Text) > 3 Then
+            MsgBox("An error occured, the total book copies exceed", vbCritical)
         Else
             ' To get the current date only
             Dim currentDate As Date = Date.Today
@@ -195,6 +221,8 @@ Public Class formIssueBook
 
                     If cmd.ExecuteNonQuery > 0 Then
                         MsgBox("Successfully Added!", vbInformation)
+                        closeConnection()
+                        loadHistory()
                     Else
                         MsgBox("Could not add", vbCritical)
                     End If

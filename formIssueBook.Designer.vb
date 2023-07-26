@@ -73,22 +73,21 @@ Partial Class formIssueBook
         tbDescription = New Guna.UI2.WinForms.Guna2TextBox()
         tbCopies = New Guna.UI2.WinForms.Guna2TextBox()
         btnIssue = New Guna.UI2.WinForms.Guna2Button()
-        Guna2DataGridView1 = New Guna.UI2.WinForms.Guna2DataGridView()
-        col1 = New DataGridViewTextBoxColumn()
-        col2 = New DataGridViewTextBoxColumn()
-        col3 = New DataGridViewTextBoxColumn()
-        col4 = New DataGridViewTextBoxColumn()
-        col5 = New DataGridViewTextBoxColumn()
-        col6 = New DataGridViewTextBoxColumn()
+        dgvIssueHistory = New Guna.UI2.WinForms.Guna2DataGridView()
         Label2 = New Label()
         labelCategory = New Label()
         tbPatronContact = New Guna.UI2.WinForms.Guna2TextBox()
         tbIssueBookName = New Guna.UI2.WinForms.Guna2TextBox()
         tbIssueCopies = New Guna.UI2.WinForms.Guna2TextBox()
         tbIssueDepartment = New Guna.UI2.WinForms.Guna2TextBox()
+        col1 = New DataGridViewTextBoxColumn()
+        col2 = New DataGridViewTextBoxColumn()
+        col3 = New DataGridViewTextBoxColumn()
+        col5 = New DataGridViewTextBoxColumn()
+        col6 = New DataGridViewTextBoxColumn()
         Panel1.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
-        CType(Guna2DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(dgvIssueHistory, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel1
@@ -370,10 +369,10 @@ Partial Class formIssueBook
         btnIssue.TabIndex = 79
         btnIssue.Text = "ISSUE"
         ' 
-        ' Guna2DataGridView1
+        ' dgvIssueHistory
         ' 
         DataGridViewCellStyle1.BackColor = Color.White
-        Guna2DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        dgvIssueHistory.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = Color.Maroon
         DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
@@ -381,10 +380,10 @@ Partial Class formIssueBook
         DataGridViewCellStyle2.SelectionBackColor = Color.DarkRed
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
-        Guna2DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Guna2DataGridView1.ColumnHeadersHeight = 35
-        Guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        Guna2DataGridView1.Columns.AddRange(New DataGridViewColumn() {col1, col2, col3, col4, col5, col6})
+        dgvIssueHistory.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        dgvIssueHistory.ColumnHeadersHeight = 35
+        dgvIssueHistory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        dgvIssueHistory.Columns.AddRange(New DataGridViewColumn() {col1, col2, col3, col5, col6})
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
         DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
@@ -392,10 +391,10 @@ Partial Class formIssueBook
         DataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         DataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
         DataGridViewCellStyle3.WrapMode = DataGridViewTriState.False
-        Guna2DataGridView1.DefaultCellStyle = DataGridViewCellStyle3
-        Guna2DataGridView1.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        Guna2DataGridView1.Location = New Point(243, 355)
-        Guna2DataGridView1.Name = "Guna2DataGridView1"
+        dgvIssueHistory.DefaultCellStyle = DataGridViewCellStyle3
+        dgvIssueHistory.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvIssueHistory.Location = New Point(243, 355)
+        dgvIssueHistory.Name = "dgvIssueHistory"
         DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = SystemColors.Control
         DataGridViewCellStyle4.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
@@ -403,62 +402,32 @@ Partial Class formIssueBook
         DataGridViewCellStyle4.SelectionBackColor = Color.Firebrick
         DataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
-        Guna2DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
-        Guna2DataGridView1.RowHeadersVisible = False
-        Guna2DataGridView1.RowTemplate.Height = 25
-        Guna2DataGridView1.Size = New Size(792, 173)
-        Guna2DataGridView1.TabIndex = 80
-        Guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
-        Guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = Nothing
-        Guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty
-        Guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty
-        Guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty
-        Guna2DataGridView1.ThemeStyle.BackColor = Color.White
-        Guna2DataGridView1.ThemeStyle.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        Guna2DataGridView1.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
-        Guna2DataGridView1.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
-        Guna2DataGridView1.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Guna2DataGridView1.ThemeStyle.HeaderStyle.ForeColor = Color.White
-        Guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        Guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 35
-        Guna2DataGridView1.ThemeStyle.ReadOnly = False
-        Guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = Color.White
-        Guna2DataGridView1.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
-        Guna2DataGridView1.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Guna2DataGridView1.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
-        Guna2DataGridView1.ThemeStyle.RowsStyle.Height = 25
-        Guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        Guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
-        ' 
-        ' col1
-        ' 
-        col1.HeaderText = "#"
-        col1.Name = "col1"
-        ' 
-        ' col2
-        ' 
-        col2.HeaderText = "Name"
-        col2.Name = "col2"
-        ' 
-        ' col3
-        ' 
-        col3.HeaderText = "Description"
-        col3.Name = "col3"
-        ' 
-        ' col4
-        ' 
-        col4.HeaderText = "Author"
-        col4.Name = "col4"
-        ' 
-        ' col5
-        ' 
-        col5.HeaderText = "Copies"
-        col5.Name = "col5"
-        ' 
-        ' col6
-        ' 
-        col6.HeaderText = "Returned"
-        col6.Name = "col6"
+        dgvIssueHistory.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        dgvIssueHistory.RowHeadersVisible = False
+        dgvIssueHistory.RowTemplate.Height = 25
+        dgvIssueHistory.Size = New Size(792, 173)
+        dgvIssueHistory.TabIndex = 80
+        dgvIssueHistory.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
+        dgvIssueHistory.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        dgvIssueHistory.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty
+        dgvIssueHistory.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty
+        dgvIssueHistory.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty
+        dgvIssueHistory.ThemeStyle.BackColor = Color.White
+        dgvIssueHistory.ThemeStyle.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvIssueHistory.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        dgvIssueHistory.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
+        dgvIssueHistory.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        dgvIssueHistory.ThemeStyle.HeaderStyle.ForeColor = Color.White
+        dgvIssueHistory.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        dgvIssueHistory.ThemeStyle.HeaderStyle.Height = 35
+        dgvIssueHistory.ThemeStyle.ReadOnly = False
+        dgvIssueHistory.ThemeStyle.RowsStyle.BackColor = Color.White
+        dgvIssueHistory.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
+        dgvIssueHistory.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        dgvIssueHistory.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        dgvIssueHistory.ThemeStyle.RowsStyle.Height = 25
+        dgvIssueHistory.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvIssueHistory.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
         ' 
         ' Label2
         ' 
@@ -581,6 +550,31 @@ Partial Class formIssueBook
         tbIssueDepartment.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbIssueDepartment.TabIndex = 85
         ' 
+        ' col1
+        ' 
+        col1.HeaderText = "#"
+        col1.Name = "col1"
+        ' 
+        ' col2
+        ' 
+        col2.HeaderText = "Name"
+        col2.Name = "col2"
+        ' 
+        ' col3
+        ' 
+        col3.HeaderText = "Description"
+        col3.Name = "col3"
+        ' 
+        ' col5
+        ' 
+        col5.HeaderText = "Copies"
+        col5.Name = "col5"
+        ' 
+        ' col6
+        ' 
+        col6.HeaderText = "Returned"
+        col6.Name = "col6"
+        ' 
         ' formIssueBook
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -593,7 +587,7 @@ Partial Class formIssueBook
         Controls.Add(tbPatronContact)
         Controls.Add(labelCategory)
         Controls.Add(Label2)
-        Controls.Add(Guna2DataGridView1)
+        Controls.Add(dgvIssueHistory)
         Controls.Add(btnIssue)
         Controls.Add(tbDescription)
         Controls.Add(tbAuthor)
@@ -613,7 +607,7 @@ Partial Class formIssueBook
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
-        CType(Guna2DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        CType(dgvIssueHistory, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -653,17 +647,16 @@ Partial Class formIssueBook
     Friend WithEvents tbAuthor As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbDescription As Guna.UI2.WinForms.Guna2TextBox
 
-    Friend WithEvents Guna2DataGridView1 As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents dgvIssueHistory As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents Label2 As Label
-    Friend WithEvents col1 As DataGridViewTextBoxColumn
-    Friend WithEvents col2 As DataGridViewTextBoxColumn
-    Friend WithEvents col3 As DataGridViewTextBoxColumn
-    Friend WithEvents col4 As DataGridViewTextBoxColumn
-    Friend WithEvents col5 As DataGridViewTextBoxColumn
-    Friend WithEvents col6 As DataGridViewTextBoxColumn
     Friend WithEvents labelCategory As Label
     Friend WithEvents tbPatronContact As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbIssueBookName As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbIssueCopies As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbIssueDepartment As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents col1 As DataGridViewTextBoxColumn
+    Friend WithEvents col2 As DataGridViewTextBoxColumn
+    Friend WithEvents col3 As DataGridViewTextBoxColumn
+    Friend WithEvents col5 As DataGridViewTextBoxColumn
+    Friend WithEvents col6 As DataGridViewTextBoxColumn
 End Class
