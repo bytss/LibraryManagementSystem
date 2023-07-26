@@ -1,4 +1,14 @@
 ﻿Public Class MainPanel
+
+    Private Sub MainPanel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        With formHomePanel
+            .TopLevel = False
+            Panel1.Controls.Add(formHomePanel)
+            .BringToFront()
+            .Show()
+        End With
+    End Sub
+
     Private Sub btn_Dashboard_Click(sender As Object, e As EventArgs) Handles btn_Dashboard.Click
         With formHomePanel
             .TopLevel = False
@@ -52,4 +62,6 @@
             .Show()
         End With
     End Sub
+
+
 End Class
