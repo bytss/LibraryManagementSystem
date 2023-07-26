@@ -133,7 +133,7 @@ Public Class formIssueBook
         dgvIssueHistory.Rows.Clear()
 
         Try
-        conn.Open()
+            conn.Open()
             Dim query = "SELECT * FROM tbl_history WHERE patron = @PatronEmail"
             Dim cmd = New OleDbCommand(query, conn)
             cmd.Parameters.AddWithValue("@PatronEmail", tbEmail.Text)

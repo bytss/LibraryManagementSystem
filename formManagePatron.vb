@@ -50,6 +50,7 @@ Public Class formManagePatron
                             VALUES(@LastName, @FirstName, @MiddleName, @Category, @Address, @Email, @Contact, @IsVerified, @PatronId)"
 
             Dim cmd = New OleDbCommand(query, conn)
+
             With cmd
                 .Parameters.Clear()
                 .Parameters.AddWithValue("@LastName", tbLastName.Text)
@@ -65,6 +66,8 @@ Public Class formManagePatron
 
             If cmd.ExecuteNonQuery > 0 Then
                 MsgBox("Successfully Save!", vbInformation)
+                closeConnection()
+                loadPatrons()
             Else
                 MsgBox("Failed to Save!", vbCritical)
             End If
@@ -91,7 +94,39 @@ Public Class formManagePatron
         End If
     End Sub
 
-    Private Sub dgvPatronList_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvPatronList.CellContentClick
+    Private Sub tbSearch_TextChanged(sender As Object, e As EventArgs) Handles tbSearch.TextChanged
+        If Not isNullOrEmpty(tbSearch.Text) Then
+            Try
+                dgvPatronList.Rows.Clear()
+                conn.Open()
+                Dim query = "SELECT * FROM tbl_patrons " &
+                              "WHERE last_name LIKE '%' + @SearchTerm + '%' OR " &
+                              "first_name LIKE '%' + @SearchTerm + '%' OR " &
+                              "middle_name LIKE '%' + @SearchTerm + '%'"
+
+                Dim cmd = New OleDbCommand(query, conn)
+                cmd.Parameters.AddWithValue("@SearchTerm", tbSearch.Text)
+                Dim reader As OleDbDataReader = cmd.ExecuteReader
+
+                While reader.Read
+                    Dim patronId = reader("patron_id")
+                    Dim lastName = reader("last_name")
+                    Dim firstName = reader("first_name")
+                    Dim middleName = reader("middle_name")
+                    Dim fullName = lastName & ", " & firstName & " " & middleName
+                    Dim category = reader("category")
+                    Dim isVerified = reader("is_verified")
+
+                    dgvPatronList.Rows.Add(patronId, fullName, category, isVerified)
+                End While
+
+            Catch ex As Exception
+
+            End Try
+            closeConnection()
+        Else
+            loadPatrons()
+        End If
 
     End Sub
 End Class

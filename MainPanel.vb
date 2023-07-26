@@ -1,4 +1,6 @@
-﻿Public Class MainPanel
+﻿Imports System.Windows
+
+Public Class MainPanel
 
     Private Sub MainPanel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         With formHomePanel
@@ -7,6 +9,8 @@
             .BringToFront()
             .Show()
         End With
+
+        formLogin.loadpic()
     End Sub
 
     Private Sub btn_Dashboard_Click(sender As Object, e As EventArgs) Handles btn_Dashboard.Click
@@ -61,6 +65,12 @@
             .BringToFront()
             .Show()
         End With
+    End Sub
+
+    Private Sub btn_logout_Click(sender As Object, e As EventArgs) Handles btn_logout.Click
+        Me.Dispose()
+        formLogin.reset()
+        formLogin.Show()
     End Sub
 
 

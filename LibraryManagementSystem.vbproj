@@ -61,6 +61,7 @@
   <ItemGroup>
     <Folder Include="backup\" />
     <Folder Include="My Project\NewFolder\" />
+    <Folder Include="utils\" />
   </ItemGroup>
 
 </Project>

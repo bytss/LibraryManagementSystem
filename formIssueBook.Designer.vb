@@ -49,6 +49,7 @@ Partial Class formIssueBook
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges25 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -74,17 +75,17 @@ Partial Class formIssueBook
         tbCopies = New Guna.UI2.WinForms.Guna2TextBox()
         btnIssue = New Guna.UI2.WinForms.Guna2Button()
         dgvIssueHistory = New Guna.UI2.WinForms.Guna2DataGridView()
+        col1 = New DataGridViewTextBoxColumn()
+        col2 = New DataGridViewTextBoxColumn()
+        col3 = New DataGridViewTextBoxColumn()
+        col5 = New DataGridViewTextBoxColumn()
+        col6 = New DataGridViewTextBoxColumn()
         Label2 = New Label()
         labelCategory = New Label()
         tbPatronContact = New Guna.UI2.WinForms.Guna2TextBox()
         tbIssueBookName = New Guna.UI2.WinForms.Guna2TextBox()
         tbIssueCopies = New Guna.UI2.WinForms.Guna2TextBox()
         tbIssueDepartment = New Guna.UI2.WinForms.Guna2TextBox()
-        col1 = New DataGridViewTextBoxColumn()
-        col2 = New DataGridViewTextBoxColumn()
-        col3 = New DataGridViewTextBoxColumn()
-        col5 = New DataGridViewTextBoxColumn()
-        col6 = New DataGridViewTextBoxColumn()
         Panel1.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(dgvIssueHistory, ComponentModel.ISupportInitialize).BeginInit()
@@ -373,9 +374,10 @@ Partial Class formIssueBook
         ' 
         DataGridViewCellStyle1.BackColor = Color.White
         dgvIssueHistory.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        dgvIssueHistory.BorderStyle = BorderStyle.FixedSingle
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = Color.Maroon
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle2.Font = New Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point)
         DataGridViewCellStyle2.ForeColor = Color.White
         DataGridViewCellStyle2.SelectionBackColor = Color.DarkRed
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
@@ -404,6 +406,12 @@ Partial Class formIssueBook
         DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
         dgvIssueHistory.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
         dgvIssueHistory.RowHeadersVisible = False
+        DataGridViewCellStyle5.BackColor = Color.White
+        DataGridViewCellStyle5.Font = New Font("Poppins", 8.25F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle5.ForeColor = Color.IndianRed
+        DataGridViewCellStyle5.SelectionBackColor = Color.IndianRed
+        DataGridViewCellStyle5.SelectionForeColor = Color.White
+        dgvIssueHistory.RowsDefaultCellStyle = DataGridViewCellStyle5
         dgvIssueHistory.RowTemplate.Height = 25
         dgvIssueHistory.Size = New Size(792, 173)
         dgvIssueHistory.TabIndex = 80
@@ -428,6 +436,31 @@ Partial Class formIssueBook
         dgvIssueHistory.ThemeStyle.RowsStyle.Height = 25
         dgvIssueHistory.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvIssueHistory.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        ' 
+        ' col1
+        ' 
+        col1.HeaderText = "#"
+        col1.Name = "col1"
+        ' 
+        ' col2
+        ' 
+        col2.HeaderText = "Name"
+        col2.Name = "col2"
+        ' 
+        ' col3
+        ' 
+        col3.HeaderText = "Description"
+        col3.Name = "col3"
+        ' 
+        ' col5
+        ' 
+        col5.HeaderText = "Copies"
+        col5.Name = "col5"
+        ' 
+        ' col6
+        ' 
+        col6.HeaderText = "Returned"
+        col6.Name = "col6"
         ' 
         ' Label2
         ' 
@@ -549,31 +582,6 @@ Partial Class formIssueBook
         tbIssueDepartment.Size = New Size(237, 42)
         tbIssueDepartment.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbIssueDepartment.TabIndex = 85
-        ' 
-        ' col1
-        ' 
-        col1.HeaderText = "#"
-        col1.Name = "col1"
-        ' 
-        ' col2
-        ' 
-        col2.HeaderText = "Name"
-        col2.Name = "col2"
-        ' 
-        ' col3
-        ' 
-        col3.HeaderText = "Description"
-        col3.Name = "col3"
-        ' 
-        ' col5
-        ' 
-        col5.HeaderText = "Copies"
-        col5.Name = "col5"
-        ' 
-        ' col6
-        ' 
-        col6.HeaderText = "Returned"
-        col6.Name = "col6"
         ' 
         ' formIssueBook
         ' 

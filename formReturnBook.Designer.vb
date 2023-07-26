@@ -138,7 +138,7 @@ Partial Class formReturnBook
         dgvIssuedHistory.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = Color.Maroon
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle2.Font = New Font("Poppins", 8.25F, FontStyle.Regular, GraphicsUnit.Point)
         DataGridViewCellStyle2.ForeColor = Color.White
         DataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(CByte(64), CByte(0), CByte(0))
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
@@ -159,6 +159,9 @@ Partial Class formReturnBook
         dgvIssuedHistory.Name = "dgvIssuedHistory"
         dgvIssuedHistory.RowHeadersVisible = False
         dgvIssuedHistory.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DataGridViewCellStyle4.BackColor = Color.White
+        DataGridViewCellStyle4.Font = New Font("Poppins", 8.25F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle4.ForeColor = Color.IndianRed
         DataGridViewCellStyle4.SelectionBackColor = Color.IndianRed
         DataGridViewCellStyle4.SelectionForeColor = Color.White
         dgvIssuedHistory.RowsDefaultCellStyle = DataGridViewCellStyle4

@@ -483,7 +483,7 @@ Partial Class formManagePatron
         dgvPatronList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = Color.Maroon
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle2.Font = New Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point)
         DataGridViewCellStyle2.ForeColor = Color.White
         DataGridViewCellStyle2.SelectionBackColor = Color.DarkRed
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
@@ -505,6 +505,7 @@ Partial Class formManagePatron
         dgvPatronList.RowHeadersVisible = False
         dgvPatronList.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
         DataGridViewCellStyle4.BackColor = Color.White
+        DataGridViewCellStyle4.Font = New Font("Poppins", 8.25F, FontStyle.Regular, GraphicsUnit.Point)
         DataGridViewCellStyle4.ForeColor = Color.IndianRed
         DataGridViewCellStyle4.SelectionBackColor = Color.IndianRed
         DataGridViewCellStyle4.SelectionForeColor = Color.White

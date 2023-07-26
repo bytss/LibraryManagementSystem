@@ -54,7 +54,7 @@ Partial Class MainPanel
         Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
         Guna2CirclePictureBox2 = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Label1 = New Label()
-        main_picturebox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
+        mainProfilePhoto = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         TableLayoutPanel1 = New TableLayoutPanel()
         btnReturnBook = New Guna.UI2.WinForms.Guna2Button()
         btnIssueBook = New Guna.UI2.WinForms.Guna2Button()
@@ -66,7 +66,7 @@ Partial Class MainPanel
         Panel1 = New Panel()
         Guna2Panel1.SuspendLayout()
         CType(Guna2CirclePictureBox2, ComponentModel.ISupportInitialize).BeginInit()
-        CType(main_picturebox, ComponentModel.ISupportInitialize).BeginInit()
+        CType(mainProfilePhoto, ComponentModel.ISupportInitialize).BeginInit()
         TableLayoutPanel1.SuspendLayout()
         SuspendLayout()
         ' 
@@ -85,7 +85,7 @@ Partial Class MainPanel
         Guna2Panel1.Controls.Add(Guna2ControlBox1)
         Guna2Panel1.Controls.Add(Guna2CirclePictureBox2)
         Guna2Panel1.Controls.Add(Label1)
-        Guna2Panel1.Controls.Add(main_picturebox)
+        Guna2Panel1.Controls.Add(mainProfilePhoto)
         Guna2Panel1.CustomizableEdges = CustomizableEdges7
         Guna2Panel1.Dock = DockStyle.Top
         Guna2Panel1.Location = New Point(0, 0)
@@ -184,21 +184,21 @@ Partial Class MainPanel
         Label1.TabIndex = 4
         Label1.Text = "Library Management System"
         ' 
-        ' main_picturebox
+        ' mainProfilePhoto
         ' 
-        main_picturebox.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        main_picturebox.BackColor = Color.Transparent
-        main_picturebox.ImageRotate = 0F
-        main_picturebox.Location = New Point(1018, 8)
-        main_picturebox.Margin = New Padding(4, 3, 4, 3)
-        main_picturebox.Name = "main_picturebox"
-        main_picturebox.ShadowDecoration.CustomizableEdges = CustomizableEdges6
-        main_picturebox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
-        main_picturebox.Size = New Size(51, 47)
-        main_picturebox.SizeMode = PictureBoxSizeMode.StretchImage
-        main_picturebox.TabIndex = 3
-        main_picturebox.TabStop = False
-        main_picturebox.UseTransparentBackground = True
+        mainProfilePhoto.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        mainProfilePhoto.BackColor = Color.Transparent
+        mainProfilePhoto.ImageRotate = 0F
+        mainProfilePhoto.Location = New Point(1018, 8)
+        mainProfilePhoto.Margin = New Padding(4, 3, 4, 3)
+        mainProfilePhoto.Name = "mainProfilePhoto"
+        mainProfilePhoto.ShadowDecoration.CustomizableEdges = CustomizableEdges6
+        mainProfilePhoto.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
+        mainProfilePhoto.Size = New Size(51, 47)
+        mainProfilePhoto.SizeMode = PictureBoxSizeMode.StretchImage
+        mainProfilePhoto.TabIndex = 3
+        mainProfilePhoto.TabStop = False
+        mainProfilePhoto.UseTransparentBackground = True
         ' 
         ' TableLayoutPanel1
         ' 
@@ -242,7 +242,7 @@ Partial Class MainPanel
         btnReturnBook.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btnReturnBook.Dock = DockStyle.Fill
         btnReturnBook.FillColor = Color.Transparent
-        btnReturnBook.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        btnReturnBook.Font = New Font("Poppins", 9.2F, FontStyle.Bold, GraphicsUnit.Point)
         btnReturnBook.ForeColor = Color.FromArgb(CByte(135), CByte(133), CByte(133))
         btnReturnBook.Image = CType(resources.GetObject("btnReturnBook.Image"), Image)
         btnReturnBook.ImageAlign = HorizontalAlignment.Left
@@ -267,7 +267,7 @@ Partial Class MainPanel
         btnIssueBook.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btnIssueBook.Dock = DockStyle.Fill
         btnIssueBook.FillColor = Color.Transparent
-        btnIssueBook.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        btnIssueBook.Font = New Font("Poppins", 9.2F, FontStyle.Bold, GraphicsUnit.Point)
         btnIssueBook.ForeColor = Color.FromArgb(CByte(135), CByte(133), CByte(133))
         btnIssueBook.Image = CType(resources.GetObject("btnIssueBook.Image"), Image)
         btnIssueBook.ImageAlign = HorizontalAlignment.Left
@@ -292,7 +292,7 @@ Partial Class MainPanel
         btnManageBooks.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btnManageBooks.Dock = DockStyle.Fill
         btnManageBooks.FillColor = Color.Transparent
-        btnManageBooks.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        btnManageBooks.Font = New Font("Poppins", 9.2F, FontStyle.Bold, GraphicsUnit.Point)
         btnManageBooks.ForeColor = Color.FromArgb(CByte(135), CByte(133), CByte(133))
         btnManageBooks.Image = CType(resources.GetObject("btnManageBooks.Image"), Image)
         btnManageBooks.ImageAlign = HorizontalAlignment.Left
@@ -317,7 +317,7 @@ Partial Class MainPanel
         btnManagePatron.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btnManagePatron.Dock = DockStyle.Fill
         btnManagePatron.FillColor = Color.Transparent
-        btnManagePatron.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        btnManagePatron.Font = New Font("Poppins", 9.2F, FontStyle.Bold, GraphicsUnit.Point)
         btnManagePatron.ForeColor = Color.FromArgb(CByte(135), CByte(133), CByte(133))
         btnManagePatron.Image = CType(resources.GetObject("btnManagePatron.Image"), Image)
         btnManagePatron.ImageAlign = HorizontalAlignment.Left
@@ -342,7 +342,7 @@ Partial Class MainPanel
         btn_Dashboard.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btn_Dashboard.Dock = DockStyle.Fill
         btn_Dashboard.FillColor = Color.Transparent
-        btn_Dashboard.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_Dashboard.Font = New Font("Poppins", 9.2F, FontStyle.Bold, GraphicsUnit.Point)
         btn_Dashboard.ForeColor = Color.FromArgb(CByte(135), CByte(133), CByte(133))
         btn_Dashboard.ImageAlign = HorizontalAlignment.Left
         btn_Dashboard.ImageOffset = New Point(10, 0)
@@ -366,7 +366,7 @@ Partial Class MainPanel
         btn_logout.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btn_logout.Dock = DockStyle.Fill
         btn_logout.FillColor = Color.Transparent
-        btn_logout.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_logout.Font = New Font("Poppins", 9.2F, FontStyle.Bold, GraphicsUnit.Point)
         btn_logout.ForeColor = Color.FromArgb(CByte(135), CByte(133), CByte(133))
         btn_logout.Image = CType(resources.GetObject("btn_logout.Image"), Image)
         btn_logout.ImageAlign = HorizontalAlignment.Left
@@ -390,7 +390,7 @@ Partial Class MainPanel
         btn_manageuser.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btn_manageuser.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btn_manageuser.FillColor = Color.Transparent
-        btn_manageuser.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_manageuser.Font = New Font("Poppins", 9.2F, FontStyle.Bold, GraphicsUnit.Point)
         btn_manageuser.ForeColor = Color.FromArgb(CByte(135), CByte(133), CByte(133))
         btn_manageuser.Image = CType(resources.GetObject("btn_manageuser.Image"), Image)
         btn_manageuser.ImageAlign = HorizontalAlignment.Left
@@ -432,12 +432,12 @@ Partial Class MainPanel
         Guna2Panel1.ResumeLayout(False)
         Guna2Panel1.PerformLayout()
         CType(Guna2CirclePictureBox2, ComponentModel.ISupportInitialize).EndInit()
-        CType(main_picturebox, ComponentModel.ISupportInitialize).EndInit()
+        CType(mainProfilePhoto, ComponentModel.ISupportInitialize).EndInit()
         TableLayoutPanel1.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
     Friend WithEvents Guna2DragControl1 As Guna.UI2.WinForms.Guna2DragControl
-    Friend WithEvents main_picturebox As Guna.UI2.WinForms.Guna2CirclePictureBox
+    Friend WithEvents mainProfilePhoto As Guna.UI2.WinForms.Guna2CirclePictureBox
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Label1 As Label

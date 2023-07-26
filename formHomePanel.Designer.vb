@@ -29,16 +29,16 @@ Partial Class formHomePanel
         Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Label8 = New Label()
         Label6 = New Label()
-        lbl_todayinbound = New Label()
+        lblTotalPatrons = New Label()
         Label5 = New Label()
         Timer1 = New Timer(components)
         Panel4 = New Panel()
-        lbl_totalusers = New Label()
+        lblTotalUsers = New Label()
         Label3 = New Label()
         Panel3 = New Panel()
-        lbl_totalProduct = New Label()
+        lblTotalIssuedBook = New Label()
         Label2 = New Label()
-        lbl_totalcustomer = New Label()
+        lblTotalBooks = New Label()
         Label1 = New Label()
         Panel1 = New Panel()
         Panel2 = New Panel()
@@ -49,7 +49,6 @@ Partial Class formHomePanel
         Column1 = New DataGridViewTextBoxColumn()
         Column2 = New DataGridViewTextBoxColumn()
         Column3 = New DataGridViewTextBoxColumn()
-        Column4 = New DataGridViewTextBoxColumn()
         Column5 = New DataGridViewTextBoxColumn()
         Panel4.SuspendLayout()
         Panel3.SuspendLayout()
@@ -83,17 +82,17 @@ Partial Class formHomePanel
         Label6.TabIndex = 44
         Label6.Text = "History"
         ' 
-        ' lbl_todayinbound
+        ' lblTotalPatrons
         ' 
-        lbl_todayinbound.AutoSize = True
-        lbl_todayinbound.Font = New Font("Poppins", 24F, FontStyle.Regular, GraphicsUnit.Point)
-        lbl_todayinbound.ForeColor = Color.White
-        lbl_todayinbound.Location = New Point(23, 48)
-        lbl_todayinbound.Margin = New Padding(4, 0, 4, 0)
-        lbl_todayinbound.Name = "lbl_todayinbound"
-        lbl_todayinbound.Size = New Size(64, 56)
-        lbl_todayinbound.TabIndex = 6
-        lbl_todayinbound.Text = "00"
+        lblTotalPatrons.AutoSize = True
+        lblTotalPatrons.Font = New Font("Poppins", 24F, FontStyle.Regular, GraphicsUnit.Point)
+        lblTotalPatrons.ForeColor = Color.White
+        lblTotalPatrons.Location = New Point(23, 48)
+        lblTotalPatrons.Margin = New Padding(4, 0, 4, 0)
+        lblTotalPatrons.Name = "lblTotalPatrons"
+        lblTotalPatrons.Size = New Size(64, 56)
+        lblTotalPatrons.TabIndex = 6
+        lblTotalPatrons.Text = "00"
         ' 
         ' Label5
         ' 
@@ -109,8 +108,8 @@ Partial Class formHomePanel
         ' 
         ' Panel4
         ' 
-        Panel4.BackColor = Color.DarkViolet
-        Panel4.Controls.Add(lbl_todayinbound)
+        Panel4.BackColor = Color.Crimson
+        Panel4.Controls.Add(lblTotalPatrons)
         Panel4.Controls.Add(Label5)
         Panel4.Location = New Point(793, 68)
         Panel4.Margin = New Padding(4, 3, 4, 3)
@@ -118,17 +117,17 @@ Partial Class formHomePanel
         Panel4.Size = New Size(233, 115)
         Panel4.TabIndex = 45
         ' 
-        ' lbl_totalusers
+        ' lblTotalUsers
         ' 
-        lbl_totalusers.AutoSize = True
-        lbl_totalusers.Font = New Font("Poppins", 24F, FontStyle.Regular, GraphicsUnit.Point)
-        lbl_totalusers.ForeColor = Color.White
-        lbl_totalusers.Location = New Point(23, 48)
-        lbl_totalusers.Margin = New Padding(4, 0, 4, 0)
-        lbl_totalusers.Name = "lbl_totalusers"
-        lbl_totalusers.Size = New Size(64, 56)
-        lbl_totalusers.TabIndex = 6
-        lbl_totalusers.Text = "00"
+        lblTotalUsers.AutoSize = True
+        lblTotalUsers.Font = New Font("Poppins", 24F, FontStyle.Regular, GraphicsUnit.Point)
+        lblTotalUsers.ForeColor = Color.White
+        lblTotalUsers.Location = New Point(23, 48)
+        lblTotalUsers.Margin = New Padding(4, 0, 4, 0)
+        lblTotalUsers.Name = "lblTotalUsers"
+        lblTotalUsers.Size = New Size(64, 56)
+        lblTotalUsers.TabIndex = 6
+        lblTotalUsers.Text = "00"
         ' 
         ' Label3
         ' 
@@ -145,7 +144,7 @@ Partial Class formHomePanel
         ' Panel3
         ' 
         Panel3.BackColor = Color.Maroon
-        Panel3.Controls.Add(lbl_totalusers)
+        Panel3.Controls.Add(lblTotalUsers)
         Panel3.Controls.Add(Label3)
         Panel3.Location = New Point(537, 68)
         Panel3.Margin = New Padding(4, 3, 4, 3)
@@ -153,17 +152,17 @@ Partial Class formHomePanel
         Panel3.Size = New Size(233, 115)
         Panel3.TabIndex = 42
         ' 
-        ' lbl_totalProduct
+        ' lblTotalIssuedBook
         ' 
-        lbl_totalProduct.AutoSize = True
-        lbl_totalProduct.Font = New Font("Poppins", 24F, FontStyle.Regular, GraphicsUnit.Point)
-        lbl_totalProduct.ForeColor = Color.White
-        lbl_totalProduct.Location = New Point(17, 48)
-        lbl_totalProduct.Margin = New Padding(4, 0, 4, 0)
-        lbl_totalProduct.Name = "lbl_totalProduct"
-        lbl_totalProduct.Size = New Size(64, 56)
-        lbl_totalProduct.TabIndex = 5
-        lbl_totalProduct.Text = "00"
+        lblTotalIssuedBook.AutoSize = True
+        lblTotalIssuedBook.Font = New Font("Poppins", 24F, FontStyle.Regular, GraphicsUnit.Point)
+        lblTotalIssuedBook.ForeColor = Color.White
+        lblTotalIssuedBook.Location = New Point(17, 48)
+        lblTotalIssuedBook.Margin = New Padding(4, 0, 4, 0)
+        lblTotalIssuedBook.Name = "lblTotalIssuedBook"
+        lblTotalIssuedBook.Size = New Size(64, 56)
+        lblTotalIssuedBook.TabIndex = 5
+        lblTotalIssuedBook.Text = "00"
         ' 
         ' Label2
         ' 
@@ -177,17 +176,17 @@ Partial Class formHomePanel
         Label2.TabIndex = 4
         Label2.Text = "Total Issued Book"
         ' 
-        ' lbl_totalcustomer
+        ' lblTotalBooks
         ' 
-        lbl_totalcustomer.AutoSize = True
-        lbl_totalcustomer.Font = New Font("Poppins", 24F, FontStyle.Regular, GraphicsUnit.Point)
-        lbl_totalcustomer.ForeColor = Color.White
-        lbl_totalcustomer.Location = New Point(9, 48)
-        lbl_totalcustomer.Margin = New Padding(4, 0, 4, 0)
-        lbl_totalcustomer.Name = "lbl_totalcustomer"
-        lbl_totalcustomer.Size = New Size(64, 56)
-        lbl_totalcustomer.TabIndex = 4
-        lbl_totalcustomer.Text = "00"
+        lblTotalBooks.AutoSize = True
+        lblTotalBooks.Font = New Font("Poppins", 24F, FontStyle.Regular, GraphicsUnit.Point)
+        lblTotalBooks.ForeColor = Color.White
+        lblTotalBooks.Location = New Point(9, 48)
+        lblTotalBooks.Margin = New Padding(4, 0, 4, 0)
+        lblTotalBooks.Name = "lblTotalBooks"
+        lblTotalBooks.Size = New Size(64, 56)
+        lblTotalBooks.TabIndex = 4
+        lblTotalBooks.Text = "00"
         ' 
         ' Label1
         ' 
@@ -204,7 +203,7 @@ Partial Class formHomePanel
         ' Panel1
         ' 
         Panel1.BackColor = Color.DodgerBlue
-        Panel1.Controls.Add(lbl_totalcustomer)
+        Panel1.Controls.Add(lblTotalBooks)
         Panel1.Controls.Add(Label1)
         Panel1.Location = New Point(33, 68)
         Panel1.Margin = New Padding(4, 3, 4, 3)
@@ -214,8 +213,8 @@ Partial Class formHomePanel
         ' 
         ' Panel2
         ' 
-        Panel2.BackColor = Color.DarkOrange
-        Panel2.Controls.Add(lbl_totalProduct)
+        Panel2.BackColor = Color.Firebrick
+        Panel2.Controls.Add(lblTotalIssuedBook)
         Panel2.Controls.Add(Label2)
         Panel2.Location = New Point(285, 68)
         Panel2.Margin = New Padding(4, 3, 4, 3)
@@ -258,7 +257,7 @@ Partial Class formHomePanel
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
         dgvHistory.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         dgvHistory.ColumnHeadersHeight = 35
-        dgvHistory.Columns.AddRange(New DataGridViewColumn() {index, Column1, Column2, Column3, Column4, Column5})
+        dgvHistory.Columns.AddRange(New DataGridViewColumn() {index, Column1, Column2, Column3, Column5})
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
         DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
@@ -320,11 +319,6 @@ Partial Class formHomePanel
         Column3.HeaderText = "Issued By"
         Column3.Name = "Column3"
         ' 
-        ' Column4
-        ' 
-        Column4.HeaderText = "Patrons"
-        Column4.Name = "Column4"
-        ' 
         ' Column5
         ' 
         Column5.HeaderText = "Action"
@@ -363,16 +357,16 @@ Partial Class formHomePanel
     End Sub
     Friend WithEvents Label8 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents lbl_todayinbound As Label
+    Friend WithEvents lblTotalPatrons As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Panel4 As Panel
-    Friend WithEvents lbl_totalusers As Label
+    Friend WithEvents lblTotalUsers As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents lbl_totalProduct As Label
+    Friend WithEvents lblTotalIssuedBook As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents lbl_totalcustomer As Label
+    Friend WithEvents lblTotalBooks As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
@@ -383,6 +377,5 @@ Partial Class formHomePanel
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
 End Class

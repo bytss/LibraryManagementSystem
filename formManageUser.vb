@@ -1,6 +1,5 @@
 ﻿Imports System.Data.OleDb
-Imports System.Diagnostics.Eventing
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports System.IO
 
 
 Public Class formManageUser
@@ -9,6 +8,9 @@ Public Class formManageUser
     Private genreSuggestionList As New List(Of String)()
     Private authorsSuggestionList As New List(Of String)()
     Private publisherSuggestionList As New List(Of String)()
+    Private selectedImagePath As String
+
+
 
     Private Sub manageProduct_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         openConnection()
@@ -65,13 +67,8 @@ Public Class formManageUser
                         VALUES(@LastName, @FistName, @MiddleName, @Contact, @Email, @Username, @Password, @Role, @Address, @Profile)"
             Dim cmd = New OleDbCommand(query, conn)
 
-            Dim FileSize As New UInt32
-            Dim mstream As New System.IO.MemoryStream
-            profilePhoto.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
-            Dim picture() As Byte = mstream.GetBuffer
-            FileSize = mstream.Length
-            mstream.Close()
 
+            Dim photoBytes As Byte() = File.ReadAllBytes(selectedImagePath)
 
             With cmd
                 .Parameters.Clear()
@@ -81,10 +78,10 @@ Public Class formManageUser
                 .Parameters.AddWithValue("@Contact", tbUserContact.Text)
                 .Parameters.AddWithValue("@Email", tbUserEmail.Text)
                 .Parameters.AddWithValue("@Username", tbUsername.Text)
-                .Parameters.AddWithValue("@Password", CipherUtils.EncryptPassword(tbLastName.Text))
+                .Parameters.AddWithValue("@Password", tbLastName.Text)
                 .Parameters.AddWithValue("@Role", cbRoles.Text)
                 .Parameters.AddWithValue("@Address", tbUserAddress.Text)
-                .Parameters.AddWithValue("@Profile", picture)
+                .Parameters.AddWithValue("@Profile", photoBytes)
             End With
 
             If cmd.ExecuteNonQuery > 0 Then
@@ -179,8 +176,16 @@ Public Class formManageUser
         OpenFileDialog1.Filter = "Choose Images(*.JPG,*.PNG,*.JPEG,*.GIF)|*.JPG;*.PNG;*.JPEG*.GIF|ALL FILES(*.*)|*.*"
 
         If OpenFileDialog1.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
+            selectedImagePath = OpenFileDialog1.FileName
             profilePhoto.Image = Image.FromFile(OpenFileDialog1.FileName)
             OpenFileDialog1.FileName = OpenFileDialog1.FileName
+
+        End If
+    End Sub
+
+    Private Sub tbSearch_TextChanged(sender As Object, e As EventArgs) Handles tbSearch.TextChanged
+        If Not isNullOrEmpty(tbSearch.Text) Then
+        Else
 
         End If
     End Sub
