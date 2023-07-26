@@ -48,6 +48,7 @@ Partial Class formManageUser
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges25 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -438,6 +439,9 @@ Partial Class formManageUser
         dgvUsers.Name = "dgvUsers"
         dgvUsers.RowHeadersVisible = False
         dgvUsers.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DataGridViewCellStyle4.SelectionBackColor = Color.IndianRed
+        DataGridViewCellStyle4.SelectionForeColor = Color.White
+        dgvUsers.RowsDefaultCellStyle = DataGridViewCellStyle4
         dgvUsers.RowTemplate.Height = 25
         dgvUsers.Size = New Size(509, 460)
         dgvUsers.TabIndex = 71
