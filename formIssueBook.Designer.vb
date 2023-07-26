@@ -48,6 +48,7 @@ Partial Class formIssueBook
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges25 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -374,14 +375,14 @@ Partial Class formIssueBook
         DataGridViewCellStyle1.BackColor = Color.White
         Guna2DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        DataGridViewCellStyle2.BackColor = Color.Maroon
         DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         DataGridViewCellStyle2.ForeColor = Color.White
-        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionBackColor = Color.DarkRed
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
         Guna2DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Guna2DataGridView1.ColumnHeadersHeight = 17
+        Guna2DataGridView1.ColumnHeadersHeight = 35
         Guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         Guna2DataGridView1.Columns.AddRange(New DataGridViewColumn() {col1, col2, col3, col4, col5, col6})
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
@@ -395,6 +396,14 @@ Partial Class formIssueBook
         Guna2DataGridView1.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         Guna2DataGridView1.Location = New Point(243, 355)
         Guna2DataGridView1.Name = "Guna2DataGridView1"
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = SystemColors.Control
+        DataGridViewCellStyle4.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle4.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = Color.Firebrick
+        DataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
+        Guna2DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
         Guna2DataGridView1.RowHeadersVisible = False
         Guna2DataGridView1.RowTemplate.Height = 25
         Guna2DataGridView1.Size = New Size(792, 173)
@@ -411,7 +420,7 @@ Partial Class formIssueBook
         Guna2DataGridView1.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         Guna2DataGridView1.ThemeStyle.HeaderStyle.ForeColor = Color.White
         Guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        Guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 17
+        Guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 35
         Guna2DataGridView1.ThemeStyle.ReadOnly = False
         Guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = Color.White
         Guna2DataGridView1.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal

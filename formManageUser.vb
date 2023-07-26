@@ -165,9 +165,6 @@ Public Class formManageUser
         End If
     End Sub
 
-    Private Function isNullOrEmpty(field As String) As Boolean
-        Return String.IsNullOrEmpty(field)
-    End Function
 
     Private Sub Check_showpass_CheckedChanged(sender As Object, e As EventArgs) Handles Check_showpass.CheckedChanged
         If Check_showpass.Checked = True Then

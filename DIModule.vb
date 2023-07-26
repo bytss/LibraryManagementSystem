@@ -27,4 +27,8 @@ Module DIModule
         Return String.IsNullOrEmpty(col)
     End Function
 
+    Public Function isNullOrEmpty(field As String) As Boolean
+        Return String.IsNullOrEmpty(field)
+    End Function
+
 End Module

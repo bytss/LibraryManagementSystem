@@ -82,31 +82,15 @@ Public Class frmManageBook
             Dim reader As OleDbDataReader = cmd.ExecuteReader
 
             While reader.Read
-                Dim id = reader("id")
                 Dim isbn = reader("isbn")
                 Dim bookName = reader("title")
                 Dim author = reader("author")
+
                 Dim totalCopies = reader("total_copies")
                 Dim remainingCopies = reader("remaining_copies")
 
-                Dim queryAuthor = "Select * from tbl_authors WHERE author_id=" & author
-                Dim cmdAuthor = New OleDbCommand(queryAuthor, conn)
-                Dim readAuthor As OleDbDataReader = cmdAuthor.ExecuteReader
 
-                If readAuthor.Read Then
-                    Dim authorFname = readAuthor("first_name")
-                    Dim authorLname = readAuthor("last_name")
-
-                    dgvBooks.Rows.Add(
-                        id,
-                        isbn,
-                        bookName,
-                        authorFname & ", " & authorLname,
-                        totalCopies,
-                        remainingCopies
-                    )
-                End If
-                readAuthor.Close()
+                dgvBooks.Rows.Add(isbn, bookName, author, totalCopies, remainingCopies)
             End While
 
             reader.Close()
@@ -225,6 +209,8 @@ Public Class frmManageBook
 
             If cmd.ExecuteNonQuery > 0 Then
                 MsgBox("Successfully Save!", vbInformation)
+                closeConnection()
+                loadBooks()
             Else
                 MsgBox("Failed to save!", vbCritical)
             End If
@@ -235,7 +221,7 @@ Public Class frmManageBook
         closeConnection()
     End Sub
 
-    Private Sub dgvBooks_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvBooks.CellContentClick
+    Private Sub dgvBooks_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
         clear()
 
         Dim isbn = dgvBooks.CurrentRow.Cells(1).Value
@@ -329,7 +315,18 @@ Public Class frmManageBook
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        saveBooks()
+        If isNullOrEmpty(tbIsbn.Text) Then
+            MsgBox("ISBN cannot be empty!")
+        ElseIf isNullOrEmpty(tbBookName.Text) Then
+            MsgBox("Book Name cannot be empty!")
+        ElseIf isNullOrEmpty(tbCopies.Text) Then
+            MsgBox("Copies cannot be empty!")
+        ElseIf isNullOrEmpty(tbAuthorName.Text) Then
+            MsgBox("Author cannot be empty!")
+        Else
+            saveBooks()
+        End If
+
     End Sub
 
     Private Sub tbPubName_TextChanged(sender As Object, e As EventArgs) Handles tbPubName.TextChanged
@@ -367,5 +364,6 @@ Public Class frmManageBook
 
         End If
     End Sub
+
 
 End Class

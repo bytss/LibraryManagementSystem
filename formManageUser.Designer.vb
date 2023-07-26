@@ -414,16 +414,16 @@ Partial Class formManageUser
         ' 
         DataGridViewCellStyle1.BackColor = Color.White
         dgvUsers.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        dgvUsers.BorderStyle = BorderStyle.FixedSingle
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = Color.Maroon
         DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         DataGridViewCellStyle2.ForeColor = Color.White
-        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionBackColor = Color.DarkRed
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
         dgvUsers.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        dgvUsers.ColumnHeadersHeight = 17
-        dgvUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        dgvUsers.ColumnHeadersHeight = 35
         dgvUsers.Columns.AddRange(New DataGridViewColumn() {Column1, Column2, Column3, Column4})
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
@@ -437,6 +437,7 @@ Partial Class formManageUser
         dgvUsers.Location = New Point(539, 172)
         dgvUsers.Name = "dgvUsers"
         dgvUsers.RowHeadersVisible = False
+        dgvUsers.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
         dgvUsers.RowTemplate.Height = 25
         dgvUsers.Size = New Size(509, 460)
         dgvUsers.TabIndex = 71
@@ -451,8 +452,8 @@ Partial Class formManageUser
         dgvUsers.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
         dgvUsers.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         dgvUsers.ThemeStyle.HeaderStyle.ForeColor = Color.White
-        dgvUsers.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        dgvUsers.ThemeStyle.HeaderStyle.Height = 17
+        dgvUsers.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        dgvUsers.ThemeStyle.HeaderStyle.Height = 35
         dgvUsers.ThemeStyle.ReadOnly = False
         dgvUsers.ThemeStyle.RowsStyle.BackColor = Color.White
         dgvUsers.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
