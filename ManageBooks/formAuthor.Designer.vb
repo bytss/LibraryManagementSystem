@@ -312,7 +312,7 @@ Partial Class formAuthor
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.White
+        BackColor = Color.MistyRose
         ClientSize = New Size(545, 319)
         ControlBox = False
         Controls.Add(tbLastName)

@@ -3,7 +3,7 @@ Imports System.Diagnostics.Eventing
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 
-Public Class frmManageBook
+Public Class formReturnBook
 
     Private departementSuggestionList As New List(Of String)()
     Private genreSuggestionList As New List(Of String)()
@@ -22,10 +22,11 @@ Public Class frmManageBook
         ' load publisher suggestions
         loadPublisherSuggestions()
 
-        ' Department's Suggestions
+
         ' Set the AutoCompleteMode and AutoCompleteSource properties
         tbDepartment.AutoCompleteMode = AutoCompleteMode.Suggest
         tbDepartment.AutoCompleteSource = AutoCompleteSource.CustomSource
+
 
         ' Create a new AutoCompleteStringCollection and add the data to it
         Dim autoCompleteCollection As New AutoCompleteStringCollection()
@@ -219,7 +220,7 @@ Public Class frmManageBook
                 Dim copies = reader("total_copies")
                 Dim description = reader("description")
 
-                tbIsbn.Text = isbn
+                tbLastName.Text = isbn
                 tbBookName.Text = bookName.ToString
                 tbCopies.Text = copies.ToString
                 tbDesciption.Text = description.ToString
@@ -234,7 +235,7 @@ Public Class frmManageBook
     End Sub
 
     Private Sub clear()
-        tbIsbn.Text = ""
+        tbLastName.Text = ""
         tbBookName.Text = ""
         tbCopies.Text = ""
     End Sub
@@ -293,4 +294,6 @@ Public Class frmManageBook
     Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
         formGenre.ShowDialog()
     End Sub
+
+
 End Class

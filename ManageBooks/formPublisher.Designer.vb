@@ -23,18 +23,18 @@ Partial Class formPublisher
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
-        Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges19 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges20 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges21 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges22 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Guna2DragControl1 = New Guna.UI2.WinForms.Guna2DragControl(components)
         Guna2ShadowForm1 = New Guna.UI2.WinForms.Guna2ShadowForm(components)
         Guna2AnimateWindow1 = New Guna.UI2.WinForms.Guna2AnimateWindow(components)
@@ -105,7 +105,7 @@ Partial Class formPublisher
         ' 
         tbName.Animated = True
         tbName.Cursor = Cursors.IBeam
-        tbName.CustomizableEdges = CustomizableEdges13
+        tbName.CustomizableEdges = CustomizableEdges1
         tbName.DefaultText = ""
         tbName.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         tbName.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -121,7 +121,7 @@ Partial Class formPublisher
         tbName.PasswordChar = ChrW(0)
         tbName.PlaceholderText = "Name"
         tbName.SelectedText = ""
-        tbName.ShadowDecoration.CustomizableEdges = CustomizableEdges14
+        tbName.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         tbName.Size = New Size(477, 42)
         tbName.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbName.TabIndex = 47
@@ -131,7 +131,7 @@ Partial Class formPublisher
         btnSave.Animated = True
         btnSave.AnimatedGIF = True
         btnSave.BorderRadius = 5
-        btnSave.CustomizableEdges = CustomizableEdges15
+        btnSave.CustomizableEdges = CustomizableEdges3
         btnSave.DisabledState.BorderColor = Color.DarkGray
         btnSave.DisabledState.CustomBorderColor = Color.DarkGray
         btnSave.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -142,7 +142,7 @@ Partial Class formPublisher
         btnSave.Location = New Point(369, 256)
         btnSave.Margin = New Padding(4, 3, 4, 3)
         btnSave.Name = "btnSave"
-        btnSave.ShadowDecoration.CustomizableEdges = CustomizableEdges16
+        btnSave.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         btnSave.Size = New Size(133, 42)
         btnSave.TabIndex = 46
         btnSave.Text = "Save"
@@ -156,7 +156,7 @@ Partial Class formPublisher
         ' 
         tbCountry.Animated = True
         tbCountry.Cursor = Cursors.IBeam
-        tbCountry.CustomizableEdges = CustomizableEdges17
+        tbCountry.CustomizableEdges = CustomizableEdges5
         tbCountry.DefaultText = ""
         tbCountry.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         tbCountry.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -172,7 +172,7 @@ Partial Class formPublisher
         tbCountry.PasswordChar = ChrW(0)
         tbCountry.PlaceholderText = "Country"
         tbCountry.SelectedText = ""
-        tbCountry.ShadowDecoration.CustomizableEdges = CustomizableEdges18
+        tbCountry.ShadowDecoration.CustomizableEdges = CustomizableEdges6
         tbCountry.Size = New Size(133, 42)
         tbCountry.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbCountry.TabIndex = 53
@@ -181,7 +181,7 @@ Partial Class formPublisher
         ' 
         tbContact.Animated = True
         tbContact.Cursor = Cursors.IBeam
-        tbContact.CustomizableEdges = CustomizableEdges19
+        tbContact.CustomizableEdges = CustomizableEdges7
         tbContact.DefaultText = ""
         tbContact.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         tbContact.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -197,7 +197,7 @@ Partial Class formPublisher
         tbContact.PasswordChar = ChrW(0)
         tbContact.PlaceholderText = "Contact"
         tbContact.SelectedText = ""
-        tbContact.ShadowDecoration.CustomizableEdges = CustomizableEdges20
+        tbContact.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         tbContact.Size = New Size(228, 42)
         tbContact.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbContact.TabIndex = 52
@@ -206,7 +206,7 @@ Partial Class formPublisher
         ' 
         tbEmail.Animated = True
         tbEmail.Cursor = Cursors.IBeam
-        tbEmail.CustomizableEdges = CustomizableEdges21
+        tbEmail.CustomizableEdges = CustomizableEdges9
         tbEmail.DefaultText = ""
         tbEmail.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         tbEmail.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -222,7 +222,7 @@ Partial Class formPublisher
         tbEmail.PasswordChar = ChrW(0)
         tbEmail.PlaceholderText = "Email"
         tbEmail.SelectedText = ""
-        tbEmail.ShadowDecoration.CustomizableEdges = CustomizableEdges22
+        tbEmail.ShadowDecoration.CustomizableEdges = CustomizableEdges10
         tbEmail.Size = New Size(228, 42)
         tbEmail.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbEmail.TabIndex = 48
@@ -231,7 +231,7 @@ Partial Class formPublisher
         ' 
         tbAddress.Animated = True
         tbAddress.Cursor = Cursors.IBeam
-        tbAddress.CustomizableEdges = CustomizableEdges23
+        tbAddress.CustomizableEdges = CustomizableEdges11
         tbAddress.DefaultText = ""
         tbAddress.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         tbAddress.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -247,7 +247,7 @@ Partial Class formPublisher
         tbAddress.PasswordChar = ChrW(0)
         tbAddress.PlaceholderText = "Address"
         tbAddress.SelectedText = ""
-        tbAddress.ShadowDecoration.CustomizableEdges = CustomizableEdges24
+        tbAddress.ShadowDecoration.CustomizableEdges = CustomizableEdges12
         tbAddress.Size = New Size(336, 42)
         tbAddress.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbAddress.TabIndex = 50
@@ -256,7 +256,7 @@ Partial Class formPublisher
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.White
+        BackColor = Color.MistyRose
         ClientSize = New Size(545, 319)
         ControlBox = False
         Controls.Add(Label2)

@@ -35,4 +35,21 @@
         End With
     End Sub
 
+    Private Sub btnReturnBook_Click(sender As Object, e As EventArgs) Handles btnReturnBook.Click
+        With formReturnBook
+            .TopLevel = False
+            Panel1.Controls.Add(formReturnBook)
+            .BringToFront()
+            .Show()
+        End With
+    End Sub
+
+    Private Sub btn_manageuser_Click(sender As Object, e As EventArgs) Handles btn_manageuser.Click
+        With formManageUser
+            .TopLevel = False
+            Panel1.Controls.Add(formManageUser)
+            .BringToFront()
+            .Show()
+        End With
+    End Sub
 End Class

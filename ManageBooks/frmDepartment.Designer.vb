@@ -130,7 +130,7 @@ Partial Class frmDepartment
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.White
+        BackColor = Color.MistyRose
         ClientSize = New Size(489, 159)
         Controls.Add(tbDepartment)
         Controls.Add(btn_save)

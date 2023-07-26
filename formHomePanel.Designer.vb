@@ -330,6 +330,7 @@ Partial Class formHomePanel
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.MistyRose
         ClientSize = New Size(1058, 659)
         Controls.Add(Panel5)
         Controls.Add(Label8)

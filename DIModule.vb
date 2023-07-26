@@ -27,5 +27,4 @@ Module DIModule
         Return String.IsNullOrEmpty(col)
     End Function
 
-
 End Module

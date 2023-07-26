@@ -23,6 +23,12 @@
     <Compile Update="formIssueBook.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="formManageUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="formReturnBook.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="formManagePatron.vb">
       <SubType>Form</SubType>
     </Compile>

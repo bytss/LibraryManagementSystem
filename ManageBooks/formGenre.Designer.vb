@@ -40,7 +40,7 @@ Partial Class formGenre
         ' 
         Label1.AutoSize = True
         Label1.FlatStyle = FlatStyle.Flat
-        Label1.Font = New Font("Poppins", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label1.Font = New Font("Poppins", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label1.ForeColor = Color.DimGray
         Label1.Location = New Point(13, 14)
         Label1.Margin = New Padding(4, 0, 4, 0)
@@ -55,7 +55,7 @@ Partial Class formGenre
         labelClose.AutoSize = True
         labelClose.Cursor = Cursors.Hand
         labelClose.FlatStyle = FlatStyle.Flat
-        labelClose.Font = New Font("Nirmala UI Semilight", 8.0F, FontStyle.Bold, GraphicsUnit.Point)
+        labelClose.Font = New Font("Nirmala UI Semilight", 8F, FontStyle.Bold, GraphicsUnit.Point)
         labelClose.ForeColor = Color.Maroon
         labelClose.Location = New Point(384, 10)
         labelClose.Margin = New Padding(4, 0, 4, 0)
@@ -76,7 +76,7 @@ Partial Class formGenre
         btn_save.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btn_save.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btn_save.FillColor = Color.Maroon
-        btn_save.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_save.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
         btn_save.ForeColor = Color.White
         btn_save.Location = New Point(366, 69)
         btn_save.Margin = New Padding(4, 3, 4, 3)
@@ -113,7 +113,7 @@ Partial Class formGenre
         tbDepartment.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
         tbDepartment.FillColor = SystemColors.Menu
         tbDepartment.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbDepartment.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point)
+        tbDepartment.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         tbDepartment.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         tbDepartment.Location = New Point(29, 69)
         tbDepartment.Margin = New Padding(4, 3, 4, 3)
@@ -128,9 +128,9 @@ Partial Class formGenre
         ' 
         ' formGenre
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.White
+        BackColor = Color.MistyRose
         ClientSize = New Size(489, 159)
         Controls.Add(tbDepartment)
         Controls.Add(btn_save)
