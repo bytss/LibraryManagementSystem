@@ -22,67 +22,54 @@ Partial Class formReturnBook
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges19 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges20 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges21 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges22 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(formReturnBook))
         Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(formReturnBook))
+        Dim CustomizableEdges25 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges26 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges27 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges28 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges29 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges30 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges31 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges32 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges33 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges34 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges35 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges36 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Panel1 = New Panel()
         Label1 = New Label()
-        btn_delete = New Guna.UI2.WinForms.Guna2Button()
-        btn_edit = New Guna.UI2.WinForms.Guna2Button()
-        btm_save = New Guna.UI2.WinForms.Guna2Button()
         Label4 = New Label()
-        tbLastName = New Guna.UI2.WinForms.Guna2TextBox()
-        dgvBooks = New DataGridView()
+        Label2 = New Label()
+        tbSearch = New Guna.UI2.WinForms.Guna2TextBox()
+        dgvBooks = New Guna.UI2.WinForms.Guna2DataGridView()
         Column1 = New DataGridViewTextBoxColumn()
         Column2 = New DataGridViewTextBoxColumn()
         Column3 = New DataGridViewTextBoxColumn()
         Column4 = New DataGridViewTextBoxColumn()
-        Column5 = New DataGridViewTextBoxColumn()
-        Column6 = New DataGridViewTextBoxColumn()
-        tbPatronAddress = New Guna.UI2.WinForms.Guna2TextBox()
-        tbPatronEmail = New Guna.UI2.WinForms.Guna2TextBox()
-        Label2 = New Label()
-        tbMiddlename = New Guna.UI2.WinForms.Guna2TextBox()
-        tbFirstName = New Guna.UI2.WinForms.Guna2TextBox()
-        Guna2ComboBox1 = New Guna.UI2.WinForms.Guna2ComboBox()
-        RadioButton1 = New RadioButton()
-        Panel2 = New Panel()
+        profilePhoto = New PictureBox()
+        Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
+        btnClear = New Guna.UI2.WinForms.Guna2Button()
+        btnSearch = New Guna.UI2.WinForms.Guna2Button()
         Label3 = New Label()
-        RadioButton2 = New RadioButton()
         Label5 = New Label()
-        tbSearch = New Guna.UI2.WinForms.Guna2TextBox()
-        tbPatronContact = New Guna.UI2.WinForms.Guna2TextBox()
-        tbSchoolId = New Guna.UI2.WinForms.Guna2TextBox()
-        PictureBox1 = New PictureBox()
+
         Label6 = New Label()
+
+        Label7 = New Label()
+        tbRtrnCopies = New Guna.UI2.WinForms.Guna2TextBox()
+        btnReturn = New Guna.UI2.WinForms.Guna2Button()
         Panel1.SuspendLayout()
         CType(dgvBooks, ComponentModel.ISupportInitialize).BeginInit()
-        Panel2.SuspendLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(profilePhoto, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel1
@@ -99,7 +86,7 @@ Partial Class formReturnBook
         ' 
         Label1.AutoSize = True
         Label1.FlatStyle = FlatStyle.Flat
-        Label1.Font = New Font("Poppins", 18.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label1.Font = New Font("Poppins", 18F, FontStyle.Bold, GraphicsUnit.Point)
         Label1.ForeColor = Color.DimGray
         Label1.Location = New Point(4, 18)
         Label1.Margin = New Padding(4, 0, 4, 0)
@@ -109,370 +96,32 @@ Partial Class formReturnBook
         Label1.TabIndex = 5
         Label1.Text = "Return Book"
         ' 
-        ' btn_delete
-        ' 
-        btn_delete.Animated = True
-        btn_delete.AnimatedGIF = True
-        btn_delete.BorderRadius = 5
-        btn_delete.CustomizableEdges = CustomizableEdges1
-        btn_delete.DisabledState.BorderColor = Color.DarkGray
-        btn_delete.DisabledState.CustomBorderColor = Color.DarkGray
-        btn_delete.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        btn_delete.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btn_delete.FillColor = Color.Red
-        btn_delete.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_delete.ForeColor = Color.White
-        btn_delete.Location = New Point(421, 620)
-        btn_delete.Margin = New Padding(4, 3, 4, 3)
-        btn_delete.Name = "btn_delete"
-        btn_delete.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        btn_delete.Size = New Size(88, 37)
-        btn_delete.TabIndex = 22
-        btn_delete.Text = "Delete"
-        ' 
-        ' btn_edit
-        ' 
-        btn_edit.Animated = True
-        btn_edit.AnimatedGIF = True
-        btn_edit.BorderRadius = 5
-        btn_edit.CustomizableEdges = CustomizableEdges3
-        btn_edit.DisabledState.BorderColor = Color.DarkGray
-        btn_edit.DisabledState.CustomBorderColor = Color.DarkGray
-        btn_edit.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        btn_edit.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btn_edit.FillColor = Color.FromArgb(CByte(192), CByte(64), CByte(0))
-        btn_edit.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_edit.ForeColor = Color.White
-        btn_edit.Location = New Point(314, 620)
-        btn_edit.Margin = New Padding(4, 3, 4, 3)
-        btn_edit.Name = "btn_edit"
-        btn_edit.ShadowDecoration.CustomizableEdges = CustomizableEdges4
-        btn_edit.Size = New Size(100, 37)
-        btn_edit.TabIndex = 21
-        btn_edit.Text = "Edit"
-        ' 
-        ' btm_save
-        ' 
-        btm_save.Animated = True
-        btm_save.AnimatedGIF = True
-        btm_save.BorderRadius = 5
-        btm_save.CustomizableEdges = CustomizableEdges5
-        btm_save.DisabledState.BorderColor = Color.DarkGray
-        btm_save.DisabledState.CustomBorderColor = Color.DarkGray
-        btm_save.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        btm_save.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btm_save.FillColor = Color.Maroon
-        btm_save.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
-        btm_save.ForeColor = Color.White
-        btm_save.Location = New Point(207, 620)
-        btm_save.Margin = New Padding(4, 3, 4, 3)
-        btm_save.Name = "btm_save"
-        btm_save.ShadowDecoration.CustomizableEdges = CustomizableEdges6
-        btm_save.Size = New Size(100, 37)
-        btm_save.TabIndex = 20
-        btm_save.Text = "Save"
-        ' 
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Font = New Font("Poppins", 12.0F, FontStyle.Regular, GraphicsUnit.Point)
+        Label4.Font = New Font("Poppins", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label4.Location = New Point(19, 84)
         Label4.Name = "Label4"
         Label4.Size = New Size(171, 28)
         Label4.TabIndex = 31
         Label4.Text = "Patron's Information"
-        ' 
-        ' tbLastName
-        ' 
-        tbLastName.Animated = True
-        tbLastName.Cursor = Cursors.IBeam
-        tbLastName.CustomizableEdges = CustomizableEdges7
-        tbLastName.DefaultText = ""
-        tbLastName.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        tbLastName.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        tbLastName.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        tbLastName.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        tbLastName.FillColor = SystemColors.MenuBar
-        tbLastName.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbLastName.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point)
-        tbLastName.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbLastName.Location = New Point(243, 124)
-        tbLastName.Margin = New Padding(4, 3, 4, 3)
-        tbLastName.Name = "tbLastName"
-        tbLastName.PasswordChar = ChrW(0)
-        tbLastName.PlaceholderText = "Last Name"
-        tbLastName.SelectedText = ""
-        tbLastName.ShadowDecoration.CustomizableEdges = CustomizableEdges8
-        tbLastName.Size = New Size(267, 42)
-        tbLastName.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
-        tbLastName.TabIndex = 32
-        ' 
-        ' dgvBooks
-        ' 
-        dgvBooks.AllowUserToAddRows = False
-        dgvBooks.AllowUserToDeleteRows = False
-        dgvBooks.BackgroundColor = Color.White
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = Color.White
-        DataGridViewCellStyle1.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle1.ForeColor = Color.DimGray
-        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Control
-        DataGridViewCellStyle1.SelectionForeColor = Color.DimGray
-        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
-        dgvBooks.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        dgvBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        dgvBooks.Columns.AddRange(New DataGridViewColumn() {Column1, Column2, Column3, Column4, Column5, Column6})
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = SystemColors.Window
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle2.ForeColor = Color.DimGray
-        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Control
-        DataGridViewCellStyle2.SelectionForeColor = SystemColors.ControlDarkDark
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
-        dgvBooks.DefaultCellStyle = DataGridViewCellStyle2
-        dgvBooks.Location = New Point(539, 174)
-        dgvBooks.Margin = New Padding(4, 3, 4, 3)
-        dgvBooks.Name = "dgvBooks"
-        dgvBooks.ReadOnly = True
-        dgvBooks.RowHeadersVisible = False
-        dgvBooks.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvBooks.Size = New Size(509, 429)
-        dgvBooks.TabIndex = 25
-        ' 
-        ' Column1
-        ' 
-        Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        Column1.HeaderText = "ID"
-        Column1.Name = "Column1"
-        Column1.ReadOnly = True
-        Column1.Visible = False
-        ' 
-        ' Column2
-        ' 
-        Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        Column2.HeaderText = "ISBN"
-        Column2.Name = "Column2"
-        Column2.ReadOnly = True
-        Column2.Width = 62
-        ' 
-        ' Column3
-        ' 
-        Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        Column3.HeaderText = "Book Name"
-        Column3.Name = "Column3"
-        Column3.ReadOnly = True
-        ' 
-        ' Column4
-        ' 
-        Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        Column4.HeaderText = "Author"
-        Column4.Name = "Column4"
-        Column4.ReadOnly = True
-        Column4.Width = 76
-        ' 
-        ' Column5
-        ' 
-        Column5.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        Column5.HeaderText = "Total Copies"
-        Column5.Name = "Column5"
-        Column5.ReadOnly = True
-        Column5.Width = 97
-        ' 
-        ' Column6
-        ' 
-        Column6.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        Column6.HeaderText = "Remaing Copies"
-        Column6.Name = "Column6"
-        Column6.ReadOnly = True
-        Column6.Width = 119
-        ' 
-        ' tbPatronAddress
-        ' 
-        tbPatronAddress.Animated = True
-        tbPatronAddress.Cursor = Cursors.IBeam
-        tbPatronAddress.CustomizableEdges = CustomizableEdges9
-        tbPatronAddress.DefaultText = ""
-        tbPatronAddress.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        tbPatronAddress.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        tbPatronAddress.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        tbPatronAddress.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        tbPatronAddress.FillColor = SystemColors.MenuBar
-        tbPatronAddress.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbPatronAddress.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point)
-        tbPatronAddress.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbPatronAddress.Location = New Point(19, 543)
-        tbPatronAddress.Margin = New Padding(4, 3, 4, 3)
-        tbPatronAddress.Name = "tbPatronAddress"
-        tbPatronAddress.PasswordChar = ChrW(0)
-        tbPatronAddress.PlaceholderText = "Address"
-        tbPatronAddress.SelectedText = ""
-        tbPatronAddress.ShadowDecoration.CustomizableEdges = CustomizableEdges10
-        tbPatronAddress.Size = New Size(491, 60)
-        tbPatronAddress.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
-        tbPatronAddress.TabIndex = 56
-        ' 
-        ' tbPatronEmail
-        ' 
-        tbPatronEmail.Animated = True
-        tbPatronEmail.Cursor = Cursors.IBeam
-        tbPatronEmail.CustomizableEdges = CustomizableEdges11
-        tbPatronEmail.DefaultText = ""
-        tbPatronEmail.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        tbPatronEmail.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        tbPatronEmail.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        tbPatronEmail.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        tbPatronEmail.FillColor = SystemColors.MenuBar
-        tbPatronEmail.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbPatronEmail.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point)
-        tbPatronEmail.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbPatronEmail.Location = New Point(19, 486)
-        tbPatronEmail.Margin = New Padding(4, 3, 4, 3)
-        tbPatronEmail.Name = "tbPatronEmail"
-        tbPatronEmail.PasswordChar = ChrW(0)
-        tbPatronEmail.PlaceholderText = "Email"
-        tbPatronEmail.SelectedText = ""
-        tbPatronEmail.ShadowDecoration.CustomizableEdges = CustomizableEdges12
-        tbPatronEmail.Size = New Size(242, 42)
-        tbPatronEmail.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
-        tbPatronEmail.TabIndex = 54
+
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Font = New Font("Poppins", 12.0F, FontStyle.Regular, GraphicsUnit.Point)
-        Label2.Location = New Point(19, 455)
+        Label2.Font = New Font("Poppins", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label2.Location = New Point(233, 124)
         Label2.Name = "Label2"
-        Label2.Size = New Size(173, 28)
+        Label2.Size = New Size(157, 28)
         Label2.TabIndex = 53
-        Label2.Text = "Contact Information"
-        ' 
-        ' tbMiddlename
-        ' 
-        tbMiddlename.Animated = True
-        tbMiddlename.Cursor = Cursors.IBeam
-        tbMiddlename.CustomizableEdges = CustomizableEdges13
-        tbMiddlename.DefaultText = ""
-        tbMiddlename.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        tbMiddlename.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        tbMiddlename.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        tbMiddlename.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        tbMiddlename.FillColor = SystemColors.MenuBar
-        tbMiddlename.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbMiddlename.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point)
-        tbMiddlename.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbMiddlename.Location = New Point(243, 184)
-        tbMiddlename.Margin = New Padding(4, 3, 4, 3)
-        tbMiddlename.Name = "tbMiddlename"
-        tbMiddlename.PasswordChar = ChrW(0)
-        tbMiddlename.PlaceholderText = "Middle Name"
-        tbMiddlename.SelectedText = ""
-        tbMiddlename.ShadowDecoration.CustomizableEdges = CustomizableEdges14
-        tbMiddlename.Size = New Size(267, 42)
-        tbMiddlename.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
-        tbMiddlename.TabIndex = 57
-        ' 
-        ' tbFirstName
-        ' 
-        tbFirstName.Animated = True
-        tbFirstName.Cursor = Cursors.IBeam
-        tbFirstName.CustomizableEdges = CustomizableEdges15
-        tbFirstName.DefaultText = ""
-        tbFirstName.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        tbFirstName.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        tbFirstName.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        tbFirstName.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        tbFirstName.FillColor = SystemColors.MenuBar
-        tbFirstName.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbFirstName.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point)
-        tbFirstName.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbFirstName.Location = New Point(243, 243)
-        tbFirstName.Margin = New Padding(4, 3, 4, 3)
-        tbFirstName.Name = "tbFirstName"
-        tbFirstName.PasswordChar = ChrW(0)
-        tbFirstName.PlaceholderText = "First Name"
-        tbFirstName.SelectedText = ""
-        tbFirstName.ShadowDecoration.CustomizableEdges = CustomizableEdges16
-        tbFirstName.Size = New Size(267, 42)
-        tbFirstName.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
-        tbFirstName.TabIndex = 58
-        ' 
-        ' Guna2ComboBox1
-        ' 
-        Guna2ComboBox1.BackColor = Color.Transparent
-        Guna2ComboBox1.CustomizableEdges = CustomizableEdges17
-        Guna2ComboBox1.DrawMode = DrawMode.OwnerDrawFixed
-        Guna2ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
-        Guna2ComboBox1.FillColor = SystemColors.MenuBar
-        Guna2ComboBox1.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2ComboBox1.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2ComboBox1.Font = New Font("Segoe UI", 10.0F, FontStyle.Regular, GraphicsUnit.Point)
-        Guna2ComboBox1.ForeColor = Color.FromArgb(CByte(68), CByte(88), CByte(112))
-        Guna2ComboBox1.ItemHeight = 30
-        Guna2ComboBox1.Location = New Point(242, 308)
-        Guna2ComboBox1.Name = "Guna2ComboBox1"
-        Guna2ComboBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges18
-        Guna2ComboBox1.Size = New Size(268, 36)
-        Guna2ComboBox1.TabIndex = 61
-        ' 
-        ' RadioButton1
-        ' 
-        RadioButton1.AutoSize = True
-        RadioButton1.Location = New Point(113, 23)
-        RadioButton1.Name = "RadioButton1"
-        RadioButton1.Size = New Size(44, 19)
-        RadioButton1.TabIndex = 62
-        RadioButton1.TabStop = True
-        RadioButton1.Text = "YES"
-        RadioButton1.UseVisualStyleBackColor = True
-        ' 
-        ' Panel2
-        ' 
-        Panel2.Controls.Add(Label3)
-        Panel2.Controls.Add(RadioButton2)
-        Panel2.Controls.Add(RadioButton1)
-        Panel2.Location = New Point(306, 383)
-        Panel2.Name = "Panel2"
-        Panel2.Size = New Size(203, 66)
-        Panel2.TabIndex = 63
-        ' 
-        ' Label3
-        ' 
-        Label3.AutoSize = True
-        Label3.Font = New Font("Poppins", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
-        Label3.Location = New Point(10, 23)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(81, 22)
-        Label3.TabIndex = 65
-        Label3.Text = "Is Verified:"
-        ' 
-        ' RadioButton2
-        ' 
-        RadioButton2.AutoSize = True
-        RadioButton2.Location = New Point(165, 23)
-        RadioButton2.Name = "RadioButton2"
-        RadioButton2.Size = New Size(43, 19)
-        RadioButton2.TabIndex = 64
-        RadioButton2.TabStop = True
-        RadioButton2.Text = "NO"
-        RadioButton2.UseVisualStyleBackColor = True
-        ' 
-        ' Label5
-        ' 
-        Label5.AutoSize = True
-        Label5.BackColor = SystemColors.Menu
-        Label5.Font = New Font("Poppins", 9.0F, FontStyle.Regular, GraphicsUnit.Point)
-        Label5.ForeColor = Color.FromArgb(CByte(193), CByte(200), CByte(207))
-        Label5.Location = New Point(248, 317)
-        Label5.Name = "Label5"
-        Label5.Size = New Size(65, 22)
-        Label5.TabIndex = 64
-        Label5.Text = "Category"
+        Label2.Text = "Book's Information"
         ' 
         ' tbSearch
         ' 
         tbSearch.Animated = True
         tbSearch.Cursor = Cursors.IBeam
-        tbSearch.CustomizableEdges = CustomizableEdges19
+        tbSearch.CustomizableEdges = CustomizableEdges21
         tbSearch.DefaultText = ""
         tbSearch.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         tbSearch.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -480,7 +129,7 @@ Partial Class formReturnBook
         tbSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
         tbSearch.FillColor = SystemColors.MenuBar
         tbSearch.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbSearch.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point)
+        tbSearch.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         tbSearch.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         tbSearch.Location = New Point(539, 124)
         tbSearch.Margin = New Padding(4, 3, 4, 3)
@@ -488,107 +137,263 @@ Partial Class formReturnBook
         tbSearch.PasswordChar = ChrW(0)
         tbSearch.PlaceholderText = "Search"
         tbSearch.SelectedText = ""
-        tbSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges20
+        tbSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges22
         tbSearch.Size = New Size(509, 42)
         tbSearch.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbSearch.TabIndex = 66
         ' 
-        ' tbPatronContact
+        ' dgvBooks
         ' 
-        tbPatronContact.Animated = True
-        tbPatronContact.Cursor = Cursors.IBeam
-        tbPatronContact.CustomizableEdges = CustomizableEdges21
-        tbPatronContact.DefaultText = ""
-        tbPatronContact.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        tbPatronContact.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        tbPatronContact.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        tbPatronContact.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        tbPatronContact.FillColor = SystemColors.MenuBar
-        tbPatronContact.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbPatronContact.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point)
-        tbPatronContact.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbPatronContact.Location = New Point(270, 486)
-        tbPatronContact.Margin = New Padding(4, 3, 4, 3)
-        tbPatronContact.Name = "tbPatronContact"
-        tbPatronContact.PasswordChar = ChrW(0)
-        tbPatronContact.PlaceholderText = "Contact Number"
-        tbPatronContact.SelectedText = ""
-        tbPatronContact.ShadowDecoration.CustomizableEdges = CustomizableEdges22
-        tbPatronContact.Size = New Size(242, 42)
-        tbPatronContact.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
-        tbPatronContact.TabIndex = 67
+        DataGridViewCellStyle5.BackColor = Color.White
+        dgvBooks.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = Color.Maroon
+        DataGridViewCellStyle6.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle6.ForeColor = Color.White
+        DataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(CByte(64), CByte(0), CByte(0))
+        DataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.True
+        dgvBooks.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        dgvBooks.ColumnHeadersHeight = 35
+        dgvBooks.Columns.AddRange(New DataGridViewColumn() {Column1, Column2, Column3, Column4})
+        DataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = Color.White
+        DataGridViewCellStyle7.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle7.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        DataGridViewCellStyle7.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle7.WrapMode = DataGridViewTriState.False
+        dgvBooks.DefaultCellStyle = DataGridViewCellStyle7
+        dgvBooks.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvBooks.Location = New Point(539, 175)
+        dgvBooks.Name = "dgvBooks"
+        dgvBooks.RowHeadersVisible = False
+        dgvBooks.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DataGridViewCellStyle8.SelectionBackColor = Color.IndianRed
+        DataGridViewCellStyle8.SelectionForeColor = Color.White
+        dgvBooks.RowsDefaultCellStyle = DataGridViewCellStyle8
+        dgvBooks.RowTemplate.Height = 25
+        dgvBooks.Size = New Size(509, 428)
+        dgvBooks.TabIndex = 71
+        dgvBooks.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
+        dgvBooks.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        dgvBooks.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty
+        dgvBooks.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty
+        dgvBooks.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty
+        dgvBooks.ThemeStyle.BackColor = Color.White
+        dgvBooks.ThemeStyle.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvBooks.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        dgvBooks.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
+        dgvBooks.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        dgvBooks.ThemeStyle.HeaderStyle.ForeColor = Color.White
+        dgvBooks.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        dgvBooks.ThemeStyle.HeaderStyle.Height = 35
+        dgvBooks.ThemeStyle.ReadOnly = False
+        dgvBooks.ThemeStyle.RowsStyle.BackColor = Color.White
+        dgvBooks.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
+        dgvBooks.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        dgvBooks.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        dgvBooks.ThemeStyle.RowsStyle.Height = 25
+        dgvBooks.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvBooks.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
         ' 
-        ' tbSchoolId
+        ' Column1
         ' 
-        tbSchoolId.Animated = True
-        tbSchoolId.Cursor = Cursors.IBeam
-        tbSchoolId.CustomizableEdges = CustomizableEdges23
-        tbSchoolId.DefaultText = ""
-        tbSchoolId.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        tbSchoolId.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        tbSchoolId.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        tbSchoolId.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        tbSchoolId.FillColor = SystemColors.MenuBar
-        tbSchoolId.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbSchoolId.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point)
-        tbSchoolId.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        tbSchoolId.Location = New Point(19, 394)
-        tbSchoolId.Margin = New Padding(4, 3, 4, 3)
-        tbSchoolId.Name = "tbSchoolId"
-        tbSchoolId.PasswordChar = ChrW(0)
-        tbSchoolId.PlaceholderText = "ID Number"
-        tbSchoolId.SelectedText = ""
-        tbSchoolId.ShadowDecoration.CustomizableEdges = CustomizableEdges24
-        tbSchoolId.Size = New Size(280, 42)
-        tbSchoolId.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
-        tbSchoolId.TabIndex = 68
+        Column1.HeaderText = "ISBN"
+        Column1.Name = "Column1"
         ' 
-        ' PictureBox1
+        ' Column2
         ' 
-        PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
-        PictureBox1.Location = New Point(19, 124)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(199, 220)
-        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
-        PictureBox1.TabIndex = 69
-        PictureBox1.TabStop = False
+        Column2.HeaderText = "Book Name"
+        Column2.Name = "Column2"
         ' 
+        ' Column3
+        ' 
+        Column3.HeaderText = "Copies"
+        Column3.Name = "Column3"
+        ' 
+        ' Column4
+        ' 
+        Column4.HeaderText = "Date Issued"
+        Column4.Name = "Column4"
+        ' 
+        ' profilePhoto
+        ' 
+        profilePhoto.BorderStyle = BorderStyle.FixedSingle
+        profilePhoto.Image = CType(resources.GetObject("profilePhoto.Image"), Image)
+        profilePhoto.Location = New Point(36, 124)
+        profilePhoto.Name = "profilePhoto"
+        profilePhoto.Size = New Size(173, 180)
+        profilePhoto.SizeMode = PictureBoxSizeMode.StretchImage
+        profilePhoto.TabIndex = 72
+        profilePhoto.TabStop = False
+        ' 
+        ' Guna2TextBox1
+        ' 
+        Guna2TextBox1.Animated = True
+        Guna2TextBox1.Cursor = Cursors.IBeam
+        Guna2TextBox1.CustomizableEdges = CustomizableEdges23
+        Guna2TextBox1.DefaultText = ""
+        Guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        Guna2TextBox1.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        Guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        Guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        Guna2TextBox1.FillColor = SystemColors.MenuBar
+        Guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        Guna2TextBox1.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        Guna2TextBox1.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        Guna2TextBox1.Location = New Point(36, 310)
+        Guna2TextBox1.Margin = New Padding(4, 3, 4, 3)
+        Guna2TextBox1.Name = "Guna2TextBox1"
+        Guna2TextBox1.PasswordChar = ChrW(0)
+        Guna2TextBox1.PlaceholderText = "ID Number"
+        Guna2TextBox1.SelectedText = ""
+        Guna2TextBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges24
+        Guna2TextBox1.Size = New Size(173, 42)
+        Guna2TextBox1.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
+        Guna2TextBox1.TabIndex = 73
+        ' 
+        ' btnClear
+        ' 
+        btnClear.BorderRadius = 8
+        btnClear.CustomizableEdges = CustomizableEdges25
+        btnClear.DisabledState.BorderColor = Color.DarkGray
+        btnClear.DisabledState.CustomBorderColor = Color.DarkGray
+        btnClear.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnClear.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnClear.FillColor = Color.Firebrick
+        btnClear.Font = New Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        btnClear.ForeColor = Color.White
+        btnClear.Location = New Point(36, 418)
+        btnClear.Name = "btnClear"
+        btnClear.ShadowDecoration.CustomizableEdges = CustomizableEdges26
+        btnClear.Size = New Size(173, 45)
+        btnClear.TabIndex = 75
+        btnClear.Text = "Clear"
+        ' 
+        ' btnSearch
+        ' 
+        btnSearch.BorderRadius = 8
+        btnSearch.CustomizableEdges = CustomizableEdges27
+        btnSearch.DisabledState.BorderColor = Color.DarkGray
+        btnSearch.DisabledState.CustomBorderColor = Color.DarkGray
+        btnSearch.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnSearch.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnSearch.FillColor = Color.Maroon
+        btnSearch.Font = New Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        btnSearch.ForeColor = Color.White
+        btnSearch.Location = New Point(36, 358)
+        btnSearch.Name = "btnSearch"
+        btnSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges28
+        btnSearch.Size = New Size(173, 45)
+        btnSearch.TabIndex = 74
+        btnSearch.Text = "Search"
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Font = New Font("Poppins", 9.2F, FontStyle.Regular, GraphicsUnit.Point)
+        Label3.Location = New Point(233, 158)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(49, 23)
+        Label3.TabIndex = 78
+        Label3.Text = "Name"
+        ' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.Font = New Font("Poppins", 9.2F, FontStyle.Regular, GraphicsUnit.Point)
+        Label5.Location = New Point(233, 234)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(83, 23)
+        Label5.TabIndex = 80
+        Label5.Text = "Description"
+
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Font = New Font("Poppins", 12.0F, FontStyle.Regular, GraphicsUnit.Point)
-        Label6.Location = New Point(19, 363)
+        Label6.Font = New Font("Poppins", 9.2F, FontStyle.Regular, GraphicsUnit.Point)
+        Label6.Location = New Point(233, 367)
         Label6.Name = "Label6"
-        Label6.Size = New Size(103, 28)
-        Label6.TabIndex = 70
-        Label6.Text = "Verification"
+        Label6.Size = New Size(70, 23)
+        Label6.TabIndex = 82
+        Label6.Text = "Issued By"
+
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Font = New Font("Poppins", 9.2F, FontStyle.Regular, GraphicsUnit.Point)
+        Label7.Location = New Point(233, 455)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(44, 23)
+        Label7.TabIndex = 84
+        Label7.Text = "Copy"
+        ' 
+        ' tbRtrnCopies
+        ' 
+        tbRtrnCopies.Animated = True
+        tbRtrnCopies.Cursor = Cursors.IBeam
+        tbRtrnCopies.CustomizableEdges = CustomizableEdges33
+        tbRtrnCopies.DefaultText = ""
+        tbRtrnCopies.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        tbRtrnCopies.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        tbRtrnCopies.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        tbRtrnCopies.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        tbRtrnCopies.FillColor = SystemColors.MenuBar
+        tbRtrnCopies.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        tbRtrnCopies.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        tbRtrnCopies.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        tbRtrnCopies.Location = New Point(233, 483)
+        tbRtrnCopies.Margin = New Padding(4, 3, 4, 3)
+        tbRtrnCopies.Name = "tbRtrnCopies"
+        tbRtrnCopies.PasswordChar = ChrW(0)
+        tbRtrnCopies.PlaceholderText = "Copies"
+        tbRtrnCopies.SelectedText = ""
+        tbRtrnCopies.ShadowDecoration.CustomizableEdges = CustomizableEdges34
+        tbRtrnCopies.Size = New Size(242, 42)
+        tbRtrnCopies.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
+        tbRtrnCopies.TabIndex = 83
+        ' 
+        ' btnReturn
+        ' 
+        btnReturn.BorderRadius = 8
+        btnReturn.CustomizableEdges = CustomizableEdges35
+        btnReturn.DisabledState.BorderColor = Color.DarkGray
+        btnReturn.DisabledState.CustomBorderColor = Color.DarkGray
+        btnReturn.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnReturn.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnReturn.FillColor = Color.Salmon
+        btnReturn.Font = New Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        btnReturn.ForeColor = Color.White
+        btnReturn.Location = New Point(36, 480)
+        btnReturn.Name = "btnReturn"
+        btnReturn.ShadowDecoration.CustomizableEdges = CustomizableEdges36
+        btnReturn.Size = New Size(173, 45)
+        btnReturn.TabIndex = 85
+        btnReturn.Text = "RETURN"
         ' 
         ' formReturnBook
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.MistyRose
         ClientSize = New Size(1074, 698)
+        Controls.Add(btnReturn)
+        Controls.Add(Label7)
+        Controls.Add(tbRtrnCopies)
         Controls.Add(Label6)
-        Controls.Add(PictureBox1)
-        Controls.Add(tbSchoolId)
-        Controls.Add(tbPatronContact)
-        Controls.Add(tbSearch)
         Controls.Add(Label5)
-        Controls.Add(Panel2)
-        Controls.Add(Guna2ComboBox1)
-        Controls.Add(tbFirstName)
-        Controls.Add(tbMiddlename)
-        Controls.Add(tbPatronAddress)
-        Controls.Add(tbPatronEmail)
-        Controls.Add(Label2)
-        Controls.Add(tbLastName)
-        Controls.Add(Label4)
-        Controls.Add(btn_delete)
-        Controls.Add(btn_edit)
-        Controls.Add(btm_save)
-        Controls.Add(Panel1)
+        Controls.Add(Label3)
+        Controls.Add(btnClear)
+        Controls.Add(btnSearch)
+        Controls.Add(Guna2TextBox1)
+        Controls.Add(profilePhoto)
         Controls.Add(dgvBooks)
+        Controls.Add(tbSearch)
+        Controls.Add(Label2)
+        Controls.Add(Label4)
+        Controls.Add(Panel1)
         FormBorderStyle = FormBorderStyle.None
         Margin = New Padding(4, 3, 4, 3)
         Name = "formReturnBook"
@@ -596,25 +401,17 @@ Partial Class formReturnBook
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
         CType(dgvBooks, ComponentModel.ISupportInitialize).EndInit()
-        Panel2.ResumeLayout(False)
-        Panel2.PerformLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        CType(profilePhoto, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label1 As Label
     Friend WithEvents btn_addDepartment As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btn_delete As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btn_edit As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btm_save As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents tbDesciption As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbCopies As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbGenre As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents tbLastName As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label5 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Guna2DateTimePicker1 As Guna.UI2.WinForms.Guna2DateTimePicker
     Friend WithEvents tbAuthorEmail As Guna.UI2.WinForms.Guna2TextBox
@@ -626,31 +423,30 @@ Partial Class formReturnBook
     Friend WithEvents tbBookName As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents btnAddAuthor As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Button2 As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents dgvBooks As DataGridView
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents tbPatronAddress As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbPatronEmail As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents tbMiddlename As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents tbFirstName As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Guna2ComboBox1 As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents RadioButton1 As RadioButton
-    Friend WithEvents RadioButton2 As RadioButton
     Friend WithEvents tbContact As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbAddress As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents tbPubName As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Panel2 As Panel
     Friend WithEvents tbPubEmail As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbPubAddress As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbSearch As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents tbPatronContact As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents tbSchoolId As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents dgvBooks As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents profilePhoto As PictureBox
+    Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents btnClear As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnSearch As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Guna2TextBox2 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label6 As Label
+    Friend WithEvents Guna2TextBox3 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents tbRtrnCopies As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents btnReturn As Guna.UI2.WinForms.Guna2Button
 End Class

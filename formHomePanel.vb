@@ -14,15 +14,15 @@ Public Class formHomePanel
 
             Dim bookIndex As Integer
 
-            dvgHistory.Rows.Clear()
+            dgvHistory.Rows.Clear()
             Dim command = New OleDbCommand("select * from tbl_history", conn)
             Dim dr = command.ExecuteReader
 
             While dr.Read
                 bookIndex += 1
-                dvgHistory.Rows.Add(
+                dgvHistory.Rows.Add(
                     bookIndex,
-                    dr.Item("book_id").ToString,
+                    dr.Item("isbn").ToString,
                     dr.Item("issued_by").ToString,
                     dr.Item("issued_by").ToString,
                     dr.Item("issued_by").ToString(),
@@ -36,7 +36,4 @@ Public Class formHomePanel
         closeConnection()
     End Sub
 
-    Private Sub dvgHistory_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dvgHistory.CellContentClick
-
-    End Sub
 End Class

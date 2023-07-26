@@ -155,7 +155,58 @@ Public Class formIssueBook
     End Sub
 
     Private Sub btnIssue_Click(sender As Object, e As EventArgs) Handles btnIssue.Click
+        If isNullOrEmpty(tbIssueCopies.Text) Then
+            MsgBox("Copies must not empty!", vbCritical)
+        Else
+            ' To get the current date only
+            Dim currentDate As Date = Date.Today
+            Try
+                conn.Open()
+                Dim insertQuery = "INSERT INTO tbl_history(`patron`, `book_isbn`, `date_issued`, `issued_by`, `copies`) 
+                                VALUES(@Patron, @ISBN, @DateIssued, @IssuedBy, @Copies)"
 
+                Dim cmd = New OleDbCommand(insertQuery, conn)
+
+                Dim query = "SELECT b.isbn, a.email, a.last_name, a.first_name " &
+                             "FROM tbl_books AS b " &
+                             "INNER JOIN tbl_authors AS a ON b.author = a.email " &
+                             "WHERE b.title = @BookName"
+
+                Dim queryCmd = New OleDbCommand(query, conn)
+                Dim author = tbAuthor.Text.Split(", ")
+                With queryCmd
+                    ' .Parameters.AddWithValue("@AuthorLastName", author(0))
+                    ' .Parameters.AddWithValue("@AuthorFirstName", author(1))
+                    .Parameters.AddWithValue("@BookName", tbIssueBookName.Text)
+                End With
+
+                Dim reader As OleDbDataReader = queryCmd.ExecuteReader
+
+                If reader.Read Then
+                    Dim isbn = reader("isbn")
+
+                    With cmd
+                        .Parameters.AddWithValue("@Patron", tbEmail.Text)
+                        .Parameters.AddWithValue("@ISBN", isbn)
+                        .Parameters.AddWithValue("@DateIssued", currentDate)
+                        .Parameters.AddWithValue("@IssuedBy", "pupbataan")
+                        .Parameters.AddWithValue("@Copies", tbIssueCopies.Text)
+                    End With
+
+                    If cmd.ExecuteNonQuery > 0 Then
+                        MsgBox("Successfully Added!", vbInformation)
+                    Else
+                        MsgBox("Could not add", vbCritical)
+                    End If
+
+                Else
+                    MsgBox("Not found ", vbCritical)
+                End If
+            Catch ex As Exception
+                MsgBox("An error occured " & ex.Message, vbCritical)
+            End Try
+            closeConnection()
+        End If
     End Sub
 
     Private Sub tbIssueDepartment_TextChanged(sender As Object, e As EventArgs) Handles tbIssueDepartment.TextChanged

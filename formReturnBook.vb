@@ -202,7 +202,7 @@ Public Class formReturnBook
         conn.Close()
     End Sub
 
-    Private Sub dgvBooks_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvBooks.CellContentClick
+    Private Sub dgvBooks_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
         clear()
 
         Dim isbn = dgvBooks.CurrentRow.Cells(1).Value
@@ -220,7 +220,6 @@ Public Class formReturnBook
                 Dim copies = reader("total_copies")
                 Dim description = reader("description")
 
-                tbLastName.Text = isbn
                 tbBookName.Text = bookName.ToString
                 tbCopies.Text = copies.ToString
                 tbDesciption.Text = description.ToString
@@ -235,7 +234,7 @@ Public Class formReturnBook
     End Sub
 
     Private Sub clear()
-        tbLastName.Text = ""
+
         tbBookName.Text = ""
         tbCopies.Text = ""
     End Sub

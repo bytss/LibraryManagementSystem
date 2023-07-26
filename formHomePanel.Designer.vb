@@ -26,19 +26,13 @@ Partial Class formHomePanel
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Label8 = New Label()
         Label6 = New Label()
         lbl_todayinbound = New Label()
         Label5 = New Label()
         Timer1 = New Timer(components)
         Panel4 = New Panel()
-        dvgHistory = New DataGridView()
-        Column1 = New DataGridViewTextBoxColumn()
-        Column2 = New DataGridViewTextBoxColumn()
-        Column5 = New DataGridViewTextBoxColumn()
-        Column3 = New DataGridViewTextBoxColumn()
-        Column6 = New DataGridViewTextBoxColumn()
-        Column4 = New DataGridViewTextBoxColumn()
         lbl_totalusers = New Label()
         Label3 = New Label()
         Panel3 = New Panel()
@@ -50,12 +44,19 @@ Partial Class formHomePanel
         Panel2 = New Panel()
         lbl_time = New Label()
         Panel5 = New Panel()
+        dgvHistory = New Guna.UI2.WinForms.Guna2DataGridView()
+        index = New DataGridViewTextBoxColumn()
+        Column1 = New DataGridViewTextBoxColumn()
+        Column2 = New DataGridViewTextBoxColumn()
+        Column3 = New DataGridViewTextBoxColumn()
+        Column4 = New DataGridViewTextBoxColumn()
+        Column5 = New DataGridViewTextBoxColumn()
         Panel4.SuspendLayout()
-        CType(dvgHistory, ComponentModel.ISupportInitialize).BeginInit()
         Panel3.SuspendLayout()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         Panel5.SuspendLayout()
+        CType(dgvHistory, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Label8
@@ -116,88 +117,6 @@ Partial Class formHomePanel
         Panel4.Name = "Panel4"
         Panel4.Size = New Size(233, 115)
         Panel4.TabIndex = 45
-        ' 
-        ' dvgHistory
-        ' 
-        dvgHistory.AllowUserToAddRows = False
-        dvgHistory.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = Color.Silver
-        dvgHistory.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        dvgHistory.BackgroundColor = Color.WhiteSmoke
-        dvgHistory.BorderStyle = BorderStyle.None
-        dvgHistory.CellBorderStyle = DataGridViewCellBorderStyle.None
-        dvgHistory.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = Color.DarkGray
-        DataGridViewCellStyle2.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle2.ForeColor = Color.White
-        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Control
-        DataGridViewCellStyle2.SelectionForeColor = Color.DimGray
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
-        dvgHistory.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        dvgHistory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        dvgHistory.Columns.AddRange(New DataGridViewColumn() {Column1, Column2, Column5, Column3, Column6, Column4})
-        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = SystemColors.Window
-        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle3.ForeColor = Color.Gray
-        DataGridViewCellStyle3.SelectionBackColor = SystemColors.Control
-        DataGridViewCellStyle3.SelectionForeColor = SystemColors.ActiveCaption
-        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.False
-        dvgHistory.DefaultCellStyle = DataGridViewCellStyle3
-        dvgHistory.EnableHeadersVisualStyles = False
-        dvgHistory.GridColor = SystemColors.ActiveBorder
-        dvgHistory.Location = New Point(33, 251)
-        dvgHistory.Margin = New Padding(6)
-        dvgHistory.Name = "dvgHistory"
-        dvgHistory.ReadOnly = True
-        dvgHistory.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single
-        dvgHistory.RowHeadersVisible = False
-        dvgHistory.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dvgHistory.Size = New Size(992, 286)
-        dvgHistory.TabIndex = 46
-        ' 
-        ' Column1
-        ' 
-        Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        Column1.HeaderText = "#"
-        Column1.Name = "Column1"
-        Column1.ReadOnly = True
-        Column1.Width = 39
-        ' 
-        ' Column2
-        ' 
-        Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        Column2.HeaderText = "Book Name"
-        Column2.Name = "Column2"
-        Column2.ReadOnly = True
-        ' 
-        ' Column5
-        ' 
-        Column5.HeaderText = "Patrons"
-        Column5.Name = "Column5"
-        Column5.ReadOnly = True
-        ' 
-        ' Column3
-        ' 
-        Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        Column3.HeaderText = "Quantity"
-        Column3.Name = "Column3"
-        Column3.ReadOnly = True
-        Column3.Width = 84
-        ' 
-        ' Column6
-        ' 
-        Column6.HeaderText = "Returned"
-        Column6.Name = "Column6"
-        Column6.ReadOnly = True
-        ' 
-        ' Column4
-        ' 
-        Column4.HeaderText = "Date Issued"
-        Column4.Name = "Column4"
-        Column4.ReadOnly = True
-        Column4.Width = 140
         ' 
         ' lbl_totalusers
         ' 
@@ -320,11 +239,96 @@ Partial Class formHomePanel
         ' 
         Panel5.BackColor = Color.WhiteSmoke
         Panel5.Controls.Add(lbl_time)
-        Panel5.Location = New Point(42, 562)
+        Panel5.Location = New Point(32, 562)
         Panel5.Margin = New Padding(4, 3, 4, 3)
         Panel5.Name = "Panel5"
-        Panel5.Size = New Size(983, 92)
+        Panel5.Size = New Size(993, 92)
         Panel5.TabIndex = 43
+        ' 
+        ' dgvHistory
+        ' 
+        DataGridViewCellStyle1.BackColor = Color.White
+        dgvHistory.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = Color.Maroon
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle2.ForeColor = Color.White
+        DataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(CByte(64), CByte(0), CByte(0))
+        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
+        dgvHistory.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        dgvHistory.ColumnHeadersHeight = 35
+        dgvHistory.Columns.AddRange(New DataGridViewColumn() {index, Column1, Column2, Column3, Column4, Column5})
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = Color.White
+        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle3.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        DataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.False
+        dgvHistory.DefaultCellStyle = DataGridViewCellStyle3
+        dgvHistory.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvHistory.Location = New Point(32, 248)
+        dgvHistory.Name = "dgvHistory"
+        dgvHistory.RowHeadersVisible = False
+        dgvHistory.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DataGridViewCellStyle4.SelectionBackColor = Color.IndianRed
+        DataGridViewCellStyle4.SelectionForeColor = Color.White
+        dgvHistory.RowsDefaultCellStyle = DataGridViewCellStyle4
+        dgvHistory.RowTemplate.Height = 25
+        dgvHistory.Size = New Size(993, 308)
+        dgvHistory.TabIndex = 64
+        dgvHistory.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
+        dgvHistory.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        dgvHistory.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty
+        dgvHistory.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty
+        dgvHistory.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty
+        dgvHistory.ThemeStyle.BackColor = Color.White
+        dgvHistory.ThemeStyle.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvHistory.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        dgvHistory.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
+        dgvHistory.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        dgvHistory.ThemeStyle.HeaderStyle.ForeColor = Color.White
+        dgvHistory.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        dgvHistory.ThemeStyle.HeaderStyle.Height = 35
+        dgvHistory.ThemeStyle.ReadOnly = False
+        dgvHistory.ThemeStyle.RowsStyle.BackColor = Color.White
+        dgvHistory.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
+        dgvHistory.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        dgvHistory.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        dgvHistory.ThemeStyle.RowsStyle.Height = 25
+        dgvHistory.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvHistory.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        ' 
+        ' index
+        ' 
+        index.HeaderText = "#"
+        index.Name = "index"
+        ' 
+        ' Column1
+        ' 
+        Column1.HeaderText = "ISBN"
+        Column1.Name = "Column1"
+        ' 
+        ' Column2
+        ' 
+        Column2.HeaderText = "Book Name"
+        Column2.Name = "Column2"
+        ' 
+        ' Column3
+        ' 
+        Column3.HeaderText = "Issued By"
+        Column3.Name = "Column3"
+        ' 
+        ' Column4
+        ' 
+        Column4.HeaderText = "Patrons"
+        Column4.Name = "Column4"
+        ' 
+        ' Column5
+        ' 
+        Column5.HeaderText = "Action"
+        Column5.Name = "Column5"
         ' 
         ' formHomePanel
         ' 
@@ -332,11 +336,11 @@ Partial Class formHomePanel
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.MistyRose
         ClientSize = New Size(1058, 659)
+        Controls.Add(dgvHistory)
         Controls.Add(Panel5)
         Controls.Add(Label8)
         Controls.Add(Label6)
         Controls.Add(Panel4)
-        Controls.Add(dvgHistory)
         Controls.Add(Panel3)
         Controls.Add(Panel1)
         Controls.Add(Panel2)
@@ -345,7 +349,6 @@ Partial Class formHomePanel
         StartPosition = FormStartPosition.CenterScreen
         Panel4.ResumeLayout(False)
         Panel4.PerformLayout()
-        CType(dvgHistory, ComponentModel.ISupportInitialize).EndInit()
         Panel3.ResumeLayout(False)
         Panel3.PerformLayout()
         Panel1.ResumeLayout(False)
@@ -354,6 +357,7 @@ Partial Class formHomePanel
         Panel2.PerformLayout()
         Panel5.ResumeLayout(False)
         Panel5.PerformLayout()
+        CType(dgvHistory, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -363,7 +367,6 @@ Partial Class formHomePanel
     Friend WithEvents Label5 As Label
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Panel4 As Panel
-    Friend WithEvents dvgHistory As DataGridView
     Friend WithEvents lbl_totalusers As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Panel3 As Panel
@@ -373,12 +376,13 @@ Partial Class formHomePanel
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents lbl_time As Label
     Friend WithEvents Panel5 As Panel
+    Friend WithEvents dgvHistory As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents index As DataGridViewTextBoxColumn
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
 End Class
