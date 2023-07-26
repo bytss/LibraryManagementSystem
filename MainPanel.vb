@@ -8,7 +8,16 @@
         End With
     End Sub
 
-    Private Sub btn_customerMaster_Click(sender As Object, e As EventArgs) Handles btn_customerMaster.Click
+    Private Sub btnManagePatron_Click(sender As Object, e As EventArgs) Handles btnManagePatron.Click
+        With formManagePatron
+            .TopLevel = False
+            Panel1.Controls.Add(formManagePatron)
+            .BringToFront()
+            .Show()
+        End With
+    End Sub
+
+    Private Sub btnManageBooks_Click(sender As Object, e As EventArgs) Handles btnManageBooks.Click
         With frmManageBook
             .TopLevel = False
             Panel1.Controls.Add(frmManageBook)
@@ -17,7 +26,4 @@
         End With
     End Sub
 
-    Private Sub btn_inbound_Click(sender As Object, e As EventArgs) Handles btn_inbound.Click
-
-    End Sub
 End Class

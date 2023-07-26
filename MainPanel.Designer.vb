@@ -38,14 +38,14 @@ Partial Class MainPanel
         Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges19 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges20 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges21 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges22 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Guna2DragControl1 = New Guna.UI2.WinForms.Guna2DragControl(components)
         Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         lbl_role = New Label()
@@ -58,12 +58,12 @@ Partial Class MainPanel
         TableLayoutPanel1 = New TableLayoutPanel()
         btn_inbound = New Guna.UI2.WinForms.Guna2Button()
         btn_stockmaster = New Guna.UI2.WinForms.Guna2Button()
-        btn_ProductMaster = New Guna.UI2.WinForms.Guna2Button()
+        btnManageBooks = New Guna.UI2.WinForms.Guna2Button()
+        btnManagePatron = New Guna.UI2.WinForms.Guna2Button()
         btn_Dashboard = New Guna.UI2.WinForms.Guna2Button()
         btn_logout = New Guna.UI2.WinForms.Guna2Button()
         btn_manageuser = New Guna.UI2.WinForms.Guna2Button()
         Panel1 = New Panel()
-        btn_customerMaster = New Guna.UI2.WinForms.Guna2Button()
         Guna2Panel1.SuspendLayout()
         CType(Guna2CirclePictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         CType(main_picturebox, ComponentModel.ISupportInitialize).BeginInit()
@@ -207,8 +207,8 @@ Partial Class MainPanel
         TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
         TableLayoutPanel1.Controls.Add(btn_inbound, 0, 4)
         TableLayoutPanel1.Controls.Add(btn_stockmaster, 0, 3)
-        TableLayoutPanel1.Controls.Add(btn_ProductMaster, 0, 2)
-        TableLayoutPanel1.Controls.Add(btn_customerMaster, 0, 1)
+        TableLayoutPanel1.Controls.Add(btnManageBooks, 0, 2)
+        TableLayoutPanel1.Controls.Add(btnManagePatron, 0, 1)
         TableLayoutPanel1.Controls.Add(btn_Dashboard, 0, 0)
         TableLayoutPanel1.Controls.Add(btn_logout, 0, 9)
         TableLayoutPanel1.Controls.Add(btn_manageuser, 0, 5)
@@ -282,30 +282,55 @@ Partial Class MainPanel
         btn_stockmaster.TextAlign = HorizontalAlignment.Left
         btn_stockmaster.TextOffset = New Point(10, 0)
         ' 
-        ' btn_ProductMaster
+        ' btnManageBooks
         ' 
-        btn_ProductMaster.Animated = True
-        btn_ProductMaster.CustomizableEdges = CustomizableEdges13
-        btn_ProductMaster.DisabledState.BorderColor = Color.DarkGray
-        btn_ProductMaster.DisabledState.CustomBorderColor = Color.DarkGray
-        btn_ProductMaster.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        btn_ProductMaster.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btn_ProductMaster.Dock = DockStyle.Fill
-        btn_ProductMaster.FillColor = Color.Transparent
-        btn_ProductMaster.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_ProductMaster.ForeColor = Color.FromArgb(CByte(135), CByte(133), CByte(133))
-        btn_ProductMaster.Image = CType(resources.GetObject("btn_ProductMaster.Image"), Image)
-        btn_ProductMaster.ImageAlign = HorizontalAlignment.Left
-        btn_ProductMaster.ImageOffset = New Point(10, 0)
-        btn_ProductMaster.Location = New Point(4, 129)
-        btn_ProductMaster.Margin = New Padding(4, 3, 4, 3)
-        btn_ProductMaster.Name = "btn_ProductMaster"
-        btn_ProductMaster.ShadowDecoration.CustomizableEdges = CustomizableEdges14
-        btn_ProductMaster.Size = New Size(209, 57)
-        btn_ProductMaster.TabIndex = 2
-        btn_ProductMaster.Text = "Manage Books"
-        btn_ProductMaster.TextAlign = HorizontalAlignment.Left
-        btn_ProductMaster.TextOffset = New Point(10, 0)
+        btnManageBooks.Animated = True
+        btnManageBooks.CustomizableEdges = CustomizableEdges13
+        btnManageBooks.DisabledState.BorderColor = Color.DarkGray
+        btnManageBooks.DisabledState.CustomBorderColor = Color.DarkGray
+        btnManageBooks.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnManageBooks.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnManageBooks.Dock = DockStyle.Fill
+        btnManageBooks.FillColor = Color.Transparent
+        btnManageBooks.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        btnManageBooks.ForeColor = Color.FromArgb(CByte(135), CByte(133), CByte(133))
+        btnManageBooks.Image = CType(resources.GetObject("btnManageBooks.Image"), Image)
+        btnManageBooks.ImageAlign = HorizontalAlignment.Left
+        btnManageBooks.ImageOffset = New Point(10, 0)
+        btnManageBooks.Location = New Point(4, 129)
+        btnManageBooks.Margin = New Padding(4, 3, 4, 3)
+        btnManageBooks.Name = "btnManageBooks"
+        btnManageBooks.ShadowDecoration.CustomizableEdges = CustomizableEdges14
+        btnManageBooks.Size = New Size(209, 57)
+        btnManageBooks.TabIndex = 2
+        btnManageBooks.Text = "Manage Books"
+        btnManageBooks.TextAlign = HorizontalAlignment.Left
+        btnManageBooks.TextOffset = New Point(10, 0)
+        ' 
+        ' btnManagePatron
+        ' 
+        btnManagePatron.Animated = True
+        btnManagePatron.CustomizableEdges = CustomizableEdges15
+        btnManagePatron.DisabledState.BorderColor = Color.DarkGray
+        btnManagePatron.DisabledState.CustomBorderColor = Color.DarkGray
+        btnManagePatron.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnManagePatron.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnManagePatron.Dock = DockStyle.Fill
+        btnManagePatron.FillColor = Color.Transparent
+        btnManagePatron.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        btnManagePatron.ForeColor = Color.FromArgb(CByte(135), CByte(133), CByte(133))
+        btnManagePatron.Image = CType(resources.GetObject("btnManagePatron.Image"), Image)
+        btnManagePatron.ImageAlign = HorizontalAlignment.Left
+        btnManagePatron.ImageOffset = New Point(10, 0)
+        btnManagePatron.Location = New Point(4, 66)
+        btnManagePatron.Margin = New Padding(4, 3, 4, 3)
+        btnManagePatron.Name = "btnManagePatron"
+        btnManagePatron.ShadowDecoration.CustomizableEdges = CustomizableEdges16
+        btnManagePatron.Size = New Size(209, 57)
+        btnManagePatron.TabIndex = 1
+        btnManagePatron.Text = "Manage Patrons"
+        btnManagePatron.TextAlign = HorizontalAlignment.Left
+        btnManagePatron.TextOffset = New Point(10, 0)
         ' 
         ' btn_Dashboard
         ' 
@@ -390,31 +415,6 @@ Partial Class MainPanel
         Panel1.Size = New Size(1075, 698)
         Panel1.TabIndex = 3
         ' 
-        ' btn_customerMaster
-        ' 
-        btn_customerMaster.Animated = True
-        btn_customerMaster.CustomizableEdges = CustomizableEdges15
-        btn_customerMaster.DisabledState.BorderColor = Color.DarkGray
-        btn_customerMaster.DisabledState.CustomBorderColor = Color.DarkGray
-        btn_customerMaster.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        btn_customerMaster.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btn_customerMaster.Dock = DockStyle.Fill
-        btn_customerMaster.FillColor = Color.Transparent
-        btn_customerMaster.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_customerMaster.ForeColor = Color.FromArgb(CByte(135), CByte(133), CByte(133))
-        btn_customerMaster.Image = CType(resources.GetObject("btn_customerMaster.Image"), Image)
-        btn_customerMaster.ImageAlign = HorizontalAlignment.Left
-        btn_customerMaster.ImageOffset = New Point(10, 0)
-        btn_customerMaster.Location = New Point(4, 66)
-        btn_customerMaster.Margin = New Padding(4, 3, 4, 3)
-        btn_customerMaster.Name = "btn_customerMaster"
-        btn_customerMaster.ShadowDecoration.CustomizableEdges = CustomizableEdges16
-        btn_customerMaster.Size = New Size(209, 57)
-        btn_customerMaster.TabIndex = 1
-        btn_customerMaster.Text = "Manage Patrons"
-        btn_customerMaster.TextAlign = HorizontalAlignment.Left
-        btn_customerMaster.TextOffset = New Point(10, 0)
-        ' 
         ' MainPanel
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -446,12 +446,12 @@ Partial Class MainPanel
     Friend WithEvents btn_logout As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btn_inbound As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btn_stockmaster As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btn_ProductMaster As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnManageBooks As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Guna2ControlBox1 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents Guna2ControlBox2 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents btn_manageuser As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents lbl_role As Label
     Friend WithEvents lbl_user As Label
-    Friend WithEvents btn_customerMaster As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnManagePatron As Guna.UI2.WinForms.Guna2Button
 End Class

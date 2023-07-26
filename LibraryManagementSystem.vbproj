@@ -20,6 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="formManagePatron.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ManageBooks\formGenre.vb" />
     <Compile Update="My Project\Application.Designer.vb">
       <DesignTime>True</DesignTime>

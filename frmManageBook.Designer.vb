@@ -130,13 +130,13 @@ Partial Class frmManageBook
         ' 
         Label1.AutoSize = True
         Label1.FlatStyle = FlatStyle.Flat
-        Label1.Font = New Font("Nirmala UI Semilight", 15F, FontStyle.Bold, GraphicsUnit.Point)
+        Label1.Font = New Font("Poppins", 18F, FontStyle.Bold, GraphicsUnit.Point)
         Label1.ForeColor = Color.DimGray
-        Label1.Location = New Point(19, 9)
+        Label1.Location = New Point(4, 18)
         Label1.Margin = New Padding(4, 0, 4, 0)
         Label1.Name = "Label1"
         Label1.Padding = New Padding(12)
-        Label1.Size = New Size(172, 52)
+        Label1.Size = New Size(229, 66)
         Label1.TabIndex = 5
         Label1.Text = "Manage Books"
         ' 
