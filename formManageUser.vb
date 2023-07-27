@@ -196,6 +196,7 @@ Public Class formManageUser
 
     Private Sub tbSearch_TextChanged(sender As Object, e As EventArgs) Handles tbSearch.TextChanged
         If Not isNullOrEmpty(tbSearch.Text) Then
+
         Else
 
         End If

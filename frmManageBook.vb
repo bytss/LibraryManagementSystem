@@ -274,7 +274,7 @@ Public Class frmManageBook
         Dim isTermInSuggestions As Boolean = authorsSuggestionList.Contains(author)
 
         If isTermInSuggestions Then
-            tbContact.Text = "true"
+            tbAuthorContact.Text = "true"
             Try
                 conn.Open()
 
@@ -292,8 +292,8 @@ Public Class frmManageBook
                     Dim country = reader("country").ToString
 
                     tbAuthorEmail.Text = email
-                    tbContact.Text = contact
-                    tbAddress.Text = address & ", " & country
+                    tbAuthorContact.Text = contact
+                    tbAuthorAddress.Text = address & ", " & country
                 Else
                     MsgBox("Not found!", vbCritical)
                 End If
@@ -366,6 +366,65 @@ Public Class frmManageBook
     End Sub
 
     Private Sub dgvBooks_CellContentClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles dgvBooks.CellContentClick
+        Dim isbn = dgvBooks.CurrentRow.Cells(0).Value
 
+        Try
+            conn.Open()
+            Dim query = "SELECT b.isbn, b.title, b.description, b.total_copies, b.genre, b.department, " &
+            "a.last_name, a.first_name, a.middle_initial, a.email, a.contact_number, a.address, " &
+            "p.publisher_name, p.email AS publisher_email, p.contact_number AS publisher_contact_number, p.address AS publisher_address " &
+            "FROM (tbl_books AS b " &
+            "INNER JOIN tbl_authors AS a ON b.author = a.email) " &
+            "INNER JOIN tbl_publishers AS p ON b.publisher = p.email " &
+            "WHERE b.isbn = @Criteria"
+
+
+            Dim cmd = New OleDbCommand(query, conn)
+            cmd.Parameters.AddWithValue("@Criteria", isbn.ToString)
+            Dim reader As OleDbDataReader = cmd.ExecuteReader
+
+            If reader.Read Then
+                ' Access the retrieved data using reader
+                Dim bookIsbn As String = reader("isbn").ToString()
+                Dim title As String = reader("title").ToString()
+                Dim description As String = reader("description").ToString()
+                Dim totalCopies As Integer = Convert.ToInt32(reader("total_copies"))
+                Dim genre As String = reader("genre").ToString()
+                Dim department As String = reader("department").ToString()
+
+                Dim authorLastName As String = reader("last_name").ToString()
+                Dim authorFirstName As String = reader("first_name").ToString()
+                Dim authorMiddleInitial As String = reader("middle_initial").ToString()
+                Dim authorEmail As String = reader("email").ToString()
+                Dim authorContactNumber As String = reader("contact_number").ToString()
+                Dim authorAddress As String = reader("address").ToString()
+
+                Dim publisherName As String = reader("publisher_name").ToString()
+                Dim publisherEmail As String = reader("publisher_email").ToString()
+                Dim publisherContactNumber As String = reader("publisher_contact_number").ToString()
+                Dim publisherAddress As String = reader("publisher_address").ToString()
+
+                ' Do something with the retrieved data...
+                tbIsbn.Text = bookIsbn
+                tbBookName.Text = title
+                tbDesciption.Text = description
+                tbCopies.Text = totalCopies
+                tbGenre.Text = genre
+                tbDepartment.Text = department
+
+                tbAuthorName.Text = authorLastName & ", " & authorFirstName & " " & authorMiddleInitial
+                tbAuthorEmail.Text = authorEmail
+                tbAuthorContact.Text = authorContactNumber
+                tbAuthorAddress.Text = authorAddress
+            Else
+                MsgBox("Not found")
+
+            End If
+
+        Catch ex As Exception
+            MsgBox("An error occured, " & ex.Message, vbCritical)
+
+        End Try
+        conn.Close()
     End Sub
 End Class
