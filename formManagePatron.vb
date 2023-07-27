@@ -24,20 +24,23 @@ Public Class formManagePatron
             Dim cmd = New OleDbCommand(query, conn)
             Dim reader As OleDbDataReader = cmd.ExecuteReader
 
-            While reader.Read
-                Dim patronId = reader("patron_id")
-                Dim lastName = reader("last_name")
-                Dim firstName = reader("first_name")
-                Dim middleName = reader("middle_name")
-                Dim fullName = lastName & ", " & firstName & " " & middleName
-                Dim category = reader("category")
-                Dim isVerified = reader("is_verified")
+            ' must check first if the data grid view has column
+            If dgvPatronList.ColumnCount > 0 Then
+                While reader.Read
+                    Dim patronId = reader("patron_id")
+                    Dim lastName = reader("last_name")
+                    Dim firstName = reader("first_name")
+                    Dim middleName = reader("middle_name")
+                    Dim fullName = lastName & ", " & firstName & " " & middleName
+                    Dim category = reader("category")
+                    Dim isVerified = reader("is_verified")
 
-                dgvPatronList.Rows.Add(patronId, fullName, category, isVerified)
-            End While
+                    dgvPatronList.Rows.Add(patronId, fullName, category, isVerified)
+                End While
+            End If
 
         Catch ex As Exception
-
+            MsgBox("An error occured, loading patron: " & ex.Message, vbCritical)
         End Try
         closeConnection()
     End Sub
@@ -121,7 +124,7 @@ Public Class formManagePatron
                 End While
 
             Catch ex As Exception
-
+                MsgBox("An error occured, loading patrons: " & ex.Message, vbCritical)
             End Try
             closeConnection()
         Else

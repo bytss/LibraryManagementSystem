@@ -3,8 +3,8 @@ Imports System.Globalization
 
 Module DIModule
 
-    Public connPath As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\VSProjects\PUPBataanLibrarySystem\bin\Debug\Database\lmsdb.accdb"
-    ' Public connPath As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & Application.StartupPath & "\Database\pup_lms_db.accdb"
+    'Public connPath As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\VSProjects\PUPBataanLibrarySystem\bin\Debug\Database\lmsdb.accdb"
+    Public connPath As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & Application.StartupPath & "\db\lmsdb.accdb"
     Public conn As OleDbConnection
 
     Public Sub initConnection()

@@ -20,26 +20,30 @@ Public Class formManageUser
     End Sub
 
     Private Sub loadUsers()
-        ' clear item books
-        dgvUsers.Rows.Clear()
-
         Try
+            ' clear item books
+            dgvUsers.Rows.Clear()
             openConnection()
             Dim query = "SELECT * from tbl_users"
             Dim cmd = New OleDbCommand(query, conn)
             Dim reader As OleDbDataReader = cmd.ExecuteReader
 
-            While reader.Read
-                Dim username = reader("username")
-                Dim firstName = reader("first_name")
-                Dim middleName = reader("middle_name")
-                Dim lastName = reader("last_name")
-                Dim fullName = lastName & ", " & firstName & " " & middleName
-                Dim role = reader("role")
-                Dim lastLogin = reader("last_login")
 
-                dgvUsers.Rows.Add(username, fullName, role, lastLogin)
-            End While
+            ' must check first if the data grid view has column
+            If dgvUsers.ColumnCount > 0 Then
+                While reader.Read
+                    Dim username = reader("username")
+                    Dim firstName = reader("first_name")
+                    Dim middleName = reader("middle_name")
+                    Dim lastName = reader("last_name")
+                    Dim fullName = lastName & ", " & firstName & " " & middleName
+                    Dim role = reader("role")
+                    Dim lastLogin = reader("last_login")
+
+                    dgvUsers.Rows.Add(username, fullName, role, lastLogin)
+                End While
+            End If
+
 
             reader.Close()
         Catch ex As Exception
@@ -194,11 +198,40 @@ Public Class formManageUser
         End If
     End Sub
 
-    Private Sub tbSearch_TextChanged(sender As Object, e As EventArgs) Handles tbSearch.TextChanged
-        If Not isNullOrEmpty(tbSearch.Text) Then
+    Private Sub tbSearch_TextChanged(sender As Object, e As EventArgs) Handles tbSearchUser.TextChanged
+        If Not isNullOrEmpty(tbSearchUser.Text) Then
+            Try
+                ' clear item books
+                dgvUsers.Rows.Clear()
+                openConnection()
+                Dim query = "SELECT * FROM tbl_users " &
+                              "WHERE username LIKE '%' + @SearchTerm + '%' OR " &
+                              "last_name LIKE '%' + @SearchTerm + '%' OR " &
+                              "first_name LIKE '%' + @SearchTerm + '%' OR " &
+                              "middle_name LIKE '%' + @SearchTerm + '%'"
+                Dim cmd = New OleDbCommand(query, conn)
+                cmd.Parameters.AddWithValue("@SearchTerm", tbSearchUser.Text)
+                Dim reader As OleDbDataReader = cmd.ExecuteReader
 
+                While reader.Read
+                    Dim username = reader("username")
+                    Dim firstName = reader("first_name")
+                    Dim middleName = reader("middle_name")
+                    Dim lastName = reader("last_name")
+                    Dim fullName = lastName & ", " & firstName & " " & middleName
+                    Dim role = reader("role")
+                    Dim lastLogin = reader("last_login")
+
+                    dgvUsers.Rows.Add(username, fullName, role, lastLogin)
+                End While
+
+                reader.Close()
+            Catch ex As Exception
+                MsgBox("An error occured, loading users: " & ex.Message, vbCritical)
+            End Try
+            closeConnection()
         Else
-
+            loadUsers()
         End If
     End Sub
 End Class
