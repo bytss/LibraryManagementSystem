@@ -7,9 +7,15 @@ Module DIModule
     ' Public connPath As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & Application.StartupPath & "\Database\pup_lms_db.accdb"
     Public conn As OleDbConnection
 
-    Public Sub openConnection()
+    Public Sub initConnection()
         conn = New OleDbConnection()
         conn.ConnectionString = connPath
+    End Sub
+
+    Public Sub openConnection()
+        If conn.State = ConnectionState.Closed Then
+            conn.Open()
+        End If
     End Sub
 
     Public Sub closeConnection()

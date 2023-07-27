@@ -11,7 +11,7 @@ Public Class frmManageBook
     Private publisherSuggestionList As New List(Of String)()
 
     Private Sub manageProduct_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        openConnection()
+        initConnection()
         loadBooks()
         ' load department suggestions
         loadDepartmentSuggestions()
@@ -76,7 +76,7 @@ Public Class frmManageBook
         dgvBooks.Rows.Clear()
 
         Try
-            conn.Open()
+            openConnection()
             Dim query = "SELECT * from tbl_books"
             Dim cmd = New OleDbCommand(query, conn)
             Dim reader As OleDbDataReader = cmd.ExecuteReader
@@ -100,11 +100,20 @@ Public Class frmManageBook
         closeConnection()
     End Sub
 
+    Private Sub loadDepartmentList()
+        Try
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+
     Private Sub loadDepartmentSuggestions()
 
         Try
             departementSuggestionList.Clear()
-            conn.Open()
+            openConnection()
             Dim query = "SELECT DISTINCT department_name FROM tbl_department"
             Dim command = New OleDbCommand(query, conn)
             Dim dbReader As OleDbDataReader = command.ExecuteReader
@@ -126,7 +135,7 @@ Public Class frmManageBook
             genreSuggestionList.Add("Fantasy")
             genreSuggestionList.Add("Educational")
             genreSuggestionList.Add("Novel")
-            conn.Open()
+            openConnection()
             Dim query = "SELECT DISTINCT genre_name FROM tbl_genres"
             Dim command = New OleDbCommand(query, conn)
             Dim reader As OleDbDataReader = command.ExecuteReader
@@ -143,7 +152,7 @@ Public Class frmManageBook
 
     Private Sub loadAuthorSuggestions()
         Try
-            conn.Open()
+            openConnection()
             authorsSuggestionList.Clear()
 
             Dim query = "SELECT * FROM tbl_authors"
@@ -160,13 +169,13 @@ Public Class frmManageBook
         Catch ex As Exception
             MsgBox("An erro occured, author suggestions: " & ex.Message, vbCritical)
         End Try
-        conn.Close()
+        closeConnection()
     End Sub
 
     Private Sub loadPublisherSuggestions()
 
         Try
-            conn.Open()
+            openConnection()
             publisherSuggestionList.Clear()
 
             Dim query = "SELECT * FROM tbl_publishers"
@@ -182,13 +191,13 @@ Public Class frmManageBook
         Catch ex As Exception
             MsgBox("An erro occured, pub suggestions: " & ex.Message, vbCritical)
         End Try
-        conn.Close()
+        closeConnection()
     End Sub
 
     Private Sub saveBooks()
         Dim selectedDate As DateTime = publishDatePicker.Value
         Try
-            conn.Open()
+            openConnection()
             Dim query = "INSERT INTO tbl_books(`isbn`, `title`, `description`, `total_copies`, `remaining_copies`, `author`, `genre`, `publisher`, `department`, `date_of_published`) 
                             VALUES(@ISBN, @Title, @Description, @TotalCopies, @RemainingCopies, @Author, @Genre, @Publisher, @Department, @PublishedDate)"
             Dim cmd = New OleDbCommand(query, conn)
@@ -227,7 +236,7 @@ Public Class frmManageBook
         Dim isbn = dgvBooks.CurrentRow.Cells(1).Value
 
         Try
-            conn.Open()
+            openConnection()
 
             Dim query = "SELECT * from tbl_books WHERE isbn=@ISBN"
             Dim cmd = New OleDbCommand(query, conn)
@@ -250,7 +259,7 @@ Public Class frmManageBook
         Catch ex As Exception
             MsgBox("An error occured, " * ex.Message, vbCritical)
         End Try
-        conn.Close()
+        closeConnection()
     End Sub
 
     Private Sub clear()
@@ -276,7 +285,7 @@ Public Class frmManageBook
         If isTermInSuggestions Then
             tbAuthorContact.Text = "true"
             Try
-                conn.Open()
+                openConnection()
 
                 Dim splitAuthorName = author.Split(", ")
                 Dim query = "SELECT * FROM tbl_authors WHERE last_name LIKE @LastName AND first_name LIKE @FirstName"
@@ -301,8 +310,7 @@ Public Class frmManageBook
             Catch ex As Exception
                 MsgBox("An error occured, " & ex.Message, vbCritical)
             End Try
-            conn.Close()
-
+            closeConnection()
         End If
     End Sub
 
@@ -337,7 +345,7 @@ Public Class frmManageBook
 
         If isTermInSuggestions Then
             Try
-                conn.Open()
+                openConnection()
 
                 Dim query = "SELECT * FROM tbl_publishers WHERE publisher_name LIKE @PublisherName"
                 Dim cmd = New OleDbCommand(query, conn)
@@ -360,8 +368,7 @@ Public Class frmManageBook
             Catch ex As Exception
                 MsgBox("An error occured, " & ex.Message, vbCritical)
             End Try
-            conn.Close()
-
+            closeConnection()
         End If
     End Sub
 
@@ -369,8 +376,12 @@ Public Class frmManageBook
         Dim isbn = dgvBooks.CurrentRow.Cells(0).Value
 
         Try
-            conn.Open()
-            Dim query = "SELECT b.isbn, b.title, b.description, b.total_copies, b.genre, b.department, " &
+            If conn.State = ConnectionState.Open Then
+                conn.Close()
+            End If
+            openConnection()
+
+            Dim query = "SELECT b.isbn, b.title, b.description, b.total_copies, b.genre, b.department, b.date_of_published, " &
             "a.last_name, a.first_name, a.middle_initial, a.email, a.contact_number, a.address, " &
             "p.publisher_name, p.email AS publisher_email, p.contact_number AS publisher_contact_number, p.address AS publisher_address " &
             "FROM (tbl_books AS b " &
@@ -391,6 +402,7 @@ Public Class frmManageBook
                 Dim totalCopies As Integer = Convert.ToInt32(reader("total_copies"))
                 Dim genre As String = reader("genre").ToString()
                 Dim department As String = reader("department").ToString()
+                Dim publishedDate As DateTime = Convert.ToDateTime(reader("date_of_published"))
 
                 Dim authorLastName As String = reader("last_name").ToString()
                 Dim authorFirstName As String = reader("first_name").ToString()
@@ -398,6 +410,7 @@ Public Class frmManageBook
                 Dim authorEmail As String = reader("email").ToString()
                 Dim authorContactNumber As String = reader("contact_number").ToString()
                 Dim authorAddress As String = reader("address").ToString()
+
 
                 Dim publisherName As String = reader("publisher_name").ToString()
                 Dim publisherEmail As String = reader("publisher_email").ToString()
@@ -411,20 +424,27 @@ Public Class frmManageBook
                 tbCopies.Text = totalCopies
                 tbGenre.Text = genre
                 tbDepartment.Text = department
+                publishDatePicker.Value = publishedDate
 
                 tbAuthorName.Text = authorLastName & ", " & authorFirstName & " " & authorMiddleInitial
                 tbAuthorEmail.Text = authorEmail
                 tbAuthorContact.Text = authorContactNumber
                 tbAuthorAddress.Text = authorAddress
+
+                tbPubName.Text = publisherName
+                tbPubEmail.Text = publisherEmail
+                tbPubContact.Text = publisherContactNumber
+                tbPubAddress.Text = publisherAddress
             Else
                 MsgBox("Not found")
-
             End If
-
         Catch ex As Exception
             MsgBox("An error occured, " & ex.Message, vbCritical)
-
         End Try
-        conn.Close()
+        closeConnection()
+    End Sub
+
+    Private Sub btnReload_Click(sender As Object, e As EventArgs) Handles btnReload.Click
+        loadBooks()
     End Sub
 End Class

@@ -8,7 +8,7 @@ Public Class formIssueBook
     Dim def As String = "Default"
 
     Private Sub formIssueBook_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        openConnection()
+        initConnection()
         tbIssueDepartment.Text = def
         loadBookSuggestions(def)
         loadDepartmentSuggestions()
@@ -50,7 +50,7 @@ Public Class formIssueBook
         Try
             departmentSuggestionList.Clear()
             departmentSuggestionList.Add(def)
-            conn.Open()
+            openConnection()
             Dim query = "SELECT DISTINCT department_name FROM tbl_department"
             Dim command = New OleDbCommand(query, conn)
             Dim dbReader As OleDbDataReader = command.ExecuteReader
@@ -69,7 +69,7 @@ Public Class formIssueBook
     Private Sub loadBookSuggestions(department As String)
         Try
             bookSuggestionList.Clear()
-            conn.Open()
+            openConnection()
             Dim query As String
 
             If def.Equals(department) Then
@@ -96,7 +96,7 @@ Public Class formIssueBook
 
     Private Sub searchPatron(patronId As String)
         Try
-            conn.Open()
+            openConnection()
 
             Dim query = "Select * from tbl_patrons WHERE patron_id = @PatronId"
             Dim cmd = New OleDbCommand(query, conn)
@@ -133,7 +133,7 @@ Public Class formIssueBook
         dgvIssueHistory.Rows.Clear()
 
         Try
-            conn.Open()
+            openConnection()
             Dim query = "SELECT * FROM tbl_history WHERE patron = @PatronEmail"
             Dim cmd = New OleDbCommand(query, conn)
             cmd.Parameters.AddWithValue("@PatronEmail", tbEmail.Text)
@@ -165,6 +165,7 @@ Public Class formIssueBook
         Catch ex As Exception
             MsgBox("An error " & ex.Message)
         End Try
+        dgvIssueHistory.Sort(dgvIssueHistory.Columns(0), System.ComponentModel.ListSortDirection.Descending)
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
@@ -189,7 +190,7 @@ Public Class formIssueBook
             ' To get the current date only
             Dim currentDate As Date = Date.Today
             Try
-                conn.Open()
+                openConnection()
                 Dim queryIsVerified = "SELECT is_verified, email FROM tbl_patrons WHERE email=@PatronEmail"
                 Dim cmdVerified = New OleDbCommand(queryIsVerified, conn)
                 cmdVerified.Parameters.AddWithValue("@PatronEmail", tbEmail.Text)
@@ -200,28 +201,29 @@ Public Class formIssueBook
 
                     If isVerified Then
 
-                        Dim insertQuery = "INSERT INTO tbl_history(`patron`, `book_isbn`, `date_issued`, `issued_by`, `copies`) 
-                                VALUES(@Patron, @ISBN, @DateIssued, @IssuedBy, @Copies)"
-
-                        Dim cmd = New OleDbCommand(insertQuery, conn)
-
+                        ' to retrieve data
                         Dim query = "SELECT b.isbn, a.email, a.last_name, a.first_name " &
                                      "FROM tbl_books AS b " &
                                      "INNER JOIN tbl_authors AS a ON b.author = a.email " &
                                      "WHERE b.title = @BookName"
 
                         Dim queryCmd = New OleDbCommand(query, conn)
-                        Dim author = tbAuthor.Text.Split(", ")
                         With queryCmd
                             ' .Parameters.AddWithValue("@AuthorLastName", author(0))
                             ' .Parameters.AddWithValue("@AuthorFirstName", author(1))
                             .Parameters.AddWithValue("@BookName", tbIssueBookName.Text)
                         End With
 
-                        Dim reader As OleDbDataReader = queryCmd.ExecuteReader
+                        Dim queryReader As OleDbDataReader = queryCmd.ExecuteReader
 
-                        If reader.Read Then
-                            Dim isbn = reader("isbn")
+                        ' to insert
+                        Dim insertQuery = "INSERT INTO tbl_history(`patron`, `book_isbn`, `date_issued`, `issued_by`, `copies`) 
+                                VALUES(@Patron, @ISBN, @DateIssued, @IssuedBy, @Copies)"
+
+                        Dim cmd = New OleDbCommand(insertQuery, conn)
+
+                        If queryReader.Read Then
+                            Dim isbn = queryReader("isbn")
 
                             With cmd
                                 .Parameters.AddWithValue("@Patron", tbEmail.Text)
@@ -232,9 +234,20 @@ Public Class formIssueBook
                             End With
 
                             If cmd.ExecuteNonQuery > 0 Then
-                                MsgBox("Successfully Added!", vbInformation)
-                                closeConnection()
-                                loadHistory()
+
+                                ' update book remaining copies
+                                Dim bookQuery = "UPDATE tbl_books SET remaining_copies=remaining_copies - @Copies WHERE isbn=@BookIsbn"
+                                Dim bookCommand = New OleDbCommand(bookQuery, conn)
+                                bookCommand.Parameters.AddWithValue("@Copies", tbIssueCopies.Text)
+                                bookCommand.Parameters.AddWithValue("@BookIsbn", isbn)
+
+                                If bookCommand.ExecuteNonQuery > 0 Then
+                                    MsgBox("Successfully Added!", vbInformation)
+                                    closeConnection()
+                                    loadHistory()
+                                Else
+                                    MsgBox("Could not add", vbCritical)
+                                End If
                             Else
                                 MsgBox("Could not add", vbCritical)
                             End If
@@ -242,7 +255,7 @@ Public Class formIssueBook
                         Else
                             MsgBox("Not found ", vbCritical)
                         End If
-                        reader.Close()
+                        queryReader.Close()
                     Else
                         MsgBox("An error occured, the selected patron is not yet verified nor has library card")
                     End If
@@ -274,7 +287,7 @@ Public Class formIssueBook
 
         If isTermInSuggestions Then
             Try
-                conn.Open()
+                openConnection()
                 Dim query = "SELECT b.description, a.last_name, a.first_name, a.middle_initial " &
                              "FROM tbl_books AS b " &
                              "INNER JOIN tbl_authors AS a ON b.author = a.email " &

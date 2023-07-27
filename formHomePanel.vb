@@ -2,7 +2,7 @@
 
 Public Class formHomePanel
     Private Sub formHomePanel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        openConnection()
+        initConnection()
         loadData()
         countBooks()
         countPatrons()
@@ -12,7 +12,7 @@ Public Class formHomePanel
 
     Private Sub countBooks()
         Try
-            conn.Open()
+            openConnection()
             Dim query As String = "SELECT COUNT(*) FROM tbl_books"
             Dim cmd = New OleDbCommand(query, conn)
 
@@ -26,7 +26,7 @@ Public Class formHomePanel
 
     Private Sub countPatrons()
         Try
-            conn.Open()
+            openConnection()
             Dim query As String = "SELECT COUNT(*) FROM tbl_patrons"
             Dim cmd = New OleDbCommand(query, conn)
 
@@ -40,7 +40,7 @@ Public Class formHomePanel
 
     Private Sub countUsers()
         Try
-            conn.Open()
+            openConnection()
             Dim query As String = "SELECT COUNT(*) FROM tbl_users"
             Dim cmd = New OleDbCommand(query, conn)
 
@@ -54,7 +54,7 @@ Public Class formHomePanel
 
     Private Sub countIssuedBooks()
         Try
-            conn.Open()
+            openConnection()
             Dim query As String = "SELECT COUNT(*) FROM tbl_history"
             Dim cmd = New OleDbCommand(query, conn)
 
@@ -69,7 +69,7 @@ Public Class formHomePanel
     Sub loadData()
         ' add try catch to catch exception or errors
         Try
-            conn.Open()
+            openConnection()
 
             Dim bookIndex As Integer
 

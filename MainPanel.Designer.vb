@@ -48,7 +48,7 @@ Partial Class MainPanel
         Dim CustomizableEdges22 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Guna2DragControl1 = New Guna.UI2.WinForms.Guna2DragControl(components)
         Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        lbl_role = New Label()
+        lblRole = New Label()
         lbLoginName = New Label()
         Guna2ControlBox2 = New Guna.UI2.WinForms.Guna2ControlBox()
         Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
@@ -79,7 +79,7 @@ Partial Class MainPanel
         ' Guna2Panel1
         ' 
         Guna2Panel1.BackColor = Color.Maroon
-        Guna2Panel1.Controls.Add(lbl_role)
+        Guna2Panel1.Controls.Add(lblRole)
         Guna2Panel1.Controls.Add(lbLoginName)
         Guna2Panel1.Controls.Add(Guna2ControlBox2)
         Guna2Panel1.Controls.Add(Guna2ControlBox1)
@@ -95,19 +95,19 @@ Partial Class MainPanel
         Guna2Panel1.Size = New Size(1292, 65)
         Guna2Panel1.TabIndex = 1
         ' 
-        ' lbl_role
+        ' lblRole
         ' 
-        lbl_role.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        lbl_role.AutoSize = True
-        lbl_role.FlatStyle = FlatStyle.Flat
-        lbl_role.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        lbl_role.ForeColor = Color.White
-        lbl_role.Location = New Point(1085, 35)
-        lbl_role.Margin = New Padding(4, 0, 4, 0)
-        lbl_role.Name = "lbl_role"
-        lbl_role.Size = New Size(79, 15)
-        lbl_role.TabIndex = 10
-        lbl_role.Text = "Stock Control"
+        lblRole.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        lblRole.AutoSize = True
+        lblRole.FlatStyle = FlatStyle.Flat
+        lblRole.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        lblRole.ForeColor = Color.White
+        lblRole.Location = New Point(1085, 35)
+        lblRole.Margin = New Padding(4, 0, 4, 0)
+        lblRole.Name = "lblRole"
+        lblRole.Size = New Size(30, 15)
+        lblRole.TabIndex = 10
+        lblRole.Text = "Role"
         ' 
         ' lbLoginName
         ' 
@@ -451,7 +451,7 @@ Partial Class MainPanel
     Friend WithEvents Guna2ControlBox1 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents Guna2ControlBox2 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents btn_manageuser As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents lbl_role As Label
+    Friend WithEvents lblRole As Label
     Friend WithEvents lbLoginName As Label
     Friend WithEvents btnManagePatron As Guna.UI2.WinForms.Guna2Button
 End Class

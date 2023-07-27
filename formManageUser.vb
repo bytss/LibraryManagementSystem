@@ -13,7 +13,7 @@ Public Class formManageUser
 
 
     Private Sub manageProduct_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        openConnection()
+        initConnection()
         tbPassword.UseSystemPasswordChar = True
         loadUsers()
         loadRoles()
@@ -24,7 +24,7 @@ Public Class formManageUser
         dgvUsers.Rows.Clear()
 
         Try
-            conn.Open()
+            openConnection()
             Dim query = "SELECT * from tbl_users"
             Dim cmd = New OleDbCommand(query, conn)
             Dim reader As OleDbDataReader = cmd.ExecuteReader
@@ -62,7 +62,7 @@ Public Class formManageUser
 
     Private Sub saveUsers()
         Try
-            conn.Open()
+            openConnection()
             Dim query = "INSERT INTO tbl_users(`last_name`, `first_name`, `middle_name`, `contact`, `email`, `username`, `password`, `role`, `address`, `photo`) 
                         VALUES(@LastName, @FistName, @MiddleName, @Contact, @Email, @Username, @Password, @Role, @Address, @Profile)"
             Dim cmd = New OleDbCommand(query, conn)
@@ -103,7 +103,7 @@ Public Class formManageUser
         Dim userId = dgvUsers.CurrentRow.Cells(0).Value
 
         Try
-            conn.Open()
+            openConnection()
 
             Dim query = "SELECT * from tbl_users WHERE username=@UserId"
             Dim cmd = New OleDbCommand(query, conn)

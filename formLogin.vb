@@ -3,16 +3,15 @@ Imports System.IO
 
 Public Class formLogin
 
-
     Private Sub formLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        openConnection()
+        initConnection()
         tbLoginPassword.UseSystemPasswordChar = True
     End Sub
 
     Private Sub btm_login_Click(sender As Object, e As EventArgs) Handles btm_login.Click
 
         Try
-            conn.Open()
+            openConnection()
             Dim query = "SELECT * FROM tbl_users WHERE (username = @Username AND password = @Password)"
             Dim cmd = New OleDbCommand(query, conn)
             With cmd
@@ -23,31 +22,38 @@ Public Class formLogin
 
             If reader.Read Then
                 Me.Hide()
-                MainPanel.Show()
+                closeConnection()
                 loadpic()
+                MainPanel.Show()
             Else
                 MsgBox("Invalid credentials !", vbCritical)
             End If
         Catch ex As Exception
 
         End Try
-        conn.Close()
+        closeConnection()
     End Sub
 
     Sub loadpic()
-        Dim picture() As Byte
+
         Try
-            conn.Open()
+            openConnection()
             Dim cmd = New OleDbCommand("Select * from tbl_users where username=@Username", conn)
             cmd.Parameters.Clear()
-            cmd.Parameters.AddWithValue("@Username", "bananax")
+            cmd.Parameters.AddWithValue("@Username", tbLoginUsername.Text)
             Dim reader As OleDbDataReader = cmd.ExecuteReader
 
             If reader.Read() Then
+                Dim lastName = reader("last_name")
+                Dim firstName = reader("first_name")
+                Dim middleName = reader("middle_name")
+
                 Dim imageBytes As Byte() = DirectCast(reader("photo"), Byte())
                 Dim imageStream As New MemoryStream(imageBytes)
                 With MainPanel
                     .mainProfilePhoto.Image = Image.FromStream(imageStream)
+                    .lbLoginName.Text = lastName & ", " & firstName & " " & middleName
+                    .lblRole.Text = reader("role")
                 End With
                 reader.Close()
             Else

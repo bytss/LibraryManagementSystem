@@ -4,7 +4,7 @@ Imports System.Data.OleDb
 Public Class frmDepartment
     Private Sub btn_save_Click(sender As Object, e As EventArgs) Handles btn_save.Click
         Try
-            conn.Open()
+            openConnection()
             Dim query = "INSERT INTO tbl_department(`department_name`) VALUES (@Department)"
             Dim cmd = New OleDbCommand(query, conn)
             cmd.Parameters.Clear()

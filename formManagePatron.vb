@@ -4,7 +4,7 @@
 Public Class formManagePatron
 
     Private Sub formManagePatron_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        openConnection()
+        initConnection()
         loadCategory()
         loadPatrons()
     End Sub
@@ -19,7 +19,7 @@ Public Class formManagePatron
     Private Sub loadPatrons()
         Try
             dgvPatronList.Rows.Clear()
-            conn.Open()
+            openConnection()
             Dim query = "SELECT * FROM tbl_patrons"
             Dim cmd = New OleDbCommand(query, conn)
             Dim reader As OleDbDataReader = cmd.ExecuteReader
@@ -45,7 +45,7 @@ Public Class formManagePatron
 
     Private Sub savePatron()
         Try
-            conn.Open()
+            openConnection()
             Dim query = "INSERT INTO tbl_patrons(`last_name`, `first_name`, `middle_name`, `category`, `address`, `email`, `contact`, `is_verified`, `patron_id`)
                             VALUES(@LastName, @FirstName, @MiddleName, @Category, @Address, @Email, @Contact, @IsVerified, @PatronId)"
 
@@ -98,7 +98,7 @@ Public Class formManagePatron
         If Not isNullOrEmpty(tbSearch.Text) Then
             Try
                 dgvPatronList.Rows.Clear()
-                conn.Open()
+                openConnection()
                 Dim query = "SELECT * FROM tbl_patrons " &
                               "WHERE last_name LIKE '%' + @SearchTerm + '%' OR " &
                               "first_name LIKE '%' + @SearchTerm + '%' OR " &
@@ -140,7 +140,7 @@ Public Class formManagePatron
         Dim patronId = dgvPatronList.CurrentRow.Cells(0).Value
 
         Try
-            conn.Open()
+            openConnection()
 
             Dim query = "SELECT * from tbl_patrons WHERE patron_id=@PatronId"
             Dim cmd = New OleDbCommand(query, conn)

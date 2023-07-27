@@ -7,14 +7,14 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 Public Class formReturnBook
     Private Sub formReturnBook_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        openConnection()
+        initConnection()
     End Sub
 
     Private Sub loadHistory(email As String)
         dgvIssuedHistory.Rows.Clear()
 
         Try
-            conn.Open()
+            openConnection()
             Dim query = "SELECT * FROM tbl_history WHERE patron = @PatronEmail"
             Dim cmd = New OleDbCommand(query, conn)
             cmd.Parameters.AddWithValue("@PatronEmail", email)
@@ -53,7 +53,7 @@ Public Class formReturnBook
         Dim currentDate As Date = Date.Today
 
         Try
-            conn.Open()
+            openConnection()
 
             ' get selected row
             Dim selectedRow = dgvIssuedHistory.SelectedCells(0).RowIndex
@@ -115,7 +115,7 @@ Public Class formReturnBook
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
 
         Try
-            conn.Open()
+            openConnection()
             Dim query = "SELECT * FROM tbl_patrons WHERE patron_id=@Patron"
             Dim cmd = New OleDbCommand(query, conn)
             cmd.Parameters.AddWithValue("@Patron", tbSearchId.Text)

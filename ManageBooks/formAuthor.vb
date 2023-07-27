@@ -7,7 +7,7 @@ Public Class formAuthor
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Try
-            conn.Open()
+            openConnection()
             Dim query = "INSERT INTO tbl_authors(`last_name`, `first_name`, `middle_initial`, `email`, `contact_number`, `address`, `country`)
                         VALUES(@LastName, @FirstName, @MiddleInitial, @Email, @ContactNumber, @Address, @Country)"
 
