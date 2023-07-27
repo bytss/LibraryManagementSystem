@@ -9,18 +9,24 @@ Public Class frmManageBook
     Private genreSuggestionList As New List(Of String)()
     Private authorsSuggestionList As New List(Of String)()
     Private publisherSuggestionList As New List(Of String)()
+    Private def As String = "Default"
 
     Private Sub manageProduct_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         initConnection()
-        loadBooks()
+        ' load department list
+        loadDepartmentList()
         ' load department suggestions
         loadDepartmentSuggestions()
+
         ' load genre suggestions
         loadGenreSuggestions()
         ' load author suggestions
         loadAuthorSuggestions()
         ' load publisher suggestions
         loadPublisherSuggestions()
+
+        ' load books
+        loadBooks()
 
         ' Department's Suggestions
         ' Set the AutoCompleteMode and AutoCompleteSource properties
@@ -77,23 +83,29 @@ Public Class frmManageBook
 
         Try
             openConnection()
-            Dim query = "SELECT * from tbl_books"
+            Dim query As String
+            If cbDepartment.Text = "Default" Then
+                query = "SELECT * from tbl_books"
+            Else
+                query = "SELECT * from tbl_books WHERE department=@Department"
+            End If
             Dim cmd = New OleDbCommand(query, conn)
-            Dim reader As OleDbDataReader = cmd.ExecuteReader
+            cmd.Parameters.AddWithValue("@Department", cbDepartment.Text)
+            Dim Reader As OleDbDataReader = cmd.ExecuteReader
 
-            While reader.Read
-                Dim isbn = reader("isbn")
-                Dim bookName = reader("title")
-                Dim author = reader("author")
+            While Reader.Read
+                Dim isbn = Reader("isbn")
+                Dim bookName = Reader("title")
+                Dim author = Reader("author")
 
-                Dim totalCopies = reader("total_copies")
-                Dim remainingCopies = reader("remaining_copies")
+                Dim totalCopies = Reader("total_copies")
+                Dim remainingCopies = Reader("remaining_copies")
 
 
                 dgvBooks.Rows.Add(isbn, bookName, author, totalCopies, remainingCopies)
             End While
 
-            reader.Close()
+            Reader.Close()
         Catch ex As Exception
             MsgBox("An error occured, loading books: " & ex.Message, vbCritical)
         End Try
@@ -101,11 +113,24 @@ Public Class frmManageBook
     End Sub
 
     Private Sub loadDepartmentList()
+
         Try
+            cbDepartment.Items.Clear()
+            cbDepartment.Items.Add("Default")
+            cbDepartment.Text = "Default"
+            openConnection()
+            Dim query = "SELECT DISTINCT department_name FROM tbl_department"
+            Dim command = New OleDbCommand(query, conn)
+            Dim dbReader As OleDbDataReader = command.ExecuteReader
 
+            While dbReader.Read
+                cbDepartment.Items.Add(dbReader("department_name").ToString())
+            End While
+            dbReader.Close()
         Catch ex As Exception
-
+            MsgBox("An error occured, loading suggestion: " & ex.Message, vbCritical)
         End Try
+        closeConnection()
     End Sub
 
 
@@ -446,5 +471,60 @@ Public Class frmManageBook
 
     Private Sub btnReload_Click(sender As Object, e As EventArgs) Handles btnReload.Click
         loadBooks()
+    End Sub
+
+    Private Sub btn_edit_Click(sender As Object, e As EventArgs) Handles btn_edit.Click
+
+    End Sub
+
+    Private Sub cbDepartment_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbDepartment.SelectedIndexChanged
+        loadBooks()
+    End Sub
+
+    Private Sub tbSearch_TextChanged(sender As Object, e As EventArgs) Handles tbSearch.TextChanged
+        If Not isNullOrEmpty(tbSearch.Text) Then
+            ' clear item books
+            dgvBooks.Rows.Clear()
+
+            Try
+                openConnection()
+                Dim query As String
+                Dim cmd
+                If cbDepartment.Text.Equals(def) Then
+                    query = "SELECT * FROM tbl_books " &
+                    "WHERE (title LIKE '%' + @SearchTerm + '%' OR " &
+                    "description LIKE '%' + @SearchTerm + '%')"
+                    cmd = New OleDbCommand(query, conn)
+                Else
+                    query = "SELECT * FROM tbl_books WHERE (department=@Department AND " &
+                            "(title LIKE '%' + @SearchTerm + '%' OR " &
+                            "description LIKE '%' + @SearchTerm + '%'))"
+                    cmd = New OleDbCommand(query, conn)
+                    cmd.Parameters.AddWithValue("@Department", cbDepartment.Text)
+                End If
+                cmd.Parameters.AddWithValue("@SearchTerm", tbSearch.Text)
+
+                Dim Reader As OleDbDataReader = cmd.ExecuteReader
+
+                While Reader.Read
+                    Dim isbn = Reader("isbn")
+                    Dim bookName = Reader("title")
+                    Dim author = Reader("author")
+
+                    Dim totalCopies = Reader("total_copies")
+                    Dim remainingCopies = Reader("remaining_copies")
+
+
+                    dgvBooks.Rows.Add(isbn, bookName, author, totalCopies, remainingCopies)
+                End While
+
+                Reader.Close()
+            Catch ex As Exception
+                MsgBox("An error occured, loading books: " & ex.Message, vbCritical)
+            End Try
+            closeConnection()
+        Else
+            loadBooks()
+        End If
     End Sub
 End Class

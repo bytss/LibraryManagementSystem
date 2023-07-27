@@ -87,9 +87,9 @@ Partial Class frmManageBook
         tbGenre = New Guna.UI2.WinForms.Guna2TextBox()
         Label4 = New Label()
         tbIsbn = New Guna.UI2.WinForms.Guna2TextBox()
-        Guna2TextBox4 = New Guna.UI2.WinForms.Guna2TextBox()
+        tbSearch = New Guna.UI2.WinForms.Guna2TextBox()
         Label3 = New Label()
-        Guna2ComboBox1 = New Guna.UI2.WinForms.Guna2ComboBox()
+        cbDepartment = New Guna.UI2.WinForms.Guna2ComboBox()
         Label5 = New Label()
         Label8 = New Label()
         publishDatePicker = New Guna.UI2.WinForms.Guna2DateTimePicker()
@@ -344,30 +344,30 @@ Partial Class frmManageBook
         tbIsbn.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbIsbn.TabIndex = 32
         ' 
-        ' Guna2TextBox4
+        ' tbSearch
         ' 
-        Guna2TextBox4.Animated = True
-        Guna2TextBox4.Cursor = Cursors.IBeam
-        Guna2TextBox4.CustomizableEdges = CustomizableEdges17
-        Guna2TextBox4.DefaultText = ""
-        Guna2TextBox4.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        Guna2TextBox4.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        Guna2TextBox4.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        Guna2TextBox4.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        Guna2TextBox4.FillColor = SystemColors.Menu
-        Guna2TextBox4.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox4.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Guna2TextBox4.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox4.Location = New Point(451, 448)
-        Guna2TextBox4.Margin = New Padding(4, 3, 4, 3)
-        Guna2TextBox4.Name = "Guna2TextBox4"
-        Guna2TextBox4.PasswordChar = ChrW(0)
-        Guna2TextBox4.PlaceholderText = "Genre (ex: Fantasy, Action)"
-        Guna2TextBox4.SelectedText = ""
-        Guna2TextBox4.ShadowDecoration.CustomizableEdges = CustomizableEdges18
-        Guna2TextBox4.Size = New Size(310, 37)
-        Guna2TextBox4.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
-        Guna2TextBox4.TabIndex = 33
+        tbSearch.Animated = True
+        tbSearch.Cursor = Cursors.IBeam
+        tbSearch.CustomizableEdges = CustomizableEdges17
+        tbSearch.DefaultText = ""
+        tbSearch.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        tbSearch.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        tbSearch.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        tbSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        tbSearch.FillColor = SystemColors.Menu
+        tbSearch.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        tbSearch.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        tbSearch.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        tbSearch.Location = New Point(451, 448)
+        tbSearch.Margin = New Padding(4, 3, 4, 3)
+        tbSearch.Name = "tbSearch"
+        tbSearch.PasswordChar = ChrW(0)
+        tbSearch.PlaceholderText = "Genre (ex: Fantasy, Action)"
+        tbSearch.SelectedText = ""
+        tbSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges18
+        tbSearch.Size = New Size(310, 37)
+        tbSearch.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
+        tbSearch.TabIndex = 33
         ' 
         ' Label3
         ' 
@@ -382,27 +382,27 @@ Partial Class frmManageBook
         Label3.TabIndex = 35
         Label3.Text = "DEPARTMENT"
         ' 
-        ' Guna2ComboBox1
+        ' cbDepartment
         ' 
-        Guna2ComboBox1.BackColor = Color.Transparent
-        Guna2ComboBox1.CustomizableEdges = CustomizableEdges19
-        Guna2ComboBox1.DrawMode = DrawMode.OwnerDrawFixed
-        Guna2ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
-        Guna2ComboBox1.FillColor = SystemColors.Menu
-        Guna2ComboBox1.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2ComboBox1.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2ComboBox1.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Guna2ComboBox1.ForeColor = Color.DimGray
-        Guna2ComboBox1.FormattingEnabled = True
-        Guna2ComboBox1.ItemHeight = 30
-        Guna2ComboBox1.Location = New Point(769, 449)
-        Guna2ComboBox1.Margin = New Padding(4, 3, 4, 3)
-        Guna2ComboBox1.Name = "Guna2ComboBox1"
-        Guna2ComboBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges20
-        Guna2ComboBox1.Size = New Size(144, 36)
-        Guna2ComboBox1.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
-        Guna2ComboBox1.TabIndex = 34
-        Guna2ComboBox1.TextAlign = HorizontalAlignment.Center
+        cbDepartment.BackColor = Color.Transparent
+        cbDepartment.CustomizableEdges = CustomizableEdges19
+        cbDepartment.DrawMode = DrawMode.OwnerDrawFixed
+        cbDepartment.DropDownStyle = ComboBoxStyle.DropDownList
+        cbDepartment.FillColor = SystemColors.Menu
+        cbDepartment.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        cbDepartment.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        cbDepartment.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        cbDepartment.ForeColor = Color.DimGray
+        cbDepartment.FormattingEnabled = True
+        cbDepartment.ItemHeight = 30
+        cbDepartment.Location = New Point(769, 449)
+        cbDepartment.Margin = New Padding(4, 3, 4, 3)
+        cbDepartment.Name = "cbDepartment"
+        cbDepartment.ShadowDecoration.CustomizableEdges = CustomizableEdges20
+        cbDepartment.Size = New Size(144, 36)
+        cbDepartment.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
+        cbDepartment.TabIndex = 34
+        cbDepartment.TextAlign = HorizontalAlignment.Center
         ' 
         ' Label5
         ' 
@@ -940,8 +940,8 @@ Partial Class frmManageBook
         Controls.Add(Label8)
         Controls.Add(Label5)
         Controls.Add(Label3)
-        Controls.Add(Guna2ComboBox1)
-        Controls.Add(Guna2TextBox4)
+        Controls.Add(cbDepartment)
+        Controls.Add(tbSearch)
         Controls.Add(tbIsbn)
         Controls.Add(Label4)
         Controls.Add(tbGenre)
@@ -975,9 +975,9 @@ Partial Class frmManageBook
     Friend WithEvents tbGenre As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents tbIsbn As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Guna2TextBox4 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents tbSearch As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents Guna2ComboBox1 As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents cbDepartment As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents publishDatePicker As Guna.UI2.WinForms.Guna2DateTimePicker
