@@ -208,10 +208,10 @@ Partial Class MainPanel
         TableLayoutPanel1.Controls.Add(btnReturnBook, 0, 4)
         TableLayoutPanel1.Controls.Add(btnIssueBook, 0, 3)
         TableLayoutPanel1.Controls.Add(btnManageBooks, 0, 2)
-        TableLayoutPanel1.Controls.Add(btnManagePatron, 0, 1)
-        TableLayoutPanel1.Controls.Add(btn_Dashboard, 0, 0)
+        TableLayoutPanel1.Controls.Add(btnManagePatron, 0, 5)
+        TableLayoutPanel1.Controls.Add(btn_Dashboard, 0, 1)
         TableLayoutPanel1.Controls.Add(btn_logout, 0, 9)
-        TableLayoutPanel1.Controls.Add(btn_manageuser, 0, 5)
+        TableLayoutPanel1.Controls.Add(btn_manageuser, 0, 6)
         TableLayoutPanel1.Dock = DockStyle.Left
         TableLayoutPanel1.Location = New Point(0, 65)
         TableLayoutPanel1.Margin = New Padding(4, 3, 4, 3)
@@ -322,7 +322,7 @@ Partial Class MainPanel
         btnManagePatron.Image = CType(resources.GetObject("btnManagePatron.Image"), Image)
         btnManagePatron.ImageAlign = HorizontalAlignment.Left
         btnManagePatron.ImageOffset = New Point(10, 0)
-        btnManagePatron.Location = New Point(4, 66)
+        btnManagePatron.Location = New Point(4, 318)
         btnManagePatron.Margin = New Padding(4, 3, 4, 3)
         btnManagePatron.Name = "btnManagePatron"
         btnManagePatron.ShadowDecoration.CustomizableEdges = CustomizableEdges16
@@ -344,9 +344,10 @@ Partial Class MainPanel
         btn_Dashboard.FillColor = Color.Transparent
         btn_Dashboard.Font = New Font("Poppins", 9.2F, FontStyle.Bold, GraphicsUnit.Point)
         btn_Dashboard.ForeColor = Color.FromArgb(CByte(135), CByte(133), CByte(133))
+        btn_Dashboard.Image = CType(resources.GetObject("btn_Dashboard.Image"), Image)
         btn_Dashboard.ImageAlign = HorizontalAlignment.Left
         btn_Dashboard.ImageOffset = New Point(10, 0)
-        btn_Dashboard.Location = New Point(4, 3)
+        btn_Dashboard.Location = New Point(4, 66)
         btn_Dashboard.Margin = New Padding(4, 3, 4, 3)
         btn_Dashboard.Name = "btn_Dashboard"
         btn_Dashboard.ShadowDecoration.CustomizableEdges = CustomizableEdges18
@@ -395,11 +396,11 @@ Partial Class MainPanel
         btn_manageuser.Image = CType(resources.GetObject("btn_manageuser.Image"), Image)
         btn_manageuser.ImageAlign = HorizontalAlignment.Left
         btn_manageuser.ImageOffset = New Point(10, 0)
-        btn_manageuser.Location = New Point(4, 318)
+        btn_manageuser.Location = New Point(4, 381)
         btn_manageuser.Margin = New Padding(4, 3, 4, 3)
         btn_manageuser.Name = "btn_manageuser"
         btn_manageuser.ShadowDecoration.CustomizableEdges = CustomizableEdges22
-        btn_manageuser.Size = New Size(209, 55)
+        btn_manageuser.Size = New Size(209, 57)
         btn_manageuser.TabIndex = 7
         btn_manageuser.Text = "Manage Users"
         btn_manageuser.TextAlign = HorizontalAlignment.Left
