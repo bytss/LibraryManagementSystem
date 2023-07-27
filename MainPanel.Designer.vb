@@ -49,7 +49,7 @@ Partial Class MainPanel
         Guna2DragControl1 = New Guna.UI2.WinForms.Guna2DragControl(components)
         Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         lbl_role = New Label()
-        lbl_user = New Label()
+        lbLoginName = New Label()
         Guna2ControlBox2 = New Guna.UI2.WinForms.Guna2ControlBox()
         Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
         Guna2CirclePictureBox2 = New Guna.UI2.WinForms.Guna2CirclePictureBox()
@@ -80,7 +80,7 @@ Partial Class MainPanel
         ' 
         Guna2Panel1.BackColor = Color.Maroon
         Guna2Panel1.Controls.Add(lbl_role)
-        Guna2Panel1.Controls.Add(lbl_user)
+        Guna2Panel1.Controls.Add(lbLoginName)
         Guna2Panel1.Controls.Add(Guna2ControlBox2)
         Guna2Panel1.Controls.Add(Guna2ControlBox1)
         Guna2Panel1.Controls.Add(Guna2CirclePictureBox2)
@@ -109,19 +109,19 @@ Partial Class MainPanel
         lbl_role.TabIndex = 10
         lbl_role.Text = "Stock Control"
         ' 
-        ' lbl_user
+        ' lbLoginName
         ' 
-        lbl_user.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        lbl_user.AutoSize = True
-        lbl_user.FlatStyle = FlatStyle.Flat
-        lbl_user.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        lbl_user.ForeColor = Color.White
-        lbl_user.Location = New Point(1085, 14)
-        lbl_user.Margin = New Padding(4, 0, 4, 0)
-        lbl_user.Name = "lbl_user"
-        lbl_user.Size = New Size(79, 15)
-        lbl_user.TabIndex = 9
-        lbl_user.Text = "Stock Control"
+        lbLoginName.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        lbLoginName.AutoSize = True
+        lbLoginName.FlatStyle = FlatStyle.Flat
+        lbLoginName.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        lbLoginName.ForeColor = Color.White
+        lbLoginName.Location = New Point(1085, 14)
+        lbLoginName.Margin = New Padding(4, 0, 4, 0)
+        lbLoginName.Name = "lbLoginName"
+        lbLoginName.Size = New Size(38, 15)
+        lbLoginName.TabIndex = 9
+        lbLoginName.Text = "Matss"
         ' 
         ' Guna2ControlBox2
         ' 
@@ -452,6 +452,6 @@ Partial Class MainPanel
     Friend WithEvents Guna2ControlBox2 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents btn_manageuser As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents lbl_role As Label
-    Friend WithEvents lbl_user As Label
+    Friend WithEvents lbLoginName As Label
     Friend WithEvents btnManagePatron As Guna.UI2.WinForms.Guna2Button
 End Class

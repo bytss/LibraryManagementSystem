@@ -403,6 +403,7 @@ Partial Class formManageUser
         ' profilePhoto
         ' 
         profilePhoto.BorderStyle = BorderStyle.FixedSingle
+        profilePhoto.ErrorImage = CType(resources.GetObject("profilePhoto.ErrorImage"), Image)
         profilePhoto.Image = CType(resources.GetObject("profilePhoto.Image"), Image)
         profilePhoto.Location = New Point(42, 124)
         profilePhoto.Name = "profilePhoto"

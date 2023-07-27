@@ -782,6 +782,7 @@ Partial Class frmManageBook
         ' 
         DataGridViewCellStyle1.BackColor = Color.White
         dgvBooks.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        dgvBooks.BorderStyle = BorderStyle.FixedSingle
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = Color.Maroon
         DataGridViewCellStyle2.Font = New Font("Poppins", 8.25F, FontStyle.Regular, GraphicsUnit.Point)

@@ -55,6 +55,7 @@ Partial Class formReturnBook
         Column2 = New DataGridViewTextBoxColumn()
         Column3 = New DataGridViewTextBoxColumn()
         Column4 = New DataGridViewTextBoxColumn()
+        Column5 = New DataGridViewTextBoxColumn()
         profilePhoto = New PictureBox()
         tbSearchId = New Guna.UI2.WinForms.Guna2TextBox()
         btnClear = New Guna.UI2.WinForms.Guna2Button()
@@ -136,6 +137,7 @@ Partial Class formReturnBook
         ' 
         DataGridViewCellStyle1.BackColor = Color.White
         dgvIssuedHistory.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        dgvIssuedHistory.BorderStyle = BorderStyle.FixedSingle
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = Color.Maroon
         DataGridViewCellStyle2.Font = New Font("Poppins", 8.25F, FontStyle.Regular, GraphicsUnit.Point)
@@ -145,7 +147,7 @@ Partial Class formReturnBook
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
         dgvIssuedHistory.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         dgvIssuedHistory.ColumnHeadersHeight = 35
-        dgvIssuedHistory.Columns.AddRange(New DataGridViewColumn() {Column6, Column1, Column2, Column3, Column4})
+        dgvIssuedHistory.Columns.AddRange(New DataGridViewColumn() {Column6, Column1, Column2, Column3, Column4, Column5})
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
         DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
@@ -214,6 +216,11 @@ Partial Class formReturnBook
         ' 
         Column4.HeaderText = "Date Issued"
         Column4.Name = "Column4"
+        ' 
+        ' Column5
+        ' 
+        Column5.HeaderText = "Returned"
+        Column5.Name = "Column5"
         ' 
         ' profilePhoto
         ' 
@@ -530,4 +537,5 @@ Partial Class formReturnBook
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
 End Class

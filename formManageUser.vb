@@ -102,8 +102,6 @@ Public Class formManageUser
 
         Dim userId = dgvUsers.CurrentRow.Cells(0).Value
 
-
-
         Try
             conn.Open()
 
@@ -112,7 +110,10 @@ Public Class formManageUser
             cmd.Parameters.AddWithValue("@UserId", userId.ToString)
             Dim reader As OleDbDataReader = cmd.ExecuteReader
 
+
             If reader.Read Then
+
+
                 Dim lastName = reader("last_name").ToString
                 Dim firstName = reader("first_name").ToString
                 Dim middleName = reader("middle_name").ToString
@@ -130,6 +131,16 @@ Public Class formManageUser
                 tbUserContact.Text = contact
                 tbUserAddress.Text = address
                 tbPassword.Text = "Password is encrypted"
+
+                ' load photo
+                If Not reader.IsDBNull("photo") Then
+                    Dim imageBytes As Byte() = DirectCast(reader("photo"), Byte())
+                    Dim imageStream As New MemoryStream(imageBytes)
+                    profilePhoto.Image = Image.FromStream(imageStream)
+                Else
+                    profilePhoto.Image = profilePhoto.ErrorImage
+                End If
+
             End If
 
         Catch ex As Exception

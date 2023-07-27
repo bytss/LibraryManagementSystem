@@ -129,4 +129,56 @@ Public Class formManagePatron
         End If
 
     End Sub
+
+    Private Sub clear()
+
+    End Sub
+
+    Private Sub dgvPatronList_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvPatronList.CellContentClick
+        clear()
+
+        Dim patronId = dgvPatronList.CurrentRow.Cells(0).Value
+
+        Try
+            conn.Open()
+
+            Dim query = "SELECT * from tbl_patrons WHERE patron_id=@PatronId"
+            Dim cmd = New OleDbCommand(query, conn)
+            cmd.Parameters.AddWithValue("@PatronId", patronId.ToString)
+            Dim reader As OleDbDataReader = cmd.ExecuteReader
+
+            If reader.Read Then
+                Dim lastName = reader("last_name").ToString
+                Dim firstName = reader("first_name").ToString
+                Dim middleName = reader("middle_name").ToString
+
+                Dim category = reader("category").ToString
+                Dim id = reader("patron_id").ToString
+                Dim isVerified = reader("is_verified")
+                Dim address = reader("address").ToString
+                Dim contact = reader("contact").ToString
+                Dim email = reader("contact").ToString
+
+                tbLastName.Text = lastName
+                tbFirstName.Text = firstName
+                tbMiddlename.Text = middleName
+
+                cbCategory.Text = category
+                tbSchoolId.Text = id
+                radioVerified.Checked = isVerified
+                radioIsNotVerified.Checked = Not isVerified
+                tbPatronContact.Text = contact
+                tbPatronEmail.Text = email
+                tbPatronAddress.Text = address
+
+            End If
+
+        Catch ex As Exception
+            MsgBox("An error occured, " * ex.Message, vbCritical)
+        End Try
+        conn.Close()
+    End Sub
+
+
+
 End Class

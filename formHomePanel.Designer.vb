@@ -248,9 +248,10 @@ Partial Class formHomePanel
         ' 
         DataGridViewCellStyle1.BackColor = Color.White
         dgvHistory.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        dgvHistory.BorderStyle = BorderStyle.FixedSingle
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = Color.Maroon
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle2.Font = New Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point)
         DataGridViewCellStyle2.ForeColor = Color.White
         DataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(CByte(64), CByte(0), CByte(0))
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
@@ -260,7 +261,7 @@ Partial Class formHomePanel
         dgvHistory.Columns.AddRange(New DataGridViewColumn() {index, Column1, Column2, Column3, Column5})
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
-        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle3.Font = New Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point)
         DataGridViewCellStyle3.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
         DataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         DataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
@@ -271,6 +272,7 @@ Partial Class formHomePanel
         dgvHistory.Name = "dgvHistory"
         dgvHistory.RowHeadersVisible = False
         dgvHistory.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DataGridViewCellStyle4.Font = New Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point)
         DataGridViewCellStyle4.SelectionBackColor = Color.IndianRed
         DataGridViewCellStyle4.SelectionForeColor = Color.White
         dgvHistory.RowsDefaultCellStyle = DataGridViewCellStyle4

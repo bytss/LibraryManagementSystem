@@ -38,7 +38,7 @@ Public Class formReturnBook
                     Dim bookName = bookReader("title")
                     Dim description = bookReader("description")
 
-                    dgvIssuedHistory.Rows.Add(id, bookName, description, copies, dateIssued)
+                    dgvIssuedHistory.Rows.Add(id, bookName, description, copies, dateIssued, If(isNotReturned, "No", reader("date_returned")))
                 End If
                 bookReader.Close()
             End While
@@ -138,7 +138,12 @@ Public Class formReturnBook
     End Sub
 
     Private Sub btnReturn_Click(sender As Object, e As EventArgs) Handles btnReturn.Click
-        returnBook()
+        If dgvIssuedHistory.SelectedRows.Count = 0 Then
+            MsgBox("An error occured, no row selected!", vbCritical)
+        Else
+            returnBook()
+        End If
+
     End Sub
 
     Private Sub tbSearch_TextChanged(sender As Object, e As EventArgs) Handles tbSearch.TextChanged

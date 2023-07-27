@@ -69,7 +69,7 @@ Partial Class formManagePatron
         radioVerified = New RadioButton()
         Panel2 = New Panel()
         Label3 = New Label()
-        RadioButton2 = New RadioButton()
+        radioIsNotVerified = New RadioButton()
         Label5 = New Label()
         tbSearch = New Guna.UI2.WinForms.Guna2TextBox()
         tbPatronContact = New Guna.UI2.WinForms.Guna2TextBox()
@@ -352,7 +352,7 @@ Partial Class formManagePatron
         ' Panel2
         ' 
         Panel2.Controls.Add(Label3)
-        Panel2.Controls.Add(RadioButton2)
+        Panel2.Controls.Add(radioIsNotVerified)
         Panel2.Controls.Add(radioVerified)
         Panel2.Location = New Point(293, 359)
         Panel2.Name = "Panel2"
@@ -369,16 +369,16 @@ Partial Class formManagePatron
         Label3.TabIndex = 65
         Label3.Text = "Is Verified:"
         ' 
-        ' RadioButton2
+        ' radioIsNotVerified
         ' 
-        RadioButton2.AutoSize = True
-        RadioButton2.Location = New Point(165, 23)
-        RadioButton2.Name = "RadioButton2"
-        RadioButton2.Size = New Size(43, 19)
-        RadioButton2.TabIndex = 64
-        RadioButton2.TabStop = True
-        RadioButton2.Text = "NO"
-        RadioButton2.UseVisualStyleBackColor = True
+        radioIsNotVerified.AutoSize = True
+        radioIsNotVerified.Location = New Point(165, 23)
+        radioIsNotVerified.Name = "radioIsNotVerified"
+        radioIsNotVerified.Size = New Size(43, 19)
+        radioIsNotVerified.TabIndex = 64
+        radioIsNotVerified.TabStop = True
+        radioIsNotVerified.Text = "NO"
+        radioIsNotVerified.UseVisualStyleBackColor = True
         ' 
         ' Label5
         ' 
@@ -481,6 +481,7 @@ Partial Class formManagePatron
         ' 
         DataGridViewCellStyle1.BackColor = Color.White
         dgvPatronList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        dgvPatronList.BorderStyle = BorderStyle.FixedSingle
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = Color.Maroon
         DataGridViewCellStyle2.Font = New Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point)
@@ -658,7 +659,7 @@ Partial Class formManagePatron
     Friend WithEvents tbFirstName As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents cbCategory As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents radioVerified As RadioButton
-    Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents radioIsNotVerified As RadioButton
     Friend WithEvents tbContact As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbAddress As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
