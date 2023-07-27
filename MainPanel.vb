@@ -9,7 +9,7 @@ Public Class MainPanel
             .BringToFront()
             .Show()
         End With
-
+        btn_manageuser.Visible = formLogin.isAdmin
         formLogin.loadpic()
     End Sub
 
@@ -72,6 +72,5 @@ Public Class MainPanel
         formLogin.reset()
         formLogin.Show()
     End Sub
-
 
 End Class

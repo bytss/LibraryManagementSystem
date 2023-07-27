@@ -1,4 +1,5 @@
 ﻿Imports System.Data.OleDb
+Imports System.Diagnostics.Eventing
 Imports System.IO
 
 Public Class formLogin
@@ -71,6 +72,22 @@ Public Class formLogin
         tbLoginUsername.Text = ""
         tbLoginPassword.Text = ""
     End Sub
+
+    Public Function isAdmin() As Boolean
+        Try
+            openConnection()
+            Dim query = "SELECT username, role FROM tbl_users WHERE (username=@Username AND role=@Role)"
+            Dim cmd = New OleDbCommand(query, conn)
+            cmd.Parameters.AddWithValue("@Username", tbLoginUsername.Text)
+            cmd.Parameters.AddWithValue("@Role", "Admin")
+            Dim reader As OleDbDataReader = cmd.ExecuteReader
+            isAdmin = reader.Read
+            closeConnection()
+            Return isAdmin
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
 
     Private Sub Check_showpass_CheckedChanged(sender As Object, e As EventArgs) Handles Check_showpass.CheckedChanged
         If Check_showpass.Checked = True Then

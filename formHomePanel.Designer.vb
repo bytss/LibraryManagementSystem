@@ -22,7 +22,6 @@ Partial Class formHomePanel
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New ComponentModel.Container()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
@@ -31,7 +30,6 @@ Partial Class formHomePanel
         Label6 = New Label()
         lblTotalPatrons = New Label()
         Label5 = New Label()
-        Timer1 = New Timer(components)
         Panel4 = New Panel()
         lblTotalUsers = New Label()
         Label3 = New Label()
@@ -42,8 +40,6 @@ Partial Class formHomePanel
         Label1 = New Label()
         Panel1 = New Panel()
         Panel2 = New Panel()
-        lbl_time = New Label()
-        Panel5 = New Panel()
         dgvHistory = New Guna.UI2.WinForms.Guna2DataGridView()
         index = New DataGridViewTextBoxColumn()
         Column1 = New DataGridViewTextBoxColumn()
@@ -54,7 +50,6 @@ Partial Class formHomePanel
         Panel3.SuspendLayout()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
-        Panel5.SuspendLayout()
         CType(dgvHistory, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -63,7 +58,7 @@ Partial Class formHomePanel
         Label8.AutoSize = True
         Label8.Font = New Font("Poppins", 20.25F, FontStyle.Bold, GraphicsUnit.Point)
         Label8.ForeColor = Color.Gray
-        Label8.Location = New Point(32, 9)
+        Label8.Location = New Point(34, 20)
         Label8.Margin = New Padding(4, 0, 4, 0)
         Label8.Name = "Label8"
         Label8.Size = New Size(178, 48)
@@ -75,7 +70,7 @@ Partial Class formHomePanel
         Label6.AutoSize = True
         Label6.Font = New Font("Poppins", 16F, FontStyle.Regular, GraphicsUnit.Point)
         Label6.ForeColor = Color.Gray
-        Label6.Location = New Point(32, 206)
+        Label6.Location = New Point(34, 220)
         Label6.Margin = New Padding(4, 0, 4, 0)
         Label6.Name = "Label6"
         Label6.Size = New Size(90, 39)
@@ -111,7 +106,7 @@ Partial Class formHomePanel
         Panel4.BackColor = Color.Crimson
         Panel4.Controls.Add(lblTotalPatrons)
         Panel4.Controls.Add(Label5)
-        Panel4.Location = New Point(793, 68)
+        Panel4.Location = New Point(795, 82)
         Panel4.Margin = New Padding(4, 3, 4, 3)
         Panel4.Name = "Panel4"
         Panel4.Size = New Size(233, 115)
@@ -146,7 +141,7 @@ Partial Class formHomePanel
         Panel3.BackColor = Color.Maroon
         Panel3.Controls.Add(lblTotalUsers)
         Panel3.Controls.Add(Label3)
-        Panel3.Location = New Point(537, 68)
+        Panel3.Location = New Point(539, 82)
         Panel3.Margin = New Padding(4, 3, 4, 3)
         Panel3.Name = "Panel3"
         Panel3.Size = New Size(233, 115)
@@ -205,7 +200,7 @@ Partial Class formHomePanel
         Panel1.BackColor = Color.DodgerBlue
         Panel1.Controls.Add(lblTotalBooks)
         Panel1.Controls.Add(Label1)
-        Panel1.Location = New Point(33, 68)
+        Panel1.Location = New Point(35, 82)
         Panel1.Margin = New Padding(4, 3, 4, 3)
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(233, 115)
@@ -216,33 +211,11 @@ Partial Class formHomePanel
         Panel2.BackColor = Color.Firebrick
         Panel2.Controls.Add(lblTotalIssuedBook)
         Panel2.Controls.Add(Label2)
-        Panel2.Location = New Point(285, 68)
+        Panel2.Location = New Point(287, 82)
         Panel2.Margin = New Padding(4, 3, 4, 3)
         Panel2.Name = "Panel2"
         Panel2.Size = New Size(233, 115)
         Panel2.TabIndex = 41
-        ' 
-        ' lbl_time
-        ' 
-        lbl_time.AutoSize = True
-        lbl_time.Font = New Font("Segoe UI", 22F, FontStyle.Bold, GraphicsUnit.Point)
-        lbl_time.ForeColor = Color.Gray
-        lbl_time.Location = New Point(31, 23)
-        lbl_time.Margin = New Padding(4, 0, 4, 0)
-        lbl_time.Name = "lbl_time"
-        lbl_time.Size = New Size(52, 41)
-        lbl_time.TabIndex = 4
-        lbl_time.Text = "00"
-        ' 
-        ' Panel5
-        ' 
-        Panel5.BackColor = Color.WhiteSmoke
-        Panel5.Controls.Add(lbl_time)
-        Panel5.Location = New Point(32, 562)
-        Panel5.Margin = New Padding(4, 3, 4, 3)
-        Panel5.Name = "Panel5"
-        Panel5.Size = New Size(993, 92)
-        Panel5.TabIndex = 43
         ' 
         ' dgvHistory
         ' 
@@ -268,7 +241,7 @@ Partial Class formHomePanel
         DataGridViewCellStyle3.WrapMode = DataGridViewTriState.False
         dgvHistory.DefaultCellStyle = DataGridViewCellStyle3
         dgvHistory.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        dgvHistory.Location = New Point(32, 248)
+        dgvHistory.Location = New Point(34, 262)
         dgvHistory.Name = "dgvHistory"
         dgvHistory.RowHeadersVisible = False
         dgvHistory.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
@@ -277,7 +250,7 @@ Partial Class formHomePanel
         DataGridViewCellStyle4.SelectionForeColor = Color.White
         dgvHistory.RowsDefaultCellStyle = DataGridViewCellStyle4
         dgvHistory.RowTemplate.Height = 25
-        dgvHistory.Size = New Size(993, 308)
+        dgvHistory.Size = New Size(993, 403)
         dgvHistory.TabIndex = 64
         dgvHistory.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
         dgvHistory.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -331,9 +304,8 @@ Partial Class formHomePanel
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.MistyRose
-        ClientSize = New Size(1058, 659)
+        ClientSize = New Size(1074, 698)
         Controls.Add(dgvHistory)
-        Controls.Add(Panel5)
         Controls.Add(Label8)
         Controls.Add(Label6)
         Controls.Add(Panel4)
@@ -351,8 +323,6 @@ Partial Class formHomePanel
         Panel1.PerformLayout()
         Panel2.ResumeLayout(False)
         Panel2.PerformLayout()
-        Panel5.ResumeLayout(False)
-        Panel5.PerformLayout()
         CType(dgvHistory, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
@@ -361,7 +331,6 @@ Partial Class formHomePanel
     Friend WithEvents Label6 As Label
     Friend WithEvents lblTotalPatrons As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents Timer1 As Timer
     Friend WithEvents Panel4 As Panel
     Friend WithEvents lblTotalUsers As Label
     Friend WithEvents Label3 As Label
@@ -372,8 +341,6 @@ Partial Class formHomePanel
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents lbl_time As Label
-    Friend WithEvents Panel5 As Panel
     Friend WithEvents dgvHistory As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents index As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn

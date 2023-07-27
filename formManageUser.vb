@@ -11,7 +11,6 @@ Public Class formManageUser
     Private selectedImagePath As String
 
 
-
     Private Sub manageProduct_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         initConnection()
         tbPassword.UseSystemPasswordChar = True
@@ -117,7 +116,7 @@ Public Class formManageUser
 
             If reader.Read Then
 
-
+                Dim username = reader("username").ToString
                 Dim lastName = reader("last_name").ToString
                 Dim firstName = reader("first_name").ToString
                 Dim middleName = reader("middle_name").ToString
@@ -126,7 +125,7 @@ Public Class formManageUser
                 Dim contact = reader("contact").ToString
                 Dim address = reader("address").ToString
 
-
+                tbUsername.Text = username
                 tbLastName.Text = lastName
                 tbFirstName.Text = firstName
                 tbMiddleName.Text = middleName
@@ -159,23 +158,7 @@ Public Class formManageUser
         tbMiddleName.Text = ""
     End Sub
 
-    Private Sub btm_save_Click(sender As Object, e As EventArgs) Handles btm_save.Click
-        If isNullOrEmpty(tbLastName.Text) Then
-            MsgBox("Last Name could not be empty!", vbCritical)
-        ElseIf isNullOrEmpty(tbFirstName.Text) Then
-            MsgBox("First Name could not be empty!", vbCritical)
-        ElseIf isNullOrEmpty(cbRoles.Text) Then
-            MsgBox("Roles could not be empty!", vbCritical)
-        ElseIf isNullOrEmpty(tbUsername.Text) Then
-            MsgBox("UserName could not be empty!", vbCritical)
-        ElseIf isNullOrEmpty(tbPassword.Text) Then
-            MsgBox("Password could not be empty!", vbCritical)
-        ElseIf isNullOrEmpty(tbUserEmail.Text) Then
-            MsgBox("Email could not be empty!", vbCritical)
-        Else
-            saveUsers()
-        End If
-    End Sub
+
 
 
     Private Sub Check_showpass_CheckedChanged(sender As Object, e As EventArgs) Handles Check_showpass.CheckedChanged
@@ -234,4 +217,23 @@ Public Class formManageUser
             loadUsers()
         End If
     End Sub
+
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        If isNullOrEmpty(tbLastName.Text) Then
+            MsgBox("Last Name could not be empty!", vbCritical)
+        ElseIf isNullOrEmpty(tbFirstName.Text) Then
+            MsgBox("First Name could not be empty!", vbCritical)
+        ElseIf isNullOrEmpty(cbRoles.Text) Then
+            MsgBox("Roles could not be empty!", vbCritical)
+        ElseIf isNullOrEmpty(tbUsername.Text) Then
+            MsgBox("UserName could not be empty!", vbCritical)
+        ElseIf isNullOrEmpty(tbPassword.Text) Then
+            MsgBox("Password could not be empty!", vbCritical)
+        ElseIf isNullOrEmpty(tbUserEmail.Text) Then
+            MsgBox("Email could not be empty!", vbCritical)
+        Else
+            saveUsers()
+        End If
+    End Sub
+
 End Class
