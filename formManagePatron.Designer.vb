@@ -40,24 +40,21 @@ Partial Class formManagePatron
         Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges19 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges20 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges21 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges22 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim CustomizableEdges19 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges20 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(formManagePatron))
+        Dim CustomizableEdges21 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges22 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges25 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges26 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(formManagePatron))
         Panel1 = New Panel()
         Label1 = New Label()
-        btn_delete = New Guna.UI2.WinForms.Guna2Button()
-        btn_edit = New Guna.UI2.WinForms.Guna2Button()
-        btm_save = New Guna.UI2.WinForms.Guna2Button()
         Label4 = New Label()
         tbLastName = New Guna.UI2.WinForms.Guna2TextBox()
         tbPatronAddress = New Guna.UI2.WinForms.Guna2TextBox()
@@ -74,7 +71,6 @@ Partial Class formManagePatron
         tbSearch = New Guna.UI2.WinForms.Guna2TextBox()
         tbPatronContact = New Guna.UI2.WinForms.Guna2TextBox()
         tbSchoolId = New Guna.UI2.WinForms.Guna2TextBox()
-        Label6 = New Label()
         dgvPatronList = New Guna.UI2.WinForms.Guna2DataGridView()
         Column1 = New DataGridViewTextBoxColumn()
         Column2 = New DataGridViewTextBoxColumn()
@@ -82,6 +78,10 @@ Partial Class formManagePatron
         Column4 = New DataGridViewTextBoxColumn()
         Guna2Button3 = New Guna.UI2.WinForms.Guna2Button()
         profilePhoto = New PictureBox()
+        btn_delete = New Guna.UI2.WinForms.Guna2Button()
+        btn_edit = New Guna.UI2.WinForms.Guna2Button()
+        btnSave = New Guna.UI2.WinForms.Guna2Button()
+        OpenFileDialog1 = New OpenFileDialog()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         CType(dgvPatronList, ComponentModel.ISupportInitialize).BeginInit()
@@ -112,69 +112,6 @@ Partial Class formManagePatron
         Label1.TabIndex = 5
         Label1.Text = "Manage Patrons"
         ' 
-        ' btn_delete
-        ' 
-        btn_delete.Animated = True
-        btn_delete.AnimatedGIF = True
-        btn_delete.BorderRadius = 5
-        btn_delete.CustomizableEdges = CustomizableEdges1
-        btn_delete.DisabledState.BorderColor = Color.DarkGray
-        btn_delete.DisabledState.CustomBorderColor = Color.DarkGray
-        btn_delete.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        btn_delete.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btn_delete.FillColor = Color.Red
-        btn_delete.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_delete.ForeColor = Color.White
-        btn_delete.Location = New Point(400, 595)
-        btn_delete.Margin = New Padding(4, 3, 4, 3)
-        btn_delete.Name = "btn_delete"
-        btn_delete.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        btn_delete.Size = New Size(88, 37)
-        btn_delete.TabIndex = 22
-        btn_delete.Text = "Delete"
-        ' 
-        ' btn_edit
-        ' 
-        btn_edit.Animated = True
-        btn_edit.AnimatedGIF = True
-        btn_edit.BorderRadius = 5
-        btn_edit.CustomizableEdges = CustomizableEdges3
-        btn_edit.DisabledState.BorderColor = Color.DarkGray
-        btn_edit.DisabledState.CustomBorderColor = Color.DarkGray
-        btn_edit.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        btn_edit.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btn_edit.FillColor = Color.FromArgb(CByte(192), CByte(64), CByte(0))
-        btn_edit.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_edit.ForeColor = Color.White
-        btn_edit.Location = New Point(293, 595)
-        btn_edit.Margin = New Padding(4, 3, 4, 3)
-        btn_edit.Name = "btn_edit"
-        btn_edit.ShadowDecoration.CustomizableEdges = CustomizableEdges4
-        btn_edit.Size = New Size(100, 37)
-        btn_edit.TabIndex = 21
-        btn_edit.Text = "Edit"
-        ' 
-        ' btm_save
-        ' 
-        btm_save.Animated = True
-        btm_save.AnimatedGIF = True
-        btm_save.BorderRadius = 5
-        btm_save.CustomizableEdges = CustomizableEdges5
-        btm_save.DisabledState.BorderColor = Color.DarkGray
-        btm_save.DisabledState.CustomBorderColor = Color.DarkGray
-        btm_save.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        btm_save.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btm_save.FillColor = Color.Maroon
-        btm_save.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        btm_save.ForeColor = Color.White
-        btm_save.Location = New Point(186, 595)
-        btm_save.Margin = New Padding(4, 3, 4, 3)
-        btm_save.Name = "btm_save"
-        btm_save.ShadowDecoration.CustomizableEdges = CustomizableEdges6
-        btm_save.Size = New Size(100, 37)
-        btm_save.TabIndex = 20
-        btm_save.Text = "Save"
-        ' 
         ' Label4
         ' 
         Label4.AutoSize = True
@@ -189,7 +126,7 @@ Partial Class formManagePatron
         ' 
         tbLastName.Animated = True
         tbLastName.Cursor = Cursors.IBeam
-        tbLastName.CustomizableEdges = CustomizableEdges7
+        tbLastName.CustomizableEdges = CustomizableEdges1
         tbLastName.DefaultText = ""
         tbLastName.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         tbLastName.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -205,7 +142,7 @@ Partial Class formManagePatron
         tbLastName.PasswordChar = ChrW(0)
         tbLastName.PlaceholderText = "Last Name"
         tbLastName.SelectedText = ""
-        tbLastName.ShadowDecoration.CustomizableEdges = CustomizableEdges8
+        tbLastName.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         tbLastName.Size = New Size(267, 42)
         tbLastName.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbLastName.TabIndex = 32
@@ -214,7 +151,7 @@ Partial Class formManagePatron
         ' 
         tbPatronAddress.Animated = True
         tbPatronAddress.Cursor = Cursors.IBeam
-        tbPatronAddress.CustomizableEdges = CustomizableEdges9
+        tbPatronAddress.CustomizableEdges = CustomizableEdges3
         tbPatronAddress.DefaultText = ""
         tbPatronAddress.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         tbPatronAddress.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -230,7 +167,7 @@ Partial Class formManagePatron
         tbPatronAddress.PasswordChar = ChrW(0)
         tbPatronAddress.PlaceholderText = "Address"
         tbPatronAddress.SelectedText = ""
-        tbPatronAddress.ShadowDecoration.CustomizableEdges = CustomizableEdges10
+        tbPatronAddress.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         tbPatronAddress.Size = New Size(457, 60)
         tbPatronAddress.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbPatronAddress.TabIndex = 56
@@ -239,7 +176,7 @@ Partial Class formManagePatron
         ' 
         tbPatronEmail.Animated = True
         tbPatronEmail.Cursor = Cursors.IBeam
-        tbPatronEmail.CustomizableEdges = CustomizableEdges11
+        tbPatronEmail.CustomizableEdges = CustomizableEdges5
         tbPatronEmail.DefaultText = ""
         tbPatronEmail.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         tbPatronEmail.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -255,7 +192,7 @@ Partial Class formManagePatron
         tbPatronEmail.PasswordChar = ChrW(0)
         tbPatronEmail.PlaceholderText = "Email"
         tbPatronEmail.SelectedText = ""
-        tbPatronEmail.ShadowDecoration.CustomizableEdges = CustomizableEdges12
+        tbPatronEmail.ShadowDecoration.CustomizableEdges = CustomizableEdges6
         tbPatronEmail.Size = New Size(224, 42)
         tbPatronEmail.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbPatronEmail.TabIndex = 54
@@ -274,7 +211,7 @@ Partial Class formManagePatron
         ' 
         tbMiddlename.Animated = True
         tbMiddlename.Cursor = Cursors.IBeam
-        tbMiddlename.CustomizableEdges = CustomizableEdges13
+        tbMiddlename.CustomizableEdges = CustomizableEdges7
         tbMiddlename.DefaultText = ""
         tbMiddlename.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         tbMiddlename.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -290,7 +227,7 @@ Partial Class formManagePatron
         tbMiddlename.PasswordChar = ChrW(0)
         tbMiddlename.PlaceholderText = "Middle Name"
         tbMiddlename.SelectedText = ""
-        tbMiddlename.ShadowDecoration.CustomizableEdges = CustomizableEdges14
+        tbMiddlename.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         tbMiddlename.Size = New Size(267, 42)
         tbMiddlename.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbMiddlename.TabIndex = 57
@@ -299,7 +236,7 @@ Partial Class formManagePatron
         ' 
         tbFirstName.Animated = True
         tbFirstName.Cursor = Cursors.IBeam
-        tbFirstName.CustomizableEdges = CustomizableEdges15
+        tbFirstName.CustomizableEdges = CustomizableEdges9
         tbFirstName.DefaultText = ""
         tbFirstName.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         tbFirstName.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -315,7 +252,7 @@ Partial Class formManagePatron
         tbFirstName.PasswordChar = ChrW(0)
         tbFirstName.PlaceholderText = "First Name"
         tbFirstName.SelectedText = ""
-        tbFirstName.ShadowDecoration.CustomizableEdges = CustomizableEdges16
+        tbFirstName.ShadowDecoration.CustomizableEdges = CustomizableEdges10
         tbFirstName.Size = New Size(267, 42)
         tbFirstName.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbFirstName.TabIndex = 58
@@ -323,7 +260,7 @@ Partial Class formManagePatron
         ' cbCategory
         ' 
         cbCategory.BackColor = Color.Transparent
-        cbCategory.CustomizableEdges = CustomizableEdges17
+        cbCategory.CustomizableEdges = CustomizableEdges11
         cbCategory.DrawMode = DrawMode.OwnerDrawFixed
         cbCategory.DropDownStyle = ComboBoxStyle.DropDownList
         cbCategory.FillColor = SystemColors.MenuBar
@@ -334,7 +271,7 @@ Partial Class formManagePatron
         cbCategory.ItemHeight = 30
         cbCategory.Location = New Point(221, 284)
         cbCategory.Name = "cbCategory"
-        cbCategory.ShadowDecoration.CustomizableEdges = CustomizableEdges18
+        cbCategory.ShadowDecoration.CustomizableEdges = CustomizableEdges12
         cbCategory.Size = New Size(268, 36)
         cbCategory.TabIndex = 61
         ' 
@@ -354,7 +291,7 @@ Partial Class formManagePatron
         Panel2.Controls.Add(Label3)
         Panel2.Controls.Add(radioIsNotVerified)
         Panel2.Controls.Add(radioVerified)
-        Panel2.Location = New Point(293, 359)
+        Panel2.Location = New Point(279, 356)
         Panel2.Name = "Panel2"
         Panel2.Size = New Size(203, 66)
         Panel2.TabIndex = 63
@@ -363,7 +300,7 @@ Partial Class formManagePatron
         ' 
         Label3.AutoSize = True
         Label3.Font = New Font("Poppins", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label3.Location = New Point(10, 23)
+        Label3.Location = New Point(15, 23)
         Label3.Name = "Label3"
         Label3.Size = New Size(81, 22)
         Label3.TabIndex = 65
@@ -383,7 +320,7 @@ Partial Class formManagePatron
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.BackColor = SystemColors.Menu
+        Label5.BackColor = Color.Maroon
         Label5.Font = New Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point)
         Label5.ForeColor = Color.FromArgb(CByte(193), CByte(200), CByte(207))
         Label5.Location = New Point(231, 271)
@@ -396,7 +333,7 @@ Partial Class formManagePatron
         ' 
         tbSearch.Animated = True
         tbSearch.Cursor = Cursors.IBeam
-        tbSearch.CustomizableEdges = CustomizableEdges19
+        tbSearch.CustomizableEdges = CustomizableEdges13
         tbSearch.DefaultText = ""
         tbSearch.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         tbSearch.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -412,7 +349,7 @@ Partial Class formManagePatron
         tbSearch.PasswordChar = ChrW(0)
         tbSearch.PlaceholderText = "Search"
         tbSearch.SelectedText = ""
-        tbSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges20
+        tbSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges14
         tbSearch.Size = New Size(509, 42)
         tbSearch.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbSearch.TabIndex = 66
@@ -421,7 +358,7 @@ Partial Class formManagePatron
         ' 
         tbPatronContact.Animated = True
         tbPatronContact.Cursor = Cursors.IBeam
-        tbPatronContact.CustomizableEdges = CustomizableEdges21
+        tbPatronContact.CustomizableEdges = CustomizableEdges15
         tbPatronContact.DefaultText = ""
         tbPatronContact.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         tbPatronContact.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -437,7 +374,7 @@ Partial Class formManagePatron
         tbPatronContact.PasswordChar = ChrW(0)
         tbPatronContact.PlaceholderText = "Contact Number"
         tbPatronContact.SelectedText = ""
-        tbPatronContact.ShadowDecoration.CustomizableEdges = CustomizableEdges22
+        tbPatronContact.ShadowDecoration.CustomizableEdges = CustomizableEdges16
         tbPatronContact.Size = New Size(225, 42)
         tbPatronContact.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbPatronContact.TabIndex = 67
@@ -446,7 +383,7 @@ Partial Class formManagePatron
         ' 
         tbSchoolId.Animated = True
         tbSchoolId.Cursor = Cursors.IBeam
-        tbSchoolId.CustomizableEdges = CustomizableEdges23
+        tbSchoolId.CustomizableEdges = CustomizableEdges17
         tbSchoolId.DefaultText = ""
         tbSchoolId.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         tbSchoolId.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -462,20 +399,10 @@ Partial Class formManagePatron
         tbSchoolId.PasswordChar = ChrW(0)
         tbSchoolId.PlaceholderText = "ID Number"
         tbSchoolId.SelectedText = ""
-        tbSchoolId.ShadowDecoration.CustomizableEdges = CustomizableEdges24
+        tbSchoolId.ShadowDecoration.CustomizableEdges = CustomizableEdges18
         tbSchoolId.Size = New Size(254, 42)
         tbSchoolId.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbSchoolId.TabIndex = 68
-        ' 
-        ' Label6
-        ' 
-        Label6.AutoSize = True
-        Label6.Font = New Font("Poppins", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label6.Location = New Point(32, 339)
-        Label6.Name = "Label6"
-        Label6.Size = New Size(103, 28)
-        Label6.TabIndex = 70
-        Label6.Text = "Verification"
         ' 
         ' dgvPatronList
         ' 
@@ -561,7 +488,7 @@ Partial Class formManagePatron
         Guna2Button3.Animated = True
         Guna2Button3.AnimatedGIF = True
         Guna2Button3.BorderRadius = 8
-        Guna2Button3.CustomizableEdges = CustomizableEdges25
+        Guna2Button3.CustomizableEdges = CustomizableEdges19
         Guna2Button3.DisabledState.BorderColor = Color.DarkGray
         Guna2Button3.DisabledState.CustomBorderColor = Color.DarkGray
         Guna2Button3.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -572,7 +499,7 @@ Partial Class formManagePatron
         Guna2Button3.Location = New Point(56, 295)
         Guna2Button3.Margin = New Padding(4, 3, 4, 3)
         Guna2Button3.Name = "Guna2Button3"
-        Guna2Button3.ShadowDecoration.CustomizableEdges = CustomizableEdges26
+        Guna2Button3.ShadowDecoration.CustomizableEdges = CustomizableEdges20
         Guna2Button3.Size = New Size(129, 36)
         Guna2Button3.TabIndex = 73
         Guna2Button3.Text = "Select Photo"
@@ -588,21 +515,91 @@ Partial Class formManagePatron
         profilePhoto.TabIndex = 72
         profilePhoto.TabStop = False
         ' 
+        ' btn_delete
+        ' 
+        btn_delete.Animated = True
+        btn_delete.AnimatedGIF = True
+        btn_delete.BorderRadius = 5
+        btn_delete.CustomizableEdges = CustomizableEdges21
+        btn_delete.DisabledState.BorderColor = Color.DarkGray
+        btn_delete.DisabledState.CustomBorderColor = Color.DarkGray
+        btn_delete.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btn_delete.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btn_delete.FillColor = Color.DarkRed
+        btn_delete.Font = New Font("Poppins", 9.5F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_delete.ForeColor = Color.White
+        btn_delete.Location = New Point(383, 597)
+        btn_delete.Margin = New Padding(4, 3, 4, 3)
+        btn_delete.Name = "btn_delete"
+        btn_delete.ShadowDecoration.CustomizableEdges = CustomizableEdges22
+        btn_delete.Size = New Size(106, 37)
+        btn_delete.TabIndex = 76
+        btn_delete.Text = "Delete"
+        ' 
+        ' btn_edit
+        ' 
+        btn_edit.Animated = True
+        btn_edit.AnimatedGIF = True
+        btn_edit.BorderRadius = 5
+        btn_edit.CustomizableEdges = CustomizableEdges23
+        btn_edit.DisabledState.BorderColor = Color.DarkGray
+        btn_edit.DisabledState.CustomBorderColor = Color.DarkGray
+        btn_edit.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btn_edit.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btn_edit.FillColor = Color.Coral
+        btn_edit.Font = New Font("Poppins", 9.5F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_edit.ForeColor = Color.White
+        btn_edit.Location = New Point(269, 597)
+        btn_edit.Margin = New Padding(4, 3, 4, 3)
+        btn_edit.Name = "btn_edit"
+        btn_edit.ShadowDecoration.CustomizableEdges = CustomizableEdges24
+        btn_edit.Size = New Size(106, 37)
+        btn_edit.TabIndex = 75
+        btn_edit.Text = "Update"
+        ' 
+        ' btnSave
+        ' 
+        btnSave.Animated = True
+        btnSave.AnimatedGIF = True
+        btnSave.BorderRadius = 5
+        btnSave.BorderStyle = Drawing2D.DashStyle.Custom
+        btnSave.CustomBorderColor = Color.FromArgb(CByte(255), CByte(128), CByte(128))
+        btnSave.CustomizableEdges = CustomizableEdges25
+        btnSave.DisabledState.BorderColor = Color.DarkGray
+        btnSave.DisabledState.CustomBorderColor = Color.DarkGray
+        btnSave.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnSave.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnSave.FillColor = Color.Firebrick
+        btnSave.Font = New Font("Poppins", 9.5F, FontStyle.Bold, GraphicsUnit.Point)
+        btnSave.ForeColor = Color.White
+        btnSave.Location = New Point(157, 597)
+        btnSave.Margin = New Padding(4, 3, 4, 3)
+        btnSave.Name = "btnSave"
+        btnSave.ShadowDecoration.CustomizableEdges = CustomizableEdges26
+        btnSave.Size = New Size(104, 37)
+        btnSave.TabIndex = 74
+        btnSave.Text = "Save"
+        ' 
+        ' OpenFileDialog1
+        ' 
+        OpenFileDialog1.FileName = "OpenFileDialog1"
+        ' 
         ' formManagePatron
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.MistyRose
         ClientSize = New Size(1074, 698)
+        Controls.Add(btn_delete)
+        Controls.Add(btn_edit)
+        Controls.Add(btnSave)
         Controls.Add(Guna2Button3)
         Controls.Add(profilePhoto)
         Controls.Add(dgvPatronList)
-        Controls.Add(Label6)
         Controls.Add(tbSchoolId)
         Controls.Add(tbPatronContact)
         Controls.Add(tbSearch)
         Controls.Add(Label5)
-        Controls.Add(Panel2)
         Controls.Add(cbCategory)
         Controls.Add(tbFirstName)
         Controls.Add(tbMiddlename)
@@ -611,10 +608,8 @@ Partial Class formManagePatron
         Controls.Add(Label2)
         Controls.Add(tbLastName)
         Controls.Add(Label4)
-        Controls.Add(btn_delete)
-        Controls.Add(btn_edit)
-        Controls.Add(btm_save)
         Controls.Add(Panel1)
+        Controls.Add(Panel2)
         FormBorderStyle = FormBorderStyle.None
         Margin = New Padding(4, 3, 4, 3)
         Name = "formManagePatron"
@@ -631,9 +626,6 @@ Partial Class formManagePatron
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label1 As Label
     Friend WithEvents btn_addDepartment As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btn_delete As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btn_edit As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btm_save As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents tbDesciption As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbCopies As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbGenre As Guna.UI2.WinForms.Guna2TextBox
@@ -670,7 +662,6 @@ Partial Class formManagePatron
     Friend WithEvents tbSearch As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbPatronContact As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbSchoolId As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Label6 As Label
     Friend WithEvents dgvPatronList As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
@@ -678,4 +669,8 @@ Partial Class formManagePatron
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Guna2Button3 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents profilePhoto As PictureBox
+    Friend WithEvents btn_delete As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btn_edit As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnSave As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
 End Class

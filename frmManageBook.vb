@@ -582,7 +582,11 @@ Public Class frmManageBook
 
     Private Sub btn_edit_Click(sender As Object, e As EventArgs) Handles btn_edit.Click
         Dim isbn = dgvBooks.CurrentRow.Cells(0).Value
-        updateBook(isbn)
+        If dgvBooks.SelectedRows.Count < 0 Then
+            MsgBox("An error occured, there is not selected row", vbExclamation)
+        ElseIf isValidate() Then
+            updateBook(isbn)
+        End If
     End Sub
 
     Private Sub cbDepartment_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbDepartment.SelectedIndexChanged

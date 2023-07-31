@@ -69,33 +69,77 @@ Public Class formManagePatron
 
             If cmd.ExecuteNonQuery > 0 Then
                 MsgBox("Successfully Save!", vbInformation)
-                closeConnection()
-                loadPatrons()
             Else
                 MsgBox("Failed to Save!", vbCritical)
             End If
 
         Catch ex As Exception
             MsgBox("An error occured, " & ex.Message, vbCritical)
+        Finally
+            closeConnection()
+            ClearFields()
+            loadPatrons()
         End Try
-        closeConnection()
     End Sub
 
-    Private Sub btm_save_Click(sender As Object, e As EventArgs) Handles btm_save.Click
-        If isNullOrEmpty(tbPatronEmail.Text) Then
-            MsgBox("email cannot be empty!", vbCritical)
-        ElseIf isNullOrEmpty(tbLastName.text) Then
-            MsgBox("Last Name cannot be empty!", vbCritical)
-        ElseIf isNullOrEmpty(tbFirstName.text) Then
-            MsgBox("First Name cannot be empty!", vbCritical)
-        ElseIf isNullOrEmpty(cbCategory.text) Then
-            MsgBox("Category must have selected!", vbCritical)
-        ElseIf isNullOrEmpty(tbSchoolId.text) Then
-            MsgBox("Identity Number cannot be empty!", vbCritical)
-        Else
-            savePatron()
-        End If
+    Private Sub UpdatePatron(patronId As String)
+        Try
+            openConnection()
+            Dim query = "UPDATE tbl_patrons SET `last_name` = @LastName, `first_name` = @FirstName, `middle_name` = @MiddleName, 
+                     `category` = @Category, `address` = @Address, `email` = @Email, `contact` = @Contact, `is_verified` = @IsVerified 
+                     WHERE `patron_id` = @PatronId"
+
+            Dim cmd = New OleDbCommand(query, conn)
+
+            With cmd
+                .Parameters.Clear()
+                .Parameters.AddWithValue("@LastName", tbLastName.Text)
+                .Parameters.AddWithValue("@FirstName", tbFirstName.Text)
+                .Parameters.AddWithValue("@MiddleName", tbMiddlename.Text)
+                .Parameters.AddWithValue("@Category", cbCategory.Text)
+                .Parameters.AddWithValue("@Address", tbPatronAddress.Text)
+                .Parameters.AddWithValue("@Email", tbPatronEmail.Text)
+                .Parameters.AddWithValue("@Contact", tbPatronContact.Text)
+                .Parameters.AddWithValue("@IsVerified", radioVerified.Checked)
+                .Parameters.AddWithValue("@PatronId", patronId)
+            End With
+
+            If cmd.ExecuteNonQuery > 0 Then
+                MsgBox("Successfully updated!", vbInformation)
+            Else
+                MsgBox("Failed to update!", vbCritical)
+            End If
+        Catch ex As Exception
+            MsgBox("An error occurred, " & ex.Message, vbCritical)
+        Finally
+            closeConnection()
+            ClearFields()
+            loadPatrons()
+        End Try
+
     End Sub
+
+    Private Sub DeletePatron(patronId As String)
+        Try
+            openConnection()
+            Dim query = "DELETE FROM tbl_patrons WHERE `patron_id` = @PatronId"
+
+            Dim cmd = New OleDbCommand(query, conn)
+            cmd.Parameters.AddWithValue("@PatronId", patronId)
+
+            If cmd.ExecuteNonQuery > 0 Then
+                MsgBox("Successfully deleted!", vbInformation)
+            Else
+                MsgBox("Failed to delete!", vbCritical)
+            End If
+        Catch ex As Exception
+            MsgBox("An error occurred, " & ex.Message, vbCritical)
+        Finally
+            closeConnection()
+            loadPatrons()
+        End Try
+    End Sub
+
 
     Private Sub tbSearch_TextChanged(sender As Object, e As EventArgs) Handles tbSearch.TextChanged
         If Not isNullOrEmpty(tbSearch.Text) Then
@@ -125,20 +169,65 @@ Public Class formManagePatron
 
             Catch ex As Exception
                 MsgBox("An error occured, loading patrons: " & ex.Message, vbCritical)
+            Finally
+                closeConnection()
             End Try
-            closeConnection()
+
         Else
             loadPatrons()
         End If
 
     End Sub
 
-    Private Sub clear()
+    Private Function IsPatronIdAlreadyExists(patronId As String) As Boolean
+        Try
+            openConnection()
+            Dim query As String = "SELECT COUNT(*) FROM tbl_patrons WHERE `patron_id` = @PatronId"
+            Dim cmd As New OleDbCommand(query, conn)
+            cmd.Parameters.AddWithValue("@PatronId", patronId)
 
+            Dim count As Integer = CInt(cmd.ExecuteScalar())
+            Return count > 0
+        Catch ex As Exception
+            MsgBox("An error occurred while checking the Patron ID: " & ex.Message, vbCritical)
+            Return False
+        Finally
+            closeConnection()
+        End Try
+    End Function
+
+    Private Function IsEmailAlreadyExists(email As String) As Boolean
+        Try
+            openConnection()
+            Dim query As String = "SELECT COUNT(*) FROM tbl_patrons WHERE `email` = @Email"
+            Dim cmd As New OleDbCommand(query, conn)
+            cmd.Parameters.AddWithValue("@Email", email)
+
+            Dim count As Integer = CInt(cmd.ExecuteScalar())
+            Return count > 0
+        Catch ex As Exception
+            MsgBox("An error occurred while checking the Email: " & ex.Message, vbCritical)
+            Return False
+        Finally
+            closeConnection()
+        End Try
+    End Function
+
+
+    Private Sub ClearFields()
+        tbLastName.Text = ""
+        tbFirstName.Text = ""
+        tbMiddlename.Text = ""
+        cbCategory.SelectedIndex = -1
+        tbPatronAddress.Text = ""
+        tbPatronEmail.Text = ""
+        tbPatronContact.Text = ""
+        radioVerified.Checked = False
+        tbSchoolId.Text = ""
     End Sub
 
     Private Sub dgvPatronList_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvPatronList.CellContentClick
-        clear()
+        ClearFields()
 
         Dim patronId = dgvPatronList.CurrentRow.Cells(0).Value
 
@@ -160,7 +249,7 @@ Public Class formManagePatron
                 Dim isVerified = reader("is_verified")
                 Dim address = reader("address").ToString
                 Dim contact = reader("contact").ToString
-                Dim email = reader("contact").ToString
+                Dim email = reader("email").ToString
 
                 tbLastName.Text = lastName
                 tbFirstName.Text = firstName
@@ -182,6 +271,44 @@ Public Class formManagePatron
         conn.Close()
     End Sub
 
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        If isNullOrEmpty(tbPatronEmail.Text) Then
+            MsgBox("email cannot be empty!", vbCritical)
+        ElseIf isNullOrEmpty(tbLastName.Text) Then
+            MsgBox("Last Name cannot be empty!", vbCritical)
+        ElseIf isNullOrEmpty(tbFirstName.Text) Then
+            MsgBox("First Name cannot be empty!", vbCritical)
+        ElseIf isNullOrEmpty(cbCategory.Text) Then
+            MsgBox("Category must have selected!", vbCritical)
+        ElseIf isNullOrEmpty(tbSchoolId.Text) Then
+            MsgBox("Identity Number cannot be empty!", vbCritical)
+        ElseIf IsPatronIdAlreadyExists(tbSchoolId.Text) Then
+            MsgBox("The  id exists in the database.", vbExclamation)
+        ElseIf IsEmailAlreadyExists(tbPatronEmail.Text) Then
+            MsgBox("The email already exists in the database.", vbExclamation)
+        Else
+            savePatron()
+        End If
+    End Sub
 
+    Private Sub btn_edit_Click(sender As Object, e As EventArgs) Handles btn_edit.Click
+        Dim patronId = dgvPatronList.CurrentRow.Cells(0).Value
+        If isNullOrEmpty(tbPatronEmail.Text) Then
+            MsgBox("email cannot be empty!", vbCritical)
+        ElseIf isNullOrEmpty(tbLastName.Text) Then
+            MsgBox("Last Name cannot be empty!", vbCritical)
+        ElseIf isNullOrEmpty(tbFirstName.Text) Then
+            MsgBox("First Name cannot be empty!", vbCritical)
+        ElseIf isNullOrEmpty(cbCategory.Text) Then
+            MsgBox("Category must have selected!", vbCritical)
+        ElseIf isNullOrEmpty(tbSchoolId.Text) Then
+            MsgBox("Identity Number cannot be empty!", vbCritical)
+        Else
+            UpdatePatron(patronId)
+        End If
+    End Sub
 
+    Private Sub btn_delete_Click(sender As Object, e As EventArgs) Handles btn_delete.Click
+
+    End Sub
 End Class
