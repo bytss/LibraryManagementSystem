@@ -91,43 +91,6 @@ Public Class formManageUser
 
         Catch ex As Exception
             MsgBox(" An error occured, could not save" & ex.Message, vbInformation)
-        End Try
-        closeConnection()
-        loadUsers()
-    End Sub
-
-    Private Sub updateUsers(username As String)
-        Try
-            openConnection()
-            Dim query As String = "UPDATE tbl_users SET last_name = @LastName, first_name = @FirstName, middle_name = @MiddleName, contact = @Contact, email = @Email, username = @Username, [password] = @Password, role = @Role, address = @Address, photo = @ProfilePhoto WHERE username = '" & username & "'"
-            Dim cmd = New OleDbCommand(query, conn)
-
-            Dim photoBytes As Byte() = If(File.Exists(selectedImagePath), File.ReadAllBytes(selectedImagePath), Nothing)
-
-            With cmd
-                .Parameters.Clear()
-                .Parameters.AddWithValue("@Username", tbUsername.Text)
-                .Parameters.AddWithValue("@LastName", tbLastName.Text)
-                .Parameters.AddWithValue("@FirstName", tbFirstName.Text)
-                .Parameters.AddWithValue("@MiddleName", tbMiddleName.Text)
-                .Parameters.AddWithValue("@Contact", tbUserContact.Text)
-                .Parameters.AddWithValue("@Email", tbUserEmail.Text)
-                .Parameters.AddWithValue("@Password", tbPassword.Text)
-                .Parameters.AddWithValue("@Role", cbRoles.Text)
-                .Parameters.AddWithValue("@Address", tbUserAddress.Text)
-                .Parameters.AddWithValue("@ProfilePhoto", If(photoBytes IsNot Nothing, photoBytes, DBNull.Value))
-            End With
-
-            Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
-
-            If rowsAffected > 0 Then
-                MsgBox("Successfully Updated!", vbInformation)
-            Else
-                MsgBox("No records were updated.", vbExclamation)
-            End If
-
-        Catch ex As Exception
-            MsgBox("An error occurred, could not update the user: " & ex.Message, vbCritical)
         Finally
             closeConnection()
             loadUsers()
@@ -135,8 +98,71 @@ Public Class formManageUser
         End Try
     End Sub
 
+    Private Sub updateUsers(userId As String)
+        Try
+            openConnection()
+
+            Dim query = "UPDATE tbl_users " &
+                    "SET `last_name` = @LastName, " &
+                    "`first_name` = @FirstName, " &
+                    "`middle_name` = @MiddleName, " &
+                    "`contact` = @Contact, " &
+                    "`email` = @Email, " &
+                    "`username` = @Username, " &
+                    "`password` = @Password, " &
+                    "`role` = @Role, " &
+                    "`address` = @Address "
+
+            ' Check if the profile photo has been selected
+            If Not String.IsNullOrEmpty(selectedImagePath) AndAlso File.Exists(selectedImagePath) Then
+                query += ", `photo` = @ProfilePhoto"
+            End If
+
+            query += " WHERE `username` = @UserId"
+
+            Dim cmd = New OleDbCommand(query, conn)
+
+            Dim photoBytes As Byte() = If(File.Exists(selectedImagePath), File.ReadAllBytes(selectedImagePath), Nothing)
+
+            With cmd
+                .Parameters.Clear()
+                .Parameters.AddWithValue("@LastName", tbLastName.Text)
+                .Parameters.AddWithValue("@FirstName", tbFirstName.Text)
+                .Parameters.AddWithValue("@MiddleName", tbMiddleName.Text)
+                .Parameters.AddWithValue("@Contact", tbUserContact.Text)
+                .Parameters.AddWithValue("@Email", tbUserEmail.Text)
+                .Parameters.AddWithValue("@Username", tbUsername.Text)
+                .Parameters.AddWithValue("@Password", tbLastName.Text) ' Note: This is not a secure way to handle passwords. Consider using proper password hashing and storage methods.
+                .Parameters.AddWithValue("@Role", cbRoles.Text)
+                .Parameters.AddWithValue("@Address", tbUserAddress.Text)
+                ' Check if the profile photo has been selected
+                If Not String.IsNullOrEmpty(selectedImagePath) AndAlso File.Exists(selectedImagePath) Then
+                    .Parameters.AddWithValue("@ProfilePhoto", photoBytes)
+                End If
+
+                .Parameters.AddWithValue("@UserId", userId)
+            End With
+
+            If cmd.ExecuteNonQuery > 0 Then
+                MsgBox(" Successfully Updated!", vbInformation)
+            Else
+                MsgBox(" An error occurred, could not update", vbInformation)
+            End If
+
+        Catch ex As Exception
+            MsgBox(" An error occurred, could not update" & ex.Message, vbInformation)
+        Finally
+            closeConnection()
+            loadUsers()
+            ClearFields()
+        End Try
+    End Sub
+
+
+
+
     Private Sub dgvUsers_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvUsers.CellContentClick
-   ClearFields()
+        ClearFields()
 
         Dim userId = dgvUsers.CurrentRow.Cells(0).Value
 
@@ -183,9 +209,46 @@ Public Class formManageUser
 
         Catch ex As Exception
             MsgBox("An error occured, " * ex.Message, vbCritical)
+        Finally
+            closeConnection()
         End Try
-        conn.Close()
+
     End Sub
+
+    Private Sub deleteUser(userId As String)
+        Try
+            ' Display a confirmation dialog before proceeding with deletion
+            Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete this user?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+            ' If the user confirms the deletion, proceed with the deletion
+            If result = DialogResult.Yes Then
+                openConnection()
+
+                Dim query = "DELETE FROM tbl_users WHERE `username` = @UserId"
+
+                Dim cmd = New OleDbCommand(query, conn)
+
+                With cmd
+                    .Parameters.Clear()
+                    .Parameters.AddWithValue("@UserId", userId)
+                End With
+
+                If cmd.ExecuteNonQuery > 0 Then
+                    MsgBox("Successfully deleted the user!", vbInformation)
+                Else
+                    MsgBox("No records were deleted.", vbExclamation)
+                End If
+            End If
+
+        Catch ex As Exception
+            MsgBox("An error occurred, could not delete the user: " & ex.Message, vbCritical)
+        Finally
+            closeConnection()
+            loadUsers()
+        End Try
+    End Sub
+
+
 
     Private Sub ClearFields()
         tbUsername.Text = ""
@@ -303,14 +366,16 @@ Public Class formManageUser
     End Sub
 
     Private Sub btn_edit_Click(sender As Object, e As EventArgs) Handles btn_edit.Click
-        Dim username = dgvUsers.CurrentRow.Cells(0).Value.ToString()
-        btn_edit.Text = username
-        If  isNullOrEmpty(tbUserEmail.Text) Then
+        Dim username = dgvUsers.CurrentRow.Cells(0).Value
+        If isNullOrEmpty(tbUserEmail.Text) Then
             MsgBox("Email could Not be empty!", vbCritical)
         Else
-            updateUsers(username)
+            updateUsers(username.ToString())
         End If
     End Sub
 
-
+    Private Sub btn_delete_Click(sender As Object, e As EventArgs) Handles btn_delete.Click
+        Dim username = dgvUsers.CurrentRow.Cells(0).Value
+        deleteUser(username.ToString)
+    End Sub
 End Class
