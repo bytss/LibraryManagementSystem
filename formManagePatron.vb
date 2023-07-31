@@ -120,25 +120,31 @@ Public Class formManagePatron
     End Sub
 
     Private Sub DeletePatron(patronId As String)
-        Try
-            openConnection()
-            Dim query = "DELETE FROM tbl_patrons WHERE `patron_id` = @PatronId"
+        ' Show a confirmation dialog before proceeding with the deletion
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete this patron?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
-            Dim cmd = New OleDbCommand(query, conn)
-            cmd.Parameters.AddWithValue("@PatronId", patronId)
+        If result = DialogResult.Yes Then
+            Try
+                openConnection()
+                Dim query = "DELETE FROM tbl_patrons WHERE `patron_id` = @PatronId"
 
-            If cmd.ExecuteNonQuery > 0 Then
-                MsgBox("Successfully deleted!", vbInformation)
-            Else
-                MsgBox("Failed to delete!", vbCritical)
-            End If
-        Catch ex As Exception
-            MsgBox("An error occurred, " & ex.Message, vbCritical)
-        Finally
-            closeConnection()
-            loadPatrons()
-        End Try
+                Dim cmd = New OleDbCommand(query, conn)
+                cmd.Parameters.AddWithValue("@PatronId", patronId)
+
+                If cmd.ExecuteNonQuery > 0 Then
+                    MsgBox("Successfully deleted!", vbInformation)
+                Else
+                    MsgBox("Failed to delete!", vbCritical)
+                End If
+            Catch ex As Exception
+                MsgBox("An error occurred, " & ex.Message, vbCritical)
+            Finally
+                closeConnection()
+                loadPatrons()
+            End Try
+        End If
     End Sub
+
 
 
     Private Sub tbSearch_TextChanged(sender As Object, e As EventArgs) Handles tbSearch.TextChanged
@@ -309,6 +315,7 @@ Public Class formManagePatron
     End Sub
 
     Private Sub btn_delete_Click(sender As Object, e As EventArgs) Handles btn_delete.Click
-
+        Dim patronId = dgvPatronList.CurrentRow.Cells(0).Value
+        DeletePatron(patronId)
     End Sub
 End Class
