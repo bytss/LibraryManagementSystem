@@ -25,8 +25,8 @@ Public Class formReturnBook
 
             While reader.Read
                 Dim id = reader("history_id")
-                Dim isbn = reader("book_isbn")
                 Dim copies = reader("copies")
+                Dim isbn = reader("book_isbn")
                 Dim dateIssued = reader("date_issued")
                 Dim isNotReturned = reader.IsDBNull("date_returned")
 
@@ -48,7 +48,45 @@ Public Class formReturnBook
             reader.Close()
         Catch ex As Exception
             MsgBox("An error " & ex.Message)
+        Finally
+            closeConnection()
+        End Try
+    End Sub
 
+    Private Sub searchBook(find As String)
+        dgvIssuedHistory.Rows.Clear()
+
+        Try
+            openConnection()
+            Dim query As String = "SELECT h.history_id, h.issued_by, h.book_isbn, b.isbn, b.title, b.description, b.author, h.date_issued, h.date_returned, h.copies " &
+                          "FROM tbl_history AS h " &
+                          "INNER JOIN tbl_books AS b ON h.book_isbn = b.isbn " &
+                          "WHERE b.isbn Like '%' + @SearchTerm + '%' OR " &
+                          "b.title LIKE '%' + @SearchTerm + '%' OR " &
+                          "b.description LIKE '%' + @SearchTerm + '%' OR " &
+                          "b.author LIKE '%' + @SearchTerm + '%'"
+
+            Dim cmd = New OleDbCommand(query, conn)
+            cmd.Parameters.AddWithValue("@SearchTerm", find)
+            Dim reader As OleDbDataReader = cmd.ExecuteReader
+
+
+            While reader.Read
+                Dim id = reader("history_id")
+                Dim isbn = reader("book_isbn")
+                Dim bookName = reader("title")
+                Dim description = reader("description")
+                Dim copies = reader("copies")
+                Dim dateIssued = reader("date_issued")
+                Dim isNotReturned = reader.IsDBNull("date_returned")
+
+                dgvIssuedHistory.Rows.Add(id, bookName, description, copies, dateIssued, If(isNotReturned, "No", reader("date_returned")))
+            End While
+            reader.Close()
+        Catch ex As Exception
+            MsgBox("An error " & ex.Message)
+        Finally
+            closeConnection()
         End Try
     End Sub
 
@@ -91,29 +129,7 @@ Public Class formReturnBook
         closeConnection()
     End Sub
 
-    Private Sub searchBook(searchTerm As String)
 
-        ' Loop through each row in the DataGridView
-        For Each row As DataGridViewRow In dgvIssuedHistory.Rows
-            ' Reset the row's visibility in case it was previously hidden by another search
-            row.Visible = True
-
-            ' Check each cell's value in the current row for the search term
-            Dim foundMatch As Boolean = False
-            For Each cell As DataGridViewCell In row.Cells
-                If cell.Value IsNot Nothing AndAlso cell.Value.ToString().ToLower().Contains(searchTerm) Then
-                    ' If a match is found, mark the flag as true and break out of the inner loop
-                    foundMatch = True
-                    Exit For
-                End If
-            Next
-
-            ' If no match was found in any cell of the row, hide the row
-            If Not foundMatch Then
-                row.Visible = False
-            End If
-        Next
-    End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
 

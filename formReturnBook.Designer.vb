@@ -50,12 +50,6 @@ Partial Class formReturnBook
         Label2 = New Label()
         tbSearch = New Guna.UI2.WinForms.Guna2TextBox()
         dgvIssuedHistory = New Guna.UI2.WinForms.Guna2DataGridView()
-        Column6 = New DataGridViewTextBoxColumn()
-        Column1 = New DataGridViewTextBoxColumn()
-        Column2 = New DataGridViewTextBoxColumn()
-        Column3 = New DataGridViewTextBoxColumn()
-        Column4 = New DataGridViewTextBoxColumn()
-        Column5 = New DataGridViewTextBoxColumn()
         profilePhoto = New PictureBox()
         tbSearchId = New Guna.UI2.WinForms.Guna2TextBox()
         btnClear = New Guna.UI2.WinForms.Guna2Button()
@@ -69,6 +63,11 @@ Partial Class formReturnBook
         tbReturnIssuedBy = New Guna.UI2.WinForms.Guna2TextBox()
         tbReturnBookDescription = New Guna.UI2.WinForms.Guna2TextBox()
         tbReturnBookName = New Guna.UI2.WinForms.Guna2TextBox()
+        Column6 = New DataGridViewTextBoxColumn()
+        Column2 = New DataGridViewTextBoxColumn()
+        Column3 = New DataGridViewTextBoxColumn()
+        Column4 = New DataGridViewTextBoxColumn()
+        Column5 = New DataGridViewTextBoxColumn()
         Panel1.SuspendLayout()
         CType(dgvIssuedHistory, ComponentModel.ISupportInitialize).BeginInit()
         CType(profilePhoto, ComponentModel.ISupportInitialize).BeginInit()
@@ -147,7 +146,7 @@ Partial Class formReturnBook
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
         dgvIssuedHistory.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         dgvIssuedHistory.ColumnHeadersHeight = 35
-        dgvIssuedHistory.Columns.AddRange(New DataGridViewColumn() {Column6, Column1, Column2, Column3, Column4, Column5})
+        dgvIssuedHistory.Columns.AddRange(New DataGridViewColumn() {Column6, Column2, Column3, Column4, Column5})
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
         DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
@@ -191,36 +190,6 @@ Partial Class formReturnBook
         dgvIssuedHistory.ThemeStyle.RowsStyle.Height = 25
         dgvIssuedHistory.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvIssuedHistory.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
-        ' 
-        ' Column6
-        ' 
-        Column6.HeaderText = "#"
-        Column6.Name = "Column6"
-        ' 
-        ' Column1
-        ' 
-        Column1.HeaderText = "ISBN"
-        Column1.Name = "Column1"
-        ' 
-        ' Column2
-        ' 
-        Column2.HeaderText = "Name"
-        Column2.Name = "Column2"
-        ' 
-        ' Column3
-        ' 
-        Column3.HeaderText = "Copies"
-        Column3.Name = "Column3"
-        ' 
-        ' Column4
-        ' 
-        Column4.HeaderText = "Date Issued"
-        Column4.Name = "Column4"
-        ' 
-        ' Column5
-        ' 
-        Column5.HeaderText = "Returned"
-        Column5.Name = "Column5"
         ' 
         ' profilePhoto
         ' 
@@ -456,6 +425,31 @@ Partial Class formReturnBook
         tbReturnBookName.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbReturnBookName.TabIndex = 88
         ' 
+        ' Column6
+        ' 
+        Column6.HeaderText = "#"
+        Column6.Name = "Column6"
+        ' 
+        ' Column2
+        ' 
+        Column2.HeaderText = "Name"
+        Column2.Name = "Column2"
+        ' 
+        ' Column3
+        ' 
+        Column3.HeaderText = "Copies"
+        Column3.Name = "Column3"
+        ' 
+        ' Column4
+        ' 
+        Column4.HeaderText = "Date Issued"
+        Column4.Name = "Column4"
+        ' 
+        ' Column5
+        ' 
+        Column5.HeaderText = "Returned"
+        Column5.Name = "Column5"
+        ' 
         ' formReturnBook
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -533,7 +527,6 @@ Partial Class formReturnBook
     Friend WithEvents tbReturnBookDescription As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbReturnBookName As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
