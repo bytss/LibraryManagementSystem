@@ -71,7 +71,7 @@ Public Class formManageUser
             Dim cmd = New OleDbCommand(query, conn)
 
 
-            Dim photoBytes As Byte() = File.ReadAllBytes(selectedImagePath)
+            Dim photoBytes As Byte() = If(File.Exists(selectedImagePath), File.ReadAllBytes(selectedImagePath), Nothing)
 
             With cmd
                 .Parameters.Clear()
@@ -84,7 +84,7 @@ Public Class formManageUser
                 .Parameters.AddWithValue("@Password", tbLastName.Text)
                 .Parameters.AddWithValue("@Role", cbRoles.Text)
                 .Parameters.AddWithValue("@Address", tbUserAddress.Text)
-                .Parameters.AddWithValue("@Profile", photoBytes)
+                .Parameters.AddWithValue("@Profile", If(File.Exists(selectedImagePath), File.ReadAllBytes(selectedImagePath), DBNull.Value))
             End With
 
             If cmd.ExecuteNonQuery > 0 Then
@@ -98,6 +98,44 @@ Public Class formManageUser
         End Try
         closeConnection()
         loadUsers()
+    End Sub
+
+    Private Sub updateUsers(username As String)
+        Try
+            openConnection()
+            Dim query As String = "UPDATE tbl_users SET last_name = @LastName, first_name = @FirstName, middle_name = @MiddleName, contact = @Contact, email = @Email, username = @Username, [password] = @Password, role = @Role, address = @Address, photo = @ProfilePhoto WHERE username = '" & username & "'"
+            Dim cmd = New OleDbCommand(query, conn)
+
+            Dim photoBytes As Byte() = If(File.Exists(selectedImagePath), File.ReadAllBytes(selectedImagePath), Nothing)
+
+            With cmd
+                .Parameters.Clear()
+                .Parameters.AddWithValue("@Username", tbUsername.Text)
+                .Parameters.AddWithValue("@LastName", tbLastName.Text)
+                .Parameters.AddWithValue("@FirstName", tbFirstName.Text)
+                .Parameters.AddWithValue("@MiddleName", tbMiddleName.Text)
+                .Parameters.AddWithValue("@Contact", tbUserContact.Text)
+                .Parameters.AddWithValue("@Email", tbUserEmail.Text)
+                .Parameters.AddWithValue("@Password", tbPassword.Text)
+                .Parameters.AddWithValue("@Role", cbRoles.Text)
+                .Parameters.AddWithValue("@Address", tbUserAddress.Text)
+                .Parameters.AddWithValue("@ProfilePhoto", If(photoBytes IsNot Nothing, photoBytes, DBNull.Value))
+            End With
+
+            Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
+
+            If rowsAffected > 0 Then
+                MsgBox("Successfully Updated!", vbInformation)
+            Else
+                MsgBox("No records were updated.", vbExclamation)
+            End If
+
+        Catch ex As Exception
+            MsgBox("An error occurred, could not update the user: " & ex.Message, vbCritical)
+        Finally
+            closeConnection()
+            loadUsers()
+        End Try
     End Sub
 
     Private Sub dgvUsers_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvUsers.CellContentClick
@@ -158,8 +196,38 @@ Public Class formManageUser
         tbMiddleName.Text = ""
     End Sub
 
+    Private Function isExisted(userEmail As String) As Boolean
+        Try
+            openConnection()
+            Dim query = "Select COUNT(*) FROM tbl_users WHERE Email = @Email"
+            Dim cmd = New OleDbCommand(query, conn)
+            cmd.Parameters.AddWithValue("@Email", userEmail)
 
+            Dim result As Integer = CInt(cmd.ExecuteScalar())
 
+            Return result > 0
+        Catch ex As Exception
+            Return False
+        End Try
+        closeConnection()
+    End Function
+
+    Private Function isValidate() As Boolean
+        If isNullOrEmpty(tbLastName.Text) Then
+            MsgBox("Last Name could Not be empty!", vbCritical)
+        ElseIf isNullOrEmpty(tbFirstName.Text) Then
+            MsgBox("First Name could Not be empty!", vbCritical)
+        ElseIf isNullOrEmpty(cbRoles.Text) Then
+            MsgBox("Roles could Not be empty!", vbCritical)
+        ElseIf isNullOrEmpty(tbUsername.Text) Then
+            MsgBox("Username could Not be empty!", vbCritical)
+        ElseIf isNullOrEmpty(tbPassword.Text) Then
+            MsgBox("Password could Not be empty!", vbCritical)
+        Else
+            Return True
+        End If
+        Return False
+    End Function
 
     Private Sub Check_showpass_CheckedChanged(sender As Object, e As EventArgs) Handles Check_showpass.CheckedChanged
         If Check_showpass.Checked = True Then
@@ -187,8 +255,8 @@ Public Class formManageUser
                 ' clear item books
                 dgvUsers.Rows.Clear()
                 openConnection()
-                Dim query = "SELECT * FROM tbl_users " &
-                              "WHERE username LIKE '%' + @SearchTerm + '%' OR " &
+                Dim query = "Select * FROM tbl_users " &
+                              "WHERE username Like '%' + @SearchTerm + '%' OR " &
                               "last_name LIKE '%' + @SearchTerm + '%' OR " &
                               "first_name LIKE '%' + @SearchTerm + '%' OR " &
                               "middle_name LIKE '%' + @SearchTerm + '%'"
@@ -219,21 +287,24 @@ Public Class formManageUser
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        If isNullOrEmpty(tbLastName.Text) Then
-            MsgBox("Last Name could not be empty!", vbCritical)
-        ElseIf isNullOrEmpty(tbFirstName.Text) Then
-            MsgBox("First Name could not be empty!", vbCritical)
-        ElseIf isNullOrEmpty(cbRoles.Text) Then
-            MsgBox("Roles could not be empty!", vbCritical)
-        ElseIf isNullOrEmpty(tbUsername.Text) Then
-            MsgBox("UserName could not be empty!", vbCritical)
-        ElseIf isNullOrEmpty(tbPassword.Text) Then
-            MsgBox("Password could not be empty!", vbCritical)
-        ElseIf isNullOrEmpty(tbUserEmail.Text) Then
-            MsgBox("Email could not be empty!", vbCritical)
-        Else
+        If isNullOrEmpty(tbUserEmail.Text) Then
+            MsgBox("Email could Not be empty!", vbCritical)
+        ElseIf isExisted(tbUserEmail.Text) Then
+            MsgBox("Email is already registered! ", vbCritical)
+        ElseIf isValidate() Then
             saveUsers()
         End If
     End Sub
+
+    Private Sub btn_edit_Click(sender As Object, e As EventArgs) Handles btn_edit.Click
+        Dim username = dgvUsers.CurrentRow.Cells(0).Value.ToString()
+        btn_edit.Text = username
+        If  isNullOrEmpty(tbUserEmail.Text) Then
+            MsgBox("Email could Not be empty!", vbCritical)
+        Else
+            updateUsers(username)
+        End If
+    End Sub
+
 
 End Class

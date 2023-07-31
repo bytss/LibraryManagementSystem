@@ -77,7 +77,6 @@ Public Class formReturnBook
             If command.ExecuteNonQuery And bookCommand.ExecuteNonQuery Then
                 MsgBox("Successfully Returned! ", vbInformation)
                 closeConnection()
-
             Else
                 MsgBox("An error occured, cannot returned book ", vbCritical)
             End If
@@ -152,5 +151,23 @@ Public Class formReturnBook
             searchBook(searchTerm)
         End If
     End Sub
+
+    Private Sub dgvIssuedHistory_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvIssuedHistory.CellContentClick
+
+        Dim id = dgvIssuedHistory.CurrentRow.Cells(0).Value
+
+        Try
+
+            openConnection()
+            Dim query = "SELECT * FROM tbl_history WHERE history_id=@PrimaryKey"
+            Dim cmd = New OleDbCommand(query, conn)
+
+
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
 
 End Class
