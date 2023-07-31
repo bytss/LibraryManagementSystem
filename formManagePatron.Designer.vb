@@ -76,7 +76,7 @@ Partial Class formManagePatron
         Column2 = New DataGridViewTextBoxColumn()
         Column3 = New DataGridViewTextBoxColumn()
         Column4 = New DataGridViewTextBoxColumn()
-        Guna2Button3 = New Guna.UI2.WinForms.Guna2Button()
+        btnSelectPhoto = New Guna.UI2.WinForms.Guna2Button()
         profilePhoto = New PictureBox()
         btn_delete = New Guna.UI2.WinForms.Guna2Button()
         btn_edit = New Guna.UI2.WinForms.Guna2Button()
@@ -483,26 +483,26 @@ Partial Class formManagePatron
         Column4.HeaderText = "Verified"
         Column4.Name = "Column4"
         ' 
-        ' Guna2Button3
+        ' btnSelectPhoto
         ' 
-        Guna2Button3.Animated = True
-        Guna2Button3.AnimatedGIF = True
-        Guna2Button3.BorderRadius = 8
-        Guna2Button3.CustomizableEdges = CustomizableEdges19
-        Guna2Button3.DisabledState.BorderColor = Color.DarkGray
-        Guna2Button3.DisabledState.CustomBorderColor = Color.DarkGray
-        Guna2Button3.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        Guna2Button3.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        Guna2Button3.FillColor = Color.Maroon
-        Guna2Button3.Font = New Font("Poppins", 9.5F, FontStyle.Regular, GraphicsUnit.Point)
-        Guna2Button3.ForeColor = Color.White
-        Guna2Button3.Location = New Point(56, 295)
-        Guna2Button3.Margin = New Padding(4, 3, 4, 3)
-        Guna2Button3.Name = "Guna2Button3"
-        Guna2Button3.ShadowDecoration.CustomizableEdges = CustomizableEdges20
-        Guna2Button3.Size = New Size(129, 36)
-        Guna2Button3.TabIndex = 73
-        Guna2Button3.Text = "Select Photo"
+        btnSelectPhoto.Animated = True
+        btnSelectPhoto.AnimatedGIF = True
+        btnSelectPhoto.BorderRadius = 8
+        btnSelectPhoto.CustomizableEdges = CustomizableEdges19
+        btnSelectPhoto.DisabledState.BorderColor = Color.DarkGray
+        btnSelectPhoto.DisabledState.CustomBorderColor = Color.DarkGray
+        btnSelectPhoto.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnSelectPhoto.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnSelectPhoto.FillColor = Color.Maroon
+        btnSelectPhoto.Font = New Font("Poppins", 9.5F, FontStyle.Regular, GraphicsUnit.Point)
+        btnSelectPhoto.ForeColor = Color.White
+        btnSelectPhoto.Location = New Point(56, 295)
+        btnSelectPhoto.Margin = New Padding(4, 3, 4, 3)
+        btnSelectPhoto.Name = "btnSelectPhoto"
+        btnSelectPhoto.ShadowDecoration.CustomizableEdges = CustomizableEdges20
+        btnSelectPhoto.Size = New Size(129, 36)
+        btnSelectPhoto.TabIndex = 73
+        btnSelectPhoto.Text = "Select Photo"
         ' 
         ' profilePhoto
         ' 
@@ -593,7 +593,7 @@ Partial Class formManagePatron
         Controls.Add(btn_delete)
         Controls.Add(btn_edit)
         Controls.Add(btnSave)
-        Controls.Add(Guna2Button3)
+        Controls.Add(btnSelectPhoto)
         Controls.Add(profilePhoto)
         Controls.Add(dgvPatronList)
         Controls.Add(tbSchoolId)
@@ -667,7 +667,7 @@ Partial Class formManagePatron
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Guna2Button3 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnSelectPhoto As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents profilePhoto As PictureBox
     Friend WithEvents btn_delete As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btn_edit As Guna.UI2.WinForms.Guna2Button

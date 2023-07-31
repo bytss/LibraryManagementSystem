@@ -1,7 +1,9 @@
 ﻿Imports System.Data.OleDb
-
+Imports System.IO
 
 Public Class formManagePatron
+
+    Private selectedImagePath As String
 
     Private Sub formManagePatron_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         initConnection()
@@ -49,10 +51,11 @@ Public Class formManagePatron
     Private Sub savePatron()
         Try
             openConnection()
-            Dim query = "INSERT INTO tbl_patrons(`last_name`, `first_name`, `middle_name`, `category`, `address`, `email`, `contact`, `is_verified`, `patron_id`)
-                            VALUES(@LastName, @FirstName, @MiddleName, @Category, @Address, @Email, @Contact, @IsVerified, @PatronId)"
+            Dim query = "INSERT INTO tbl_patrons(`last_name`, `first_name`, `middle_name`, `category`, `address`, `email`, `contact`, `is_verified`, `patron_id`, `profile_photo`)
+                            VALUES(@LastName, @FirstName, @MiddleName, @Category, @Address, @Email, @Contact, @IsVerified, @PatronId, @ProfilePhoto)"
 
             Dim cmd = New OleDbCommand(query, conn)
+
 
             With cmd
                 .Parameters.Clear()
@@ -65,6 +68,7 @@ Public Class formManagePatron
                 .Parameters.AddWithValue("@Contact", tbPatronContact.Text)
                 .Parameters.AddWithValue("@IsVerified", radioVerified.Checked)
                 .Parameters.AddWithValue("@PatronId", tbSchoolId.Text)
+                .Parameters.AddWithValue("@ProfilePhoto", If(File.Exists(selectedImagePath), File.ReadAllBytes(selectedImagePath), DBNull.Value))
             End With
 
             If cmd.ExecuteNonQuery > 0 Then
@@ -85,11 +89,21 @@ Public Class formManagePatron
     Private Sub UpdatePatron(patronId As String)
         Try
             openConnection()
-            Dim query = "UPDATE tbl_patrons SET `last_name` = @LastName, `first_name` = @FirstName, `middle_name` = @MiddleName, 
-                     `category` = @Category, `address` = @Address, `email` = @Email, `contact` = @Contact, `is_verified` = @IsVerified 
-                     WHERE `patron_id` = @PatronId"
+
+            ' Use the UPDATE statement instead of the INSERT statement
+            Dim query As String = "UPDATE tbl_patrons SET `last_name` = @LastName, `first_name` = @FirstName, `middle_name` = @MiddleName, 
+                               `category` = @Category, `address` = @Address, `email` = @Email, `contact` = @Contact, `is_verified` = @IsVerified"
+
+            ' Check if the profile photo has been selected
+            If Not String.IsNullOrEmpty(selectedImagePath) AndAlso File.Exists(selectedImagePath) Then
+                query += ", `profile_photo` = @ProfilePhoto"
+            End If
+
+            query += " WHERE `patron_id` = @PatronId"
 
             Dim cmd = New OleDbCommand(query, conn)
+
+            Dim photoBytes As Byte() = If(File.Exists(selectedImagePath), File.ReadAllBytes(selectedImagePath), Nothing)
 
             With cmd
                 .Parameters.Clear()
@@ -101,23 +115,31 @@ Public Class formManagePatron
                 .Parameters.AddWithValue("@Email", tbPatronEmail.Text)
                 .Parameters.AddWithValue("@Contact", tbPatronContact.Text)
                 .Parameters.AddWithValue("@IsVerified", radioVerified.Checked)
+
+                ' Check if the profile photo has been selected
+                If Not String.IsNullOrEmpty(selectedImagePath) AndAlso File.Exists(selectedImagePath) Then
+                    .Parameters.AddWithValue("@ProfilePhoto", photoBytes)
+                End If
+
                 .Parameters.AddWithValue("@PatronId", patronId)
+
             End With
 
             If cmd.ExecuteNonQuery > 0 Then
-                MsgBox("Successfully updated!", vbInformation)
+                MsgBox("Successfully updated patron information!", vbInformation)
             Else
-                MsgBox("Failed to update!", vbCritical)
+                MsgBox("No records were updated.", vbExclamation)
             End If
+
         Catch ex As Exception
-            MsgBox("An error occurred, " & ex.Message, vbCritical)
+            MsgBox("An error occurred, could not update patron information: " & ex.Message, vbCritical)
         Finally
             closeConnection()
             ClearFields()
             loadPatrons()
         End Try
-
     End Sub
+
 
     Private Sub DeletePatron(patronId As String)
         ' Show a confirmation dialog before proceeding with the deletion
@@ -144,8 +166,6 @@ Public Class formManagePatron
             End Try
         End If
     End Sub
-
-
 
     Private Sub tbSearch_TextChanged(sender As Object, e As EventArgs) Handles tbSearch.TextChanged
         If Not isNullOrEmpty(tbSearch.Text) Then
@@ -230,6 +250,7 @@ Public Class formManagePatron
         tbPatronContact.Text = ""
         radioVerified.Checked = False
         tbSchoolId.Text = ""
+        selectedImagePath = ""
     End Sub
 
     Private Sub dgvPatronList_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvPatronList.CellContentClick
@@ -269,12 +290,21 @@ Public Class formManagePatron
                 tbPatronEmail.Text = email
                 tbPatronAddress.Text = address
 
+                ' load photo
+                If Not reader.IsDBNull("profile_photo") Then
+                    Dim imageBytes As Byte() = DirectCast(reader("profile_photo"), Byte())
+                    Dim imageStream As New MemoryStream(imageBytes)
+                    profilePhoto.Image = Image.FromStream(imageStream)
+                Else
+                    profilePhoto.Image = formManageUser.profilePhoto.ErrorImage
+                End If
             End If
 
         Catch ex As Exception
             MsgBox("An error occured, " * ex.Message, vbCritical)
+        Finally
+            closeConnection()
         End Try
-        conn.Close()
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
@@ -317,5 +347,16 @@ Public Class formManagePatron
     Private Sub btn_delete_Click(sender As Object, e As EventArgs) Handles btn_delete.Click
         Dim patronId = dgvPatronList.CurrentRow.Cells(0).Value
         DeletePatron(patronId)
+    End Sub
+
+    Private Sub btnSelectPhoto_Click(sender As Object, e As EventArgs) Handles btnSelectPhoto.Click
+        OpenFileDialog1.Filter = "Choose Images(*.JPG,*.PNG,*.JPEG,*.GIF)|*.JPG;*.PNG;*.JPEG*.GIF|ALL FILES(*.*)|*.*"
+
+        If OpenFileDialog1.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
+            selectedImagePath = OpenFileDialog1.FileName
+            profilePhoto.Image = Image.FromFile(OpenFileDialog1.FileName)
+            OpenFileDialog1.FileName = OpenFileDialog1.FileName
+
+        End If
     End Sub
 End Class

@@ -1,7 +1,6 @@
 ﻿Imports System.Data.OleDb
 Imports System.IO
 
-
 Public Class formManageUser
 
     Private departementSuggestionList As New List(Of String)()
@@ -70,9 +69,6 @@ Public Class formManageUser
                         VALUES(@LastName, @FistName, @MiddleName, @Contact, @Email, @Username, @Password, @Role, @Address, @Profile)"
             Dim cmd = New OleDbCommand(query, conn)
 
-
-            Dim photoBytes As Byte() = If(File.Exists(selectedImagePath), File.ReadAllBytes(selectedImagePath), Nothing)
-
             With cmd
                 .Parameters.Clear()
                 .Parameters.AddWithValue("@LastName", tbLastName.Text)
@@ -135,12 +131,12 @@ Public Class formManageUser
         Finally
             closeConnection()
             loadUsers()
-            clear()
+            ClearFields()
         End Try
     End Sub
 
     Private Sub dgvUsers_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvUsers.CellContentClick
-        clear()
+   ClearFields()
 
         Dim userId = dgvUsers.CurrentRow.Cells(0).Value
 
@@ -191,10 +187,19 @@ Public Class formManageUser
         conn.Close()
     End Sub
 
-    Private Sub clear()
+    Private Sub ClearFields()
+        tbUsername.Text = ""
         tbLastName.Text = ""
         tbFirstName.Text = ""
         tbMiddleName.Text = ""
+        tbUserContact.Text = ""
+        tbUserEmail.Text = ""
+        tbPassword.Text = ""
+        cbRoles.SelectedIndex = -1
+        tbUserAddress.Text = ""
+        selectedImagePath = ""
+        ' You can also clear the profile photo, if applicable
+        ' profilePictureBox.Image = Nothing
     End Sub
 
     Private Function isExisted(userEmail As String) As Boolean

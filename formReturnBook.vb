@@ -1,6 +1,7 @@
 ﻿Imports System.Collections.ObjectModel
 Imports System.Data.OleDb
 Imports System.Diagnostics.Eventing
+Imports System.IO
 Imports System.Reflection.PortableExecutable
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
@@ -40,11 +41,13 @@ Public Class formReturnBook
 
                     dgvIssuedHistory.Rows.Add(id, bookName, description, copies, dateIssued, If(isNotReturned, "No", reader("date_returned")))
                 End If
+
                 bookReader.Close()
             End While
             reader.Close()
         Catch ex As Exception
             MsgBox("An error " & ex.Message)
+
         End Try
     End Sub
 
@@ -123,17 +126,22 @@ Public Class formReturnBook
 
             If reader.Read Then
                 Dim email = reader("email")
-
-                closeConnection()
-
+                ' load photo
+                If Not reader.IsDBNull("profile_photo") Then
+                    Dim imageBytes As Byte() = DirectCast(reader("profile_photo"), Byte())
+                    Dim imageStream As New MemoryStream(imageBytes)
+                    profilePhoto.Image = Image.FromStream(imageStream)
+                Else
+                    profilePhoto.Image = formManageUser.profilePhoto.ErrorImage
+                End If
                 loadHistory(email)
             End If
             reader.Close()
         Catch ex As Exception
             MsgBox("An error occured email ," & ex.Message, vbCritical)
+        Finally
+            closeConnection()
         End Try
-        closeConnection()
-
     End Sub
 
     Private Sub btnReturn_Click(sender As Object, e As EventArgs) Handles btnReturn.Click
