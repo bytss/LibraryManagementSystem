@@ -135,6 +135,7 @@ Public Class formManageUser
         Finally
             closeConnection()
             loadUsers()
+            clear()
         End Try
     End Sub
 

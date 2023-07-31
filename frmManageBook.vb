@@ -256,7 +256,7 @@ Public Class frmManageBook
     End Sub
 
     Private Sub dgvBooks_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
-        clear()
+        ClearFields()
 
         Dim isbn = dgvBooks.CurrentRow.Cells(1).Value
 
@@ -287,11 +287,107 @@ Public Class frmManageBook
         closeConnection()
     End Sub
 
-    Private Sub clear()
+    Private Sub updateBook(isbn As String)
+        Dim selectedDate As DateTime = publishDatePicker.Value
+        Try
+            openConnection()
+            Dim query = "UPDATE tbl_books SET `isbn` = @ISBN, `title` = @Title, `description` = @Description, `total_copies` = @TotalCopies, 
+                      `remaining_copies` = @RemainingCopies, `author` = @Author, `genre` = @Genre, `publisher` = @Publisher, 
+                      `department` = @Department, `date_of_published` = @PublishedDate WHERE `isbn` = @ISBN"
+
+            Dim cmd = New OleDbCommand(query, conn)
+
+            With cmd
+                .Parameters.Clear()
+                .Parameters.AddWithValue("@ISBN", isbn)
+                .Parameters.AddWithValue("@Title", tbBookName.Text)
+                .Parameters.AddWithValue("@Description", tbDesciption.Text)
+                .Parameters.AddWithValue("@TotalCopies", tbCopies.Text)
+                .Parameters.AddWithValue("@RemainingCopies", tbCopies.Text)
+                .Parameters.AddWithValue("@Author", tbAuthorEmail.Text)
+                .Parameters.AddWithValue("@Genre", tbGenre.Text)
+                .Parameters.AddWithValue("@Publisher", tbPubEmail.Text)
+                .Parameters.AddWithValue("@Department", tbDepartment.Text)
+                .Parameters.AddWithValue("@PublishedDate", publishDatePicker.Value)
+            End With
+
+            If cmd.ExecuteNonQuery() > 0 Then
+                MsgBox("Successfully updated!", vbInformation)
+                loadBooks()
+            Else
+                MsgBox("Failed to update!", vbCritical)
+            End If
+
+        Catch ex As Exception
+            MsgBox("An error occurred, " & ex.Message, vbCritical)
+        End Try
+        closeConnection()
+        ClearFields()
+    End Sub
+
+    Private Sub DeleteBook(isbn As String)
+
+        If isNullOrEmpty(isbn) Then
+            MsgBox("Please enter an ISBN to delete.", vbExclamation)
+            Return
+        End If
+
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete this book?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        If result = DialogResult.Yes Then
+            Try
+                openConnection()
+                Dim query As String = "DELETE FROM tbl_books WHERE `isbn` = @ISBN"
+                Dim cmd As New OleDbCommand(query, conn)
+
+                cmd.Parameters.AddWithValue("@ISBN", isbn)
+
+                If cmd.ExecuteNonQuery() > 0 Then
+                    MsgBox("Book deleted successfully!", vbInformation)
+                    ClearFields()
+                    loadBooks()
+                Else
+                    MsgBox("Failed to delete the book.", vbCritical)
+                End If
+
+            Catch ex As Exception
+                MsgBox("An error occurred, " & ex.Message, vbCritical)
+            Finally
+                closeConnection()
+            End Try
+        End If
+    End Sub
+
+    Private Function IsISBNAlreadyExists(isbn As String) As Boolean
+        Try
+            openConnection()
+            Dim query As String = "SELECT COUNT(*) FROM tbl_books WHERE `isbn` = @ISBN"
+            Dim cmd As New OleDbCommand(query, conn)
+            cmd.Parameters.AddWithValue("@ISBN", isbn)
+
+            Dim count As Integer = CInt(cmd.ExecuteScalar())
+            Return count > 0
+        Catch ex As Exception
+            MsgBox("An error occurred while checking the ISBN: " & ex.Message, vbCritical)
+            Return False
+        Finally
+            closeConnection()
+        End Try
+    End Function
+
+
+    Private Sub ClearFields()
         tbIsbn.Text = ""
         tbBookName.Text = ""
+        tbDesciption.Text = ""
         tbCopies.Text = ""
+        tbAuthorEmail.Text = ""
+        tbGenre.Text = ""
+        tbPubEmail.Text = ""
+        tbDepartment.Text = ""
+        publishDatePicker.Value = DateTime.Now 'Set the date picker to the current date or any default date you prefer
     End Sub
+
 
     Private Sub btn_addDepartment_Click(sender As Object, e As EventArgs) Handles btn_addDepartment.Click
         frmDepartment.ShowDialog()
@@ -339,6 +435,22 @@ Public Class frmManageBook
         End If
     End Sub
 
+    Private Function isValidate() As Boolean
+        If isNullOrEmpty(tbIsbn.Text) Then
+            MsgBox("ISBN cannot be empty!", vbExclamation)
+        ElseIf isNullOrEmpty(tbBookName.Text) Then
+            MsgBox("Book Name cannot be empty!", vbExclamation)
+        ElseIf isNullOrEmpty(tbCopies.Text) Then
+            MsgBox("Copies cannot be empty!", vbExclamation)
+        ElseIf isNullOrEmpty(tbAuthorName.Text) Then
+            MsgBox("Author cannot be empty!", vbExclamation)
+        Else
+            ' for validation
+            Return True
+        End If
+        Return False
+    End Function
+
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
         formPublisher.ShowDialog()
     End Sub
@@ -348,15 +460,10 @@ Public Class frmManageBook
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        If isNullOrEmpty(tbIsbn.Text) Then
-            MsgBox("ISBN cannot be empty!")
-        ElseIf isNullOrEmpty(tbBookName.Text) Then
-            MsgBox("Book Name cannot be empty!")
-        ElseIf isNullOrEmpty(tbCopies.Text) Then
-            MsgBox("Copies cannot be empty!")
-        ElseIf isNullOrEmpty(tbAuthorName.Text) Then
-            MsgBox("Author cannot be empty!")
-        Else
+
+        If IsISBNAlreadyExists(tbIsbn.Text.ToString.Trim) Then
+            MsgBox("The ISBN already exists in the database.", vbExclamation)
+        ElseIf isValidate Then
             saveBooks()
         End If
 
@@ -398,7 +505,7 @@ Public Class frmManageBook
     End Sub
 
     Private Sub dgvBooks_CellContentClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles dgvBooks.CellContentClick
-        Dim isbn = dgvBooks.CurrentRow.Cells(0).Value
+        Dim isbn = dgvBooks.CurrentRow.Cells(0).Value.ToString().Trim()
 
         Try
             If conn.State = ConnectionState.Open Then
@@ -474,7 +581,8 @@ Public Class frmManageBook
     End Sub
 
     Private Sub btn_edit_Click(sender As Object, e As EventArgs) Handles btn_edit.Click
-
+        Dim isbn = dgvBooks.CurrentRow.Cells(0).Value
+        updateBook(isbn)
     End Sub
 
     Private Sub cbDepartment_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbDepartment.SelectedIndexChanged
@@ -526,5 +634,10 @@ Public Class frmManageBook
         Else
             loadBooks()
         End If
+    End Sub
+
+    Private Sub btn_delete_Click(sender As Object, e As EventArgs) Handles btn_delete.Click
+        Dim isbn = dgvBooks.CurrentRow.Cells(0).Value.ToString().Trim()
+        DeleteBook(isbn)
     End Sub
 End Class
