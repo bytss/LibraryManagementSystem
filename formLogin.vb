@@ -9,32 +9,6 @@ Public Class formLogin
         tbLoginPassword.UseSystemPasswordChar = True
     End Sub
 
-    Private Sub btm_login_Click(sender As Object, e As EventArgs) Handles btm_login.Click
-
-        Try
-            openConnection()
-            Dim query = "SELECT * FROM tbl_users WHERE (username = @Username AND password = @Password)"
-            Dim cmd = New OleDbCommand(query, conn)
-            With cmd
-                .Parameters.AddWithValue("@Username", tbLoginUsername.Text)
-                .Parameters.AddWithValue("@Password", tbLoginPassword.Text)
-            End With
-            Dim reader As OleDbDataReader = cmd.ExecuteReader
-
-            If reader.Read Then
-                Me.Hide()
-                closeConnection()
-                loadpic()
-                MainPanel.Show()
-            Else
-                MsgBox("Invalid credentials !", vbCritical)
-            End If
-        Catch ex As Exception
-
-        End Try
-        closeConnection()
-    End Sub
-
     Sub loadpic()
 
         Try
@@ -88,6 +62,33 @@ Public Class formLogin
             Return False
         End Try
     End Function
+
+
+    Private Sub btm_login_Click_1(sender As Object, e As EventArgs) Handles btm_login.Click
+        Try
+            openConnection()
+            Dim query = "SELECT * FROM tbl_users WHERE (username = @Username AND password = @Password)"
+            Dim cmd = New OleDbCommand(query, conn)
+            With cmd
+                .Parameters.AddWithValue("@Username", tbLoginUsername.Text)
+                .Parameters.AddWithValue("@Password", tbLoginPassword.Text)
+            End With
+            Dim reader As OleDbDataReader = cmd.ExecuteReader
+
+            If reader.Read Then
+                Me.Hide()
+                closeConnection()
+                loadpic()
+                MainPanel.Show()
+            Else
+                MsgBox("Invalid credentials !", vbCritical)
+            End If
+        Catch ex As Exception
+
+        Finally
+            closeConnection()
+        End Try
+    End Sub
 
     Private Sub Check_showpass_CheckedChanged(sender As Object, e As EventArgs) Handles Check_showpass.CheckedChanged
         If Check_showpass.Checked = True Then
