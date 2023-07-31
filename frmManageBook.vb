@@ -102,7 +102,7 @@ Public Class frmManageBook
                 Dim remainingCopies = Reader("remaining_copies")
 
 
-                dgvBooks.Rows.Add(isbn, bookName, author, totalCopies, remainingCopies)
+                dgvBooks.Rows.Add(isbn, bookName, totalCopies, remainingCopies)
             End While
 
             Reader.Close()
@@ -505,7 +505,7 @@ Public Class frmManageBook
     End Sub
 
     Private Sub dgvBooks_CellContentClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles dgvBooks.CellContentClick
-        Dim isbn = dgvBooks.CurrentRow.Cells(0).Value.ToString().Trim()
+        Dim isbn = dgvBooks.CurrentRow.Cells(0).Value.ToString()
 
         Try
             If conn.State = ConnectionState.Open Then
@@ -627,7 +627,7 @@ Public Class frmManageBook
                     Dim remainingCopies = Reader("remaining_copies")
 
 
-                    dgvBooks.Rows.Add(isbn, bookName, author, totalCopies, remainingCopies)
+                    dgvBooks.Rows.Add(isbn, bookName, totalCopies, remainingCopies)
                 End While
 
                 Reader.Close()

@@ -109,14 +109,13 @@ Partial Class frmManageBook
         tbPubEmail = New Guna.UI2.WinForms.Guna2TextBox()
         tbPubAddress = New Guna.UI2.WinForms.Guna2TextBox()
         dgvBooks = New Guna.UI2.WinForms.Guna2DataGridView()
-        Column1 = New DataGridViewTextBoxColumn()
-        Column2 = New DataGridViewTextBoxColumn()
-        Column3 = New DataGridViewTextBoxColumn()
-        Column4 = New DataGridViewTextBoxColumn()
-        Column5 = New DataGridViewTextBoxColumn()
         Label6 = New Label()
         btnReload = New Guna.UI2.WinForms.Guna2Button()
         Label7 = New Label()
+        Column1 = New DataGridViewTextBoxColumn()
+        Column2 = New DataGridViewTextBoxColumn()
+        Column4 = New DataGridViewTextBoxColumn()
+        Column5 = New DataGridViewTextBoxColumn()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         CType(dgvBooks, ComponentModel.ISupportInitialize).BeginInit()
@@ -799,7 +798,7 @@ Partial Class frmManageBook
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
         dgvBooks.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         dgvBooks.ColumnHeadersHeight = 35
-        dgvBooks.Columns.AddRange(New DataGridViewColumn() {Column1, Column2, Column3, Column4, Column5})
+        dgvBooks.Columns.AddRange(New DataGridViewColumn() {Column1, Column2, Column4, Column5})
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
         DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
@@ -844,31 +843,6 @@ Partial Class frmManageBook
         dgvBooks.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvBooks.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
         ' 
-        ' Column1
-        ' 
-        Column1.HeaderText = "ISBN"
-        Column1.Name = "Column1"
-        ' 
-        ' Column2
-        ' 
-        Column2.HeaderText = "Book Name"
-        Column2.Name = "Column2"
-        ' 
-        ' Column3
-        ' 
-        Column3.HeaderText = "Author"
-        Column3.Name = "Column3"
-        ' 
-        ' Column4
-        ' 
-        Column4.HeaderText = "Total Copies"
-        Column4.Name = "Column4"
-        ' 
-        ' Column5
-        ' 
-        Column5.HeaderText = "Remaining Copies"
-        Column5.Name = "Column5"
-        ' 
         ' Label6
         ' 
         Label6.AutoSize = True
@@ -912,6 +886,26 @@ Partial Class frmManageBook
         Label7.Size = New Size(47, 17)
         Label7.TabIndex = 66
         Label7.Text = "SEARCH"
+        ' 
+        ' Column1
+        ' 
+        Column1.HeaderText = "ISBN"
+        Column1.Name = "Column1"
+        ' 
+        ' Column2
+        ' 
+        Column2.HeaderText = "Book Name"
+        Column2.Name = "Column2"
+        ' 
+        ' Column4
+        ' 
+        Column4.HeaderText = "Total Copies"
+        Column4.Name = "Column4"
+        ' 
+        ' Column5
+        ' 
+        Column5.HeaderText = "Remaining Copies"
+        Column5.Name = "Column5"
         ' 
         ' frmManageBook
         ' 
@@ -1000,12 +994,11 @@ Partial Class frmManageBook
     Friend WithEvents tbPubEmail As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents tbPubAddress As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents dgvBooks As Guna.UI2.WinForms.Guna2DataGridView
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Label6 As Label
     Friend WithEvents btnReload As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Label7 As Label
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
 End Class

@@ -1,4 +1,5 @@
 ﻿Imports System.Collections.ObjectModel
+Imports System.Data.Common
 Imports System.Data.OleDb
 Imports System.Diagnostics.Eventing
 Imports System.IO
@@ -160,21 +161,53 @@ Public Class formReturnBook
         End If
     End Sub
 
+    Private Sub GetHistoryData(id As String)
+
+        Try
+            openConnection()
+
+            Dim query As String = "SELECT h.history_id, h.issued_by, b.isbn, b.title, b.description, u.last_name, u.first_name, u.middle_name, u.username, h.copies " &
+                          "FROM (tbl_history AS h " &
+                          "INNER JOIN tbl_books AS b ON h.book_isbn = b.isbn) " &
+                          "INNER JOIN tbl_users AS u ON h.issued_by = u.username " &
+                          "WHERE h.history_id = @ID"
+
+            Dim cmd = New OleDbCommand(query, conn)
+            cmd.Parameters.AddWithValue("@ID", id)
+
+            Dim reader As OleDbDataReader = cmd.ExecuteReader
+
+            If reader.Read Then
+                Dim title As String = reader("title").ToString()
+                Dim description As String = reader("description").ToString()
+
+                Dim lastName As String = reader("last_name").ToString()
+                Dim firstName As String = reader("first_name").ToString()
+                Dim middleName As String = reader("middle_name").ToString()
+                Dim fullName = lastName & ", " & firstName & " " & middleName
+
+                Dim copies As Integer = reader("copies")
+
+                tbReturnIssuedBy.Text = fullName
+                tbReturnBookName.Text = title
+                tbReturnBookDescription.Text = description
+                tbReturnBookCopies.Text = copies
+            Else
+                MsgBox("No records found.", MsgBoxStyle.Information)
+            End If
+
+        Catch ex As Exception
+            MsgBox("An error occurred while retrieving data: " & ex.Message, MsgBoxStyle.Critical)
+        Finally
+            closeConnection()
+        End Try
+    End Sub
+
+
     Private Sub dgvIssuedHistory_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvIssuedHistory.CellContentClick
 
         Dim id = dgvIssuedHistory.CurrentRow.Cells(0).Value
-
-        Try
-
-            openConnection()
-            Dim query = "SELECT * FROM tbl_history WHERE history_id=@PrimaryKey"
-            Dim cmd = New OleDbCommand(query, conn)
-
-
-
-        Catch ex As Exception
-
-        End Try
+        GetHistoryData(id.ToString)
     End Sub
 
 

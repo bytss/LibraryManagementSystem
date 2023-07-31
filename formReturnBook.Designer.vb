@@ -267,7 +267,7 @@ Partial Class formReturnBook
         btnClear.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btnClear.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btnClear.FillColor = Color.Firebrick
-        btnClear.Font = New Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        btnClear.Font = New Font("Poppins", 9F, FontStyle.Bold, GraphicsUnit.Point)
         btnClear.ForeColor = Color.White
         btnClear.Location = New Point(47, 435)
         btnClear.Name = "btnClear"
@@ -285,7 +285,7 @@ Partial Class formReturnBook
         btnSearch.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btnSearch.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btnSearch.FillColor = Color.Maroon
-        btnSearch.Font = New Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        btnSearch.Font = New Font("Poppins", 9F, FontStyle.Bold, GraphicsUnit.Point)
         btnSearch.ForeColor = Color.White
         btnSearch.Location = New Point(47, 375)
         btnSearch.Name = "btnSearch"
@@ -368,9 +368,9 @@ Partial Class formReturnBook
         btnReturn.DisabledState.CustomBorderColor = Color.DarkGray
         btnReturn.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btnReturn.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btnReturn.FillColor = Color.Salmon
-        btnReturn.Font = New Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        btnReturn.ForeColor = Color.White
+        btnReturn.FillColor = Color.Gold
+        btnReturn.Font = New Font("Poppins", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        btnReturn.ForeColor = Color.Black
         btnReturn.Location = New Point(47, 497)
         btnReturn.Name = "btnReturn"
         btnReturn.ShadowDecoration.CustomizableEdges = CustomizableEdges12
