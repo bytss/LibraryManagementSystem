@@ -110,12 +110,15 @@ Public Class formIssueBook
                 Dim middleName = reader("middle_name")
                 Dim email = reader("email")
                 Dim contact = reader("contact")
+                Dim isVerified = reader("is_verified")
+
+                If Not isVerified Then
+                    MsgBox("An error occured, the selected patron is not yet verified nor has library card", vbExclamation)
+                End If
 
                 tbPatronName.Text = lastName & ", " & firstName & " " & middleName
                 tbEmail.Text = email
                 tbPatronContact.Text = contact
-                closeConnection()
-                loadHistory()
             Else
                 MsgBox("Sorry, the patron information could not be found", vbCritical)
                 clear()
@@ -123,11 +126,11 @@ Public Class formIssueBook
 
         Catch ex As Exception
             MsgBox("An error occured, " & ex.Message, vbCritical)
+        Finally
+            closeConnection()
+            loadHistory()
         End Try
-        closeConnection()
     End Sub
-
-
 
     Private Sub loadHistory()
         dgvIssueHistory.Rows.Clear()
@@ -257,7 +260,7 @@ Public Class formIssueBook
                         End If
                         queryReader.Close()
                     Else
-                        MsgBox("An error occured, the selected patron is not yet verified nor has library card")
+                        MsgBox("An error occured, the selected patron is not yet verified nor has library card", vbExclamation)
                     End If
                     readerVerified.Close()
                 End If
