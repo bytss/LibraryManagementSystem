@@ -401,4 +401,8 @@ Public Class formManageUser
         Dim username = dgvUsers.CurrentRow.Cells(0).Value
         deleteUser(username.ToString)
     End Sub
+
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        ClearFields()
+    End Sub
 End Class

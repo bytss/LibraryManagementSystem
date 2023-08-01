@@ -53,6 +53,8 @@ Partial Class formManagePatron
         Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges25 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges26 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges27 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges28 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Panel1 = New Panel()
         Label1 = New Label()
         Label4 = New Label()
@@ -82,6 +84,7 @@ Partial Class formManagePatron
         btn_edit = New Guna.UI2.WinForms.Guna2Button()
         btnSave = New Guna.UI2.WinForms.Guna2Button()
         OpenFileDialog1 = New OpenFileDialog()
+        btnClear = New Guna.UI2.WinForms.Guna2Button()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         CType(dgvPatronList, ComponentModel.ISupportInitialize).BeginInit()
@@ -528,7 +531,7 @@ Partial Class formManagePatron
         btn_delete.FillColor = Color.DarkRed
         btn_delete.Font = New Font("Poppins", 9.5F, FontStyle.Bold, GraphicsUnit.Point)
         btn_delete.ForeColor = Color.White
-        btn_delete.Location = New Point(383, 597)
+        btn_delete.Location = New Point(269, 595)
         btn_delete.Margin = New Padding(4, 3, 4, 3)
         btn_delete.Name = "btn_delete"
         btn_delete.ShadowDecoration.CustomizableEdges = CustomizableEdges22
@@ -549,7 +552,7 @@ Partial Class formManagePatron
         btn_edit.FillColor = Color.Coral
         btn_edit.Font = New Font("Poppins", 9.5F, FontStyle.Bold, GraphicsUnit.Point)
         btn_edit.ForeColor = Color.White
-        btn_edit.Location = New Point(269, 597)
+        btn_edit.Location = New Point(150, 595)
         btn_edit.Margin = New Padding(4, 3, 4, 3)
         btn_edit.Name = "btn_edit"
         btn_edit.ShadowDecoration.CustomizableEdges = CustomizableEdges24
@@ -572,7 +575,7 @@ Partial Class formManagePatron
         btnSave.FillColor = Color.Firebrick
         btnSave.Font = New Font("Poppins", 9.5F, FontStyle.Bold, GraphicsUnit.Point)
         btnSave.ForeColor = Color.White
-        btnSave.Location = New Point(157, 597)
+        btnSave.Location = New Point(32, 595)
         btnSave.Margin = New Padding(4, 3, 4, 3)
         btnSave.Name = "btnSave"
         btnSave.ShadowDecoration.CustomizableEdges = CustomizableEdges26
@@ -584,12 +587,34 @@ Partial Class formManagePatron
         ' 
         OpenFileDialog1.FileName = "OpenFileDialog1"
         ' 
+        ' btnClear
+        ' 
+        btnClear.Animated = True
+        btnClear.AnimatedGIF = True
+        btnClear.BorderRadius = 5
+        btnClear.CustomizableEdges = CustomizableEdges27
+        btnClear.DisabledState.BorderColor = Color.DarkGray
+        btnClear.DisabledState.CustomBorderColor = Color.DarkGray
+        btnClear.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnClear.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnClear.FillColor = Color.Goldenrod
+        btnClear.Font = New Font("Poppins", 9.5F, FontStyle.Bold, GraphicsUnit.Point)
+        btnClear.ForeColor = Color.White
+        btnClear.Location = New Point(383, 595)
+        btnClear.Margin = New Padding(4, 3, 4, 3)
+        btnClear.Name = "btnClear"
+        btnClear.ShadowDecoration.CustomizableEdges = CustomizableEdges28
+        btnClear.Size = New Size(106, 37)
+        btnClear.TabIndex = 80
+        btnClear.Text = "Clear"
+        ' 
         ' formManagePatron
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.MistyRose
         ClientSize = New Size(1074, 698)
+        Controls.Add(btnClear)
         Controls.Add(btn_delete)
         Controls.Add(btn_edit)
         Controls.Add(btnSave)
@@ -673,4 +698,5 @@ Partial Class formManagePatron
     Friend WithEvents btn_edit As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnSave As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents btnClear As Guna.UI2.WinForms.Guna2Button
 End Class

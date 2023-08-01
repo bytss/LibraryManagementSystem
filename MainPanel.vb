@@ -9,8 +9,8 @@ Public Class MainPanel
             .BringToFront()
             .Show()
         End With
-        btn_manageuser.Visible = formLogin.isAdmin
-        formLogin.loadpic()
+        ' btn_manageuser.Visible = formLogin.isAdmin
+        ' formLogin.loadpic()
     End Sub
 
     Private Sub btn_Dashboard_Click(sender As Object, e As EventArgs) Handles btn_Dashboard.Click
