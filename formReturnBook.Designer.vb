@@ -50,6 +50,11 @@ Partial Class formReturnBook
         Label2 = New Label()
         tbSearch = New Guna.UI2.WinForms.Guna2TextBox()
         dgvIssuedHistory = New Guna.UI2.WinForms.Guna2DataGridView()
+        Column6 = New DataGridViewTextBoxColumn()
+        Column2 = New DataGridViewTextBoxColumn()
+        Column3 = New DataGridViewTextBoxColumn()
+        Column4 = New DataGridViewTextBoxColumn()
+        Column5 = New DataGridViewTextBoxColumn()
         profilePhoto = New PictureBox()
         tbSearchId = New Guna.UI2.WinForms.Guna2TextBox()
         btnClear = New Guna.UI2.WinForms.Guna2Button()
@@ -63,11 +68,6 @@ Partial Class formReturnBook
         tbReturnIssuedBy = New Guna.UI2.WinForms.Guna2TextBox()
         tbReturnBookDescription = New Guna.UI2.WinForms.Guna2TextBox()
         tbReturnBookName = New Guna.UI2.WinForms.Guna2TextBox()
-        Column6 = New DataGridViewTextBoxColumn()
-        Column2 = New DataGridViewTextBoxColumn()
-        Column3 = New DataGridViewTextBoxColumn()
-        Column4 = New DataGridViewTextBoxColumn()
-        Column5 = New DataGridViewTextBoxColumn()
         Panel1.SuspendLayout()
         CType(dgvIssuedHistory, ComponentModel.ISupportInitialize).BeginInit()
         CType(profilePhoto, ComponentModel.ISupportInitialize).BeginInit()
@@ -191,6 +191,31 @@ Partial Class formReturnBook
         dgvIssuedHistory.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvIssuedHistory.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
         ' 
+        ' Column6
+        ' 
+        Column6.HeaderText = "#"
+        Column6.Name = "Column6"
+        ' 
+        ' Column2
+        ' 
+        Column2.HeaderText = "Name"
+        Column2.Name = "Column2"
+        ' 
+        ' Column3
+        ' 
+        Column3.HeaderText = "Copies"
+        Column3.Name = "Column3"
+        ' 
+        ' Column4
+        ' 
+        Column4.HeaderText = "Date Issued"
+        Column4.Name = "Column4"
+        ' 
+        ' Column5
+        ' 
+        Column5.HeaderText = "Returned"
+        Column5.Name = "Column5"
+        ' 
         ' profilePhoto
         ' 
         profilePhoto.BorderStyle = BorderStyle.FixedSingle
@@ -238,7 +263,7 @@ Partial Class formReturnBook
         btnClear.FillColor = Color.Firebrick
         btnClear.Font = New Font("Poppins", 9F, FontStyle.Bold, GraphicsUnit.Point)
         btnClear.ForeColor = Color.White
-        btnClear.Location = New Point(47, 435)
+        btnClear.Location = New Point(47, 436)
         btnClear.Name = "btnClear"
         btnClear.ShadowDecoration.CustomizableEdges = CustomizableEdges6
         btnClear.Size = New Size(173, 45)
@@ -424,31 +449,6 @@ Partial Class formReturnBook
         tbReturnBookName.Size = New Size(242, 42)
         tbReturnBookName.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material
         tbReturnBookName.TabIndex = 88
-        ' 
-        ' Column6
-        ' 
-        Column6.HeaderText = "#"
-        Column6.Name = "Column6"
-        ' 
-        ' Column2
-        ' 
-        Column2.HeaderText = "Name"
-        Column2.Name = "Column2"
-        ' 
-        ' Column3
-        ' 
-        Column3.HeaderText = "Copies"
-        Column3.Name = "Column3"
-        ' 
-        ' Column4
-        ' 
-        Column4.HeaderText = "Date Issued"
-        Column4.Name = "Column4"
-        ' 
-        ' Column5
-        ' 
-        Column5.HeaderText = "Returned"
-        Column5.Name = "Column5"
         ' 
         ' formReturnBook
         ' 

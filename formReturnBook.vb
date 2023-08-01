@@ -40,14 +40,14 @@ Public Class formReturnBook
                     Dim bookName = bookReader("title")
                     Dim description = bookReader("description")
 
-                    dgvIssuedHistory.Rows.Add(id, bookName, description, copies, dateIssued, If(isNotReturned, "No", reader("date_returned")))
+                    dgvIssuedHistory.Rows.Add(id, bookName, copies, dateIssued, If(isNotReturned, "No", reader("date_returned")))
                 End If
 
                 bookReader.Close()
             End While
             reader.Close()
         Catch ex As Exception
-            MsgBox("An error " & ex.Message)
+            MsgBox("An error loading history " & ex.Message)
         Finally
             closeConnection()
         End Try
@@ -118,17 +118,18 @@ Public Class formReturnBook
 
             If command.ExecuteNonQuery And bookCommand.ExecuteNonQuery Then
                 MsgBox("Successfully Returned! ", vbInformation)
-                closeConnection()
             Else
                 MsgBox("An error occured, cannot returned book ", vbCritical)
             End If
 
         Catch ex As Exception
             MsgBox("An error occured, " & ex.Message, vbCritical)
-        End Try
-        closeConnection()
-    End Sub
+        Finally
+            closeConnection()
 
+        End Try
+
+    End Sub
 
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
@@ -162,9 +163,12 @@ Public Class formReturnBook
     End Sub
 
     Private Sub btnReturn_Click(sender As Object, e As EventArgs) Handles btnReturn.Click
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to return this book?", "Confirm Return", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
         If dgvIssuedHistory.SelectedRows.Count = 0 Then
             MsgBox("An error occured, no row selected!", vbCritical)
-        Else
+        ElseIf result = DialogResult.Yes Then
+
             returnBook()
         End If
 
