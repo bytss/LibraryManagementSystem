@@ -17,6 +17,7 @@
   <ItemGroup>
     <PackageReference Include="Guna.UI2.WinForms" Version="2.0.4.4" />
     <PackageReference Include="System.Data.OleDb" Version="7.0.0" />
+    <PackageReference Include="System.Security.Cryptography.Cng" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -61,7 +62,6 @@
   <ItemGroup>
     <Folder Include="backup\" />
     <Folder Include="My Project\NewFolder\" />
-    <Folder Include="utils\" />
   </ItemGroup>
 
 </Project>

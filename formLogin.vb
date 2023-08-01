@@ -63,31 +63,48 @@ Public Class formLogin
         End Try
     End Function
 
-
-    Private Sub btm_login_Click_1(sender As Object, e As EventArgs) Handles btm_login.Click
+    Private Sub verifyLogin()
         Try
             openConnection()
-            Dim query = "SELECT * FROM tbl_users WHERE (username = @Username AND password = @Password)"
+
+            Dim query = "SELECT * FROM tbl_users WHERE username = @Username"
             Dim cmd = New OleDbCommand(query, conn)
+
             With cmd
                 .Parameters.AddWithValue("@Username", tbLoginUsername.Text)
-                .Parameters.AddWithValue("@Password", tbLoginPassword.Text)
             End With
+
             Dim reader As OleDbDataReader = cmd.ExecuteReader
 
             If reader.Read Then
-                Me.Hide()
-                closeConnection()
-                loadpic()
-                MainPanel.Show()
+                Dim storedHashedPassword As String = reader("password").ToString()
+                Dim storedSalt As String = reader("salt").ToString()
+                Dim enteredPassword As String = tbLoginPassword.Text.ToString
+
+                ' Verify the entered password by hashing it with the stored salt and comparing the result with the stored hashed password
+                Dim isPasswordValid As Boolean = PasswordHashing.VerifyPassword(enteredPassword, storedHashedPassword, storedSalt)
+
+                If isPasswordValid Then
+                    Me.Hide()
+                    closeConnection()
+                    loadpic()
+                    MainPanel.Show()
+                Else
+                    MsgBox("Invalid credentials!", vbCritical)
+                End If
             Else
-                MsgBox("Invalid credentials !", vbCritical)
+                MsgBox("Invalid credentials!", vbCritical)
             End If
         Catch ex As Exception
-
+            ' Handle any exceptions here
         Finally
             closeConnection()
         End Try
+
+    End Sub
+
+    Private Sub btm_login_Click_1(sender As Object, e As EventArgs) Handles btm_login.Click
+        verifyLogin()
     End Sub
 
     Private Sub Check_showpass_CheckedChanged(sender As Object, e As EventArgs) Handles Check_showpass.CheckedChanged

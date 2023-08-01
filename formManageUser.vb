@@ -65,9 +65,19 @@ Public Class formManageUser
     Private Sub saveUsers()
         Try
             openConnection()
-            Dim query = "INSERT INTO tbl_users(`last_name`, `first_name`, `middle_name`, `contact`, `email`, `username`, `password`, `role`, `address`, `photo`) 
-                        VALUES(@LastName, @FistName, @MiddleName, @Contact, @Email, @Username, @Password, @Role, @Address, @Profile)"
+            Dim query = "INSERT INTO tbl_users(`last_name`, `first_name`, `middle_name`, `contact`, `email`, `username`, `password`, `salt`, `role`, `address`, `photo`) 
+                        VALUES(@LastName, @FistName, @MiddleName, @Contact, @Email, @Username, @Salt, @Password, @Role, @Address, @Profile)"
+
             Dim cmd = New OleDbCommand(query, conn)
+
+            ' Generate a random salt for the user
+            Dim salt As String = PasswordHashing.GenerateSalt()
+
+            ' Get the user's password (entered during registration or password update)
+            Dim password As String = tbPassword.Text.ToString
+
+            ' Hash the password along with the salt
+            Dim hashedPassword As String = PasswordHashing.HashPassword(password, salt)
 
             With cmd
                 .Parameters.Clear()
@@ -77,7 +87,8 @@ Public Class formManageUser
                 .Parameters.AddWithValue("@Contact", tbUserContact.Text)
                 .Parameters.AddWithValue("@Email", tbUserEmail.Text)
                 .Parameters.AddWithValue("@Username", tbUsername.Text)
-                .Parameters.AddWithValue("@Password", tbLastName.Text)
+                .Parameters.AddWithValue("@Password", hashedPassword)
+                .Parameters.AddWithValue("@Salt", salt)
                 .Parameters.AddWithValue("@Role", cbRoles.Text)
                 .Parameters.AddWithValue("@Address", tbUserAddress.Text)
                 .Parameters.AddWithValue("@Profile", If(File.Exists(selectedImagePath), File.ReadAllBytes(selectedImagePath), DBNull.Value))
@@ -110,6 +121,7 @@ Public Class formManageUser
                     "`email` = @Email, " &
                     "`username` = @Username, " &
                     "`password` = @Password, " &
+                    "`salt` = @Salt, " &
                     "`role` = @Role, " &
                     "`address` = @Address "
 
@@ -124,6 +136,16 @@ Public Class formManageUser
 
             Dim photoBytes As Byte() = If(File.Exists(selectedImagePath), File.ReadAllBytes(selectedImagePath), Nothing)
 
+            ' Generate a random salt for the user
+            Dim salt As String = PasswordHashing.GenerateSalt()
+
+            ' Get the user's password (entered during registration or password update)
+            Dim password As String = tbPassword.Text.ToString
+
+            ' Hash the password along with the salt
+            Dim hashedPassword As String = PasswordHashing.HashPassword(password, salt)
+
+
             With cmd
                 .Parameters.Clear()
                 .Parameters.AddWithValue("@LastName", tbLastName.Text)
@@ -132,7 +154,8 @@ Public Class formManageUser
                 .Parameters.AddWithValue("@Contact", tbUserContact.Text)
                 .Parameters.AddWithValue("@Email", tbUserEmail.Text)
                 .Parameters.AddWithValue("@Username", tbUsername.Text)
-                .Parameters.AddWithValue("@Password", tbLastName.Text) ' Note: This is not a secure way to handle passwords. Consider using proper password hashing and storage methods.
+                .Parameters.AddWithValue("@Password", hashedPassword) ' Note: This is not a secure way to handle passwords. Consider using proper password hashing and storage methods.
+                .Parameters.AddWithValue("@Salt", salt)
                 .Parameters.AddWithValue("@Role", cbRoles.Text)
                 .Parameters.AddWithValue("@Address", tbUserAddress.Text)
                 ' Check if the profile photo has been selected
