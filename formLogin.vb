@@ -23,13 +23,18 @@ Public Class formLogin
                 Dim firstName = reader("first_name")
                 Dim middleName = reader("middle_name")
 
-                Dim imageBytes As Byte() = DirectCast(reader("photo"), Byte())
-                Dim imageStream As New MemoryStream(imageBytes)
                 With MainPanel
-                    .mainProfilePhoto.Image = Image.FromStream(imageStream)
                     .lbLoginName.Text = lastName & ", " & firstName & " " & middleName
                     .lblRole.Text = reader("role")
                 End With
+                ' load photo
+                If Not reader.IsDBNull("photo") Then
+                    Dim imageBytes As Byte() = DirectCast(reader("photo"), Byte())
+                    Dim imageStream As New MemoryStream(imageBytes)
+                    MainPanel.mainProfilePhoto.Image = Image.FromStream(imageStream)
+                Else
+                    MainPanel.mainProfilePhoto.Image = formManageUser.profilePhoto.ErrorImage
+                End If
                 reader.Close()
             Else
                 MainPanel.mainProfilePhoto.Image = Nothing
